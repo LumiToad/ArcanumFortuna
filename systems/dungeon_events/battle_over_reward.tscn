@@ -1,0 +1,9 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn0otoe0nvpis"]
+
+[ext_resource type="PackedScene" uid="uid://bxdbhojef5ghn" path="res://systems/dungeon_events/queue_events.tscn" id="1_d157m"]
+[ext_resource type="PackedScene" uid="uid://cegqtmafpc7yc" path="res://systems/effects/victory_animation.tscn" id="2_kfb7e"]
+[ext_resource type="PackedScene" uid="uid://ul6vq1b44cxh" path="res://systems/dungeon_events/reward_gold_event.tscn" id="2_ls8m7"]
+[ext_resource type="PackedScene" uid="uid://bggcv7yipjcm7" path="res://systems/dungeon_events/loot_event.tscn" id="3_341iq"]
+
+[node name="BattleOverReward" instance=ExtResource("1_d157m")]
+events = Array[PackedScene]([ExtResource("2_kfb7e"), ExtResource("3_341iq"), ExtResource("2_ls8m7")])

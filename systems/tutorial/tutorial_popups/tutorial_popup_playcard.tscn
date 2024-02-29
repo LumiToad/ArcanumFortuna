@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpuwulj6r3pek"]
+
+[ext_resource type="PackedScene" uid="uid://b45r81lj73pdb" path="res://systems/tutorial/tutorial_popups/tutorial_popup.tscn" id="1_q8x6f"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_popups/tutorial_popup_playcard.gd" id="2_hw1ji"]
+
+[node name="TutorialPopupPlaycard" instance=ExtResource("1_q8x6f")]
+script = ExtResource("2_hw1ji")

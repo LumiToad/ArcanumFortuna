@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c2as6vbqpnrve"]
+
+[ext_resource type="FontFile" uid="uid://ds6fkaks0twky" path="res://assets/ui/fonts/RomanAntique.ttf" id="1_dvxjm"]
+[ext_resource type="Texture2D" uid="uid://c2afwlwhg0cbh" path="res://assets/ui/underlays/tutorial_next_button_hover.png" id="2_8fpiv"]
+[ext_resource type="Texture2D" uid="uid://4vvxp0rt66a0" path="res://assets/ui/underlays/tutorial_next_button.png" id="3_83yqt"]
+[ext_resource type="Texture2D" uid="uid://brwth1cudv55l" path="res://assets/ui/underlays/tutorial_next_button_pressed.png" id="4_dc65w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4feve"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mi2jn"]
+texture = ExtResource("2_8fpiv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpfds"]
+texture = ExtResource("3_83yqt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3o8e2"]
+texture = ExtResource("4_dc65w")
+
+[sub_resource type="FontVariation" id="FontVariation_bvfhx"]
+base_font = ExtResource("1_dvxjm")
+variation_embolden = 0.8
+spacing_glyph = 1
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 26
+Button/fonts/font = ExtResource("1_dvxjm")
+Button/styles/focus = SubResource("StyleBoxEmpty_4feve")
+Button/styles/hover = SubResource("StyleBoxTexture_mi2jn")
+Button/styles/normal = SubResource("StyleBoxTexture_dpfds")
+Button/styles/pressed = SubResource("StyleBoxTexture_3o8e2")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/constants/line_spacing = 8
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("1_dvxjm")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/constants/line_separation = 8
+RichTextLabel/font_sizes/bold_font_size = 26
+RichTextLabel/font_sizes/normal_font_size = 26
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_bvfhx")
+RichTextLabel/fonts/normal_font = ExtResource("1_dvxjm")

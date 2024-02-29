@@ -1,0 +1,444 @@
+[gd_scene load_steps=9 format=3 uid="uid://coyiok3kl5ln7"]
+
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/node_map.gd" id="1_ahtnc"]
+[ext_resource type="PackedScene" uid="uid://b2vx0edf3t6u3" path="res://systems/dungeon_exploration/player/player.tscn" id="2_q3fxw"]
+[ext_resource type="Resource" uid="uid://22opo18s7wkj" path="res://data/player/basic_player.tres" id="3_k3uh1"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="4_27jwb"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/seed_text.gd" id="5_nef5j"]
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="6_bs82n"]
+[ext_resource type="PackedScene" uid="uid://y05vxgjpeday" path="res://systems/dungeon_exploration/maps/random_event_node.tscn" id="7_ypt0p"]
+[ext_resource type="PackedScene" uid="uid://rd4s1jnxga1w" path="res://systems/dungeon_exploration/nodes/final_node.tscn" id="8_qhebt"]
+
+[node name="NodeMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahtnc")
+
+[node name="Player" parent="." node_paths=PackedStringArray("startNode") instance=ExtResource("2_q3fxw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+startNode = NodePath("../StartNode")
+startData = ExtResource("3_k3uh1")
+
+[node name="StartNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("6_bs82n")]
+layout_mode = 1
+offset_left = -807.0
+offset_top = -128.0
+offset_right = -807.0
+offset_bottom = -128.0
+connectsTo = [NodePath("../RandomEventNode")]
+offset = 45.0
+
+[node name="RandomEventNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = -452.0
+offset_top = -2.0
+offset_right = -452.0
+offset_bottom = -2.0
+connectsTo = [NodePath("../RandomEventNode2"), NodePath("../RandomEventNode3")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode2" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = -119.0
+offset_top = 103.0
+offset_right = -119.0
+offset_bottom = 103.0
+connectsTo = [NodePath("../RandomEventNode5")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode3" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = -185.0
+offset_top = -296.0
+offset_right = -185.0
+offset_bottom = -296.0
+connectsTo = [NodePath("../RandomEventNode4")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode4" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 206.0
+offset_top = -423.0
+offset_right = 206.0
+offset_bottom = -423.0
+connectsTo = [NodePath("../RandomEventNode6"), NodePath("../RandomEventNode7")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode5" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 194.0
+offset_top = 75.0
+offset_right = 194.0
+offset_bottom = 75.0
+connectsTo = [NodePath("../RandomEventNode6")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode6" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 526.0
+offset_top = -65.0
+offset_right = 526.0
+offset_bottom = -65.0
+connectsTo = [NodePath("../RandomEventNode9"), NodePath("../RandomEventNode10")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode7" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 516.0
+offset_top = -397.0
+offset_right = 516.0
+offset_bottom = -397.0
+connectsTo = [NodePath("../RandomEventNode9"), NodePath("../RandomEventNode8")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode8" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 838.0
+offset_top = -421.0
+offset_right = 838.0
+offset_bottom = -421.0
+connectsTo = [NodePath("../RandomEventNode11")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode9" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 789.0
+offset_top = -174.0
+offset_right = 789.0
+offset_bottom = -174.0
+connectsTo = [NodePath("../RandomEventNode11")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode10" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 882.0
+offset_top = 157.0
+offset_right = 882.0
+offset_bottom = 157.0
+connectsTo = [NodePath("../RandomEventNode11")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode11" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 1134.0
+offset_top = -95.0
+offset_right = 1134.0
+offset_bottom = -95.0
+connectsTo = [NodePath("../RandomEventNode12"), NodePath("../RandomEventNode13")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode12" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 1477.0
+offset_top = -266.0
+offset_right = 1477.0
+offset_bottom = -266.0
+connectsTo = [NodePath("../RandomEventNode14"), NodePath("../RandomEventNode16")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode13" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 1414.0
+offset_top = 58.0
+offset_right = 1414.0
+offset_bottom = 58.0
+connectsTo = [NodePath("../RandomEventNode15"), NodePath("../RandomEventNode16")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode14" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 1784.0
+offset_top = -383.0
+offset_right = 1784.0
+offset_bottom = -383.0
+connectsTo = [NodePath("../RandomEventNode17")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode15" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 1729.0
+offset_top = 192.0
+offset_right = 1729.0
+offset_bottom = 192.0
+connectsTo = [NodePath("../RandomEventNode19")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode16" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 1693.0
+offset_top = -103.0
+offset_right = 1693.0
+offset_bottom = -103.0
+connectsTo = [NodePath("../RandomEventNode18"), NodePath("../RandomEventNode19")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode17" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2067.0
+offset_top = -437.0
+offset_right = 2067.0
+offset_bottom = -437.0
+connectsTo = [NodePath("../RandomEventNode20")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode18" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2120.0
+offset_top = -107.0
+offset_right = 2120.0
+offset_bottom = -107.0
+connectsTo = [NodePath("../RandomEventNode20"), NodePath("../RandomEventNode21")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode19" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2066.0
+offset_top = 171.0
+offset_right = 2066.0
+offset_bottom = 171.0
+connectsTo = [NodePath("../RandomEventNode21")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode20" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2405.0
+offset_top = -292.0
+offset_right = 2405.0
+offset_bottom = -292.0
+connectsTo = [NodePath("../RandomEventNode22")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode21" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2426.0
+offset_top = 119.0
+offset_right = 2426.0
+offset_bottom = 119.0
+connectsTo = [NodePath("../RandomEventNode23")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode22" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2764.0
+offset_top = -403.0
+offset_right = 2764.0
+offset_bottom = -403.0
+connectsTo = [NodePath("../RandomEventNode24")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode23" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 2739.0
+offset_top = -49.0
+offset_right = 2739.0
+offset_bottom = -49.0
+connectsTo = [NodePath("../RandomEventNode24")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode24" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 3033.0
+offset_top = -206.0
+offset_right = 3033.0
+offset_bottom = -206.0
+connectsTo = [NodePath("../RandomEventNode25"), NodePath("../RandomEventNode26"), NodePath("../RandomEventNode27")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode25" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 3298.0
+offset_top = 180.0
+offset_right = 3298.0
+offset_bottom = 180.0
+connectsTo = [NodePath("../RandomEventNode29")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode26" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 3421.0
+offset_top = -90.0
+offset_right = 3421.0
+offset_bottom = -90.0
+connectsTo = [NodePath("../RandomEventNode29")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode27" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 3320.0
+offset_top = -415.0
+offset_right = 3320.0
+offset_bottom = -415.0
+connectsTo = [NodePath("../RandomEventNode28")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode28" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 3675.0
+offset_top = -362.0
+offset_right = 3675.0
+offset_bottom = -362.0
+connectsTo = [NodePath("../RandomEventNode30")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode29" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 3713.0
+offset_top = 71.0
+offset_right = 3713.0
+offset_bottom = 71.0
+connectsTo = [NodePath("../RandomEventNode31")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode30" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4028.0
+offset_top = -398.0
+offset_right = 4028.0
+offset_bottom = -398.0
+connectsTo = [NodePath("../RandomEventNode32"), NodePath("../RandomEventNode33")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode31" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4038.0
+offset_top = 103.0
+offset_right = 4038.0
+offset_bottom = 103.0
+connectsTo = [NodePath("../RandomEventNode32")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode32" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4257.0
+offset_top = -71.0
+offset_right = 4257.0
+offset_bottom = -71.0
+connectsTo = [NodePath("../RandomEventNode35"), NodePath("../RandomEventNode36")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode33" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4353.0
+offset_top = -398.0
+offset_right = 4353.0
+offset_bottom = -398.0
+connectsTo = [NodePath("../RandomEventNode34")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode34" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4686.0
+offset_top = -423.0
+offset_right = 4686.0
+offset_bottom = -423.0
+connectsTo = [NodePath("../RandomEventNode37")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode35" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4575.0
+offset_top = -158.0
+offset_right = 4575.0
+offset_bottom = -158.0
+connectsTo = [NodePath("../RandomEventNode37")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode36" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4618.0
+offset_top = 150.0
+offset_right = 4618.0
+offset_bottom = 150.0
+connectsTo = [NodePath("../RandomEventNode37")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode37" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_ypt0p")]
+layout_mode = 1
+offset_left = 4961.0
+offset_top = -115.0
+offset_right = 4961.0
+offset_bottom = -115.0
+connectsTo = [NodePath("../FinalNode")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="FinalNode" parent="." instance=ExtResource("8_qhebt")]
+layout_mode = 1
+offset_left = 5309.0
+offset_top = -184.0
+offset_right = 5309.0
+offset_bottom = -184.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme = ExtResource("4_27jwb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "Seed: 1337"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("5_nef5j")
+
+[connection signal="mouse_entered" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_exited"]

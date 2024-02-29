@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgbod0er521or"]
+
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/node_map.gd" id="1_ig6cw"]
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="1_jwvtv"]
+[ext_resource type="PackedScene" uid="uid://b2vx0edf3t6u3" path="res://systems/dungeon_exploration/player/player.tscn" id="2_we5fp"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="3_he6bg"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/seed_text.gd" id="3_k4v05"]
+[ext_resource type="Resource" uid="uid://22opo18s7wkj" path="res://data/player/basic_player.tres" id="3_w6koa"]
+
+[node name="node-map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig6cw")
+
+[node name="StartNode" parent="." instance=ExtResource("1_jwvtv")]
+layout_mode = 1
+offset_left = -256.0
+offset_top = 413.0
+offset_right = -256.0
+offset_bottom = 413.0
+
+[node name="Player" parent="." node_paths=PackedStringArray("startNode") instance=ExtResource("2_we5fp")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -398.0
+offset_top = -11.0
+offset_right = -334.0
+offset_bottom = 53.0
+grow_horizontal = 1
+grow_vertical = 1
+startNode = NodePath("../StartNode")
+startData = ExtResource("3_w6koa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme = ExtResource("3_he6bg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "Seed: 1337"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("3_k4v05")
+
+[connection signal="mouse_entered" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_exited"]

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dcfv0vvexhq5y"]
+
+[ext_resource type="Shader" path="res://shaders/chromatic_aberration.gdshader" id="1_p0mr1"]
+
+[resource]
+shader = ExtResource("1_p0mr1")
+shader_parameter/r_displacement = Vector2(0, 0)
+shader_parameter/g_displacement = Vector2(0, -3)
+shader_parameter/b_displacement = Vector2(-5, 6)

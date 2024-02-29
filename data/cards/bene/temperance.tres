@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://bqk3a1gcija76"]
+
+[ext_resource type="Texture2D" uid="uid://1rl1qodf353s" path="res://assets/sprites/cards/temperance.png" id="1_x5mgk"]
+[ext_resource type="Resource" uid="uid://drtnl4dtcqfpq" path="res://data/keyword/consume.tres" id="2_gkepc"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_t0sn8"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_yrd7s"]
+[ext_resource type="Resource" uid="uid://b7si7oceraga6" path="res://data/keyword/flip.tres" id="3_1724b"]
+[ext_resource type="AudioStream" uid="uid://jgcr5h0ft4dp" path="res://assets/sounds/cards/voices/temperance.ogg" id="5_q26of"]
+
+[resource]
+script = ExtResource("2_t0sn8")
+name = "Temperance"
+description = "\"Everything comes in time.\""
+artwork = ExtResource("1_x5mgk")
+cost = -3
+attack = 2
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_gkepc"), ExtResource("3_1724b")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("5_q26of")
+keyword_slot_texture = ExtResource("2_yrd7s")

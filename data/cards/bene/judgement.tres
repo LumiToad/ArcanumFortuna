@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://dujn7e6vobd5a"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_3cnmo"]
+[ext_resource type="Texture2D" uid="uid://kjvyclxm18qu" path="res://assets/sprites/cards/judgement.png" id="1_e5oar"]
+[ext_resource type="Resource" uid="uid://drtnl4dtcqfpq" path="res://data/keyword/consume.tres" id="3_kdec5"]
+[ext_resource type="AudioStream" uid="uid://dx6cm4lojlfve" path="res://assets/sounds/cards/voices/judgement.ogg" id="4_26wb4"]
+
+[resource]
+script = ExtResource("1_3cnmo")
+name = "Judgement"
+description = "\"Judge lest ye be judged.\""
+artwork = ExtResource("1_e5oar")
+cost = -1
+attack = 2
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_kdec5")])
+spawn_frequency = 40
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("4_26wb4")

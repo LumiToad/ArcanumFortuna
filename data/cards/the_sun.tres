@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://ccymn0mj5bdvy"]
+
+[ext_resource type="Texture2D" uid="uid://cwd3iw37x3k8w" path="res://assets/sprites/cards/sun.png" id="1_wr52r"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_ln45w"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_y1k8m"]
+[ext_resource type="Resource" uid="uid://dpao5fk3c0w2g" path="res://data/keyword/heal_controller2.tres" id="3_udlby"]
+[ext_resource type="Resource" uid="uid://6blx8xq0f3jg" path="res://data/keyword/switch_card_karma_positve3.tres" id="4_0med0"]
+[ext_resource type="AudioStream" uid="uid://l02wguh4sisr" path="res://Audio/Signatures/SignatureSun.ogg" id="6_lsrgh"]
+
+[resource]
+script = ExtResource("2_y1k8m")
+name = "The Sun"
+description = "\"May the light heal and enlighten you.\""
+artwork = ExtResource("1_wr52r")
+cost = -4
+attack = 2
+health = 4
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_udlby"), ExtResource("4_0med0")])
+spawn_frequency = 33
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_lsrgh")
+keyword_slot_texture = ExtResource("2_ln45w")

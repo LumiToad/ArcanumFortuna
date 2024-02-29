@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://deonq2pnkifc2"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_3tngf"]
+[ext_resource type="Texture2D" uid="uid://cgyw6frftprrb" path="res://assets/sprites/cards/devil.png" id="1_a7en0"]
+[ext_resource type="Resource" uid="uid://dvt6vrtfufa0t" path="res://data/keyword/TripleAttack.tres" id="2_1mrt2"]
+[ext_resource type="Resource" uid="uid://drtnl4dtcqfpq" path="res://data/keyword/consume.tres" id="3_3hll7"]
+[ext_resource type="AudioStream" uid="uid://d3bcjbcrqbcls" path="res://assets/sounds/cards/voices/the_devil.ogg" id="5_kcctt"]
+
+[resource]
+script = ExtResource("1_3tngf")
+name = "The Devil"
+description = "\"Revel in the power of darkness.\""
+artwork = ExtResource("1_a7en0")
+cost = -6
+attack = 3
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_1mrt2"), ExtResource("3_3hll7")])
+spawn_frequency = 66
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("5_kcctt")

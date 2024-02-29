@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://y05vxgjpeday"]
+
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="1_v40sn"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/random_event_node.gd" id="2_o3d57"]
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="7_0t1fq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg47n"]
+atlas = ExtResource("7_0t1fq")
+region = Rect2(66, 198, 66, 66)
+
+[node name="RandomEventNode" instance=ExtResource("1_v40sn")]
+script = ExtResource("2_o3d57")
+potential_events = Array[Resource("res://utils/random_scene.gd")]([])
+lookahead = 2
+disabledColor = Color(0.745098, 0.745098, 0.745098, 1)
+dashed_width = 3.0
+offset = 2.0
+
+[node name="icon" parent="background" index="0"]
+visible = false
+texture = SubResource("AtlasTexture_kg47n")

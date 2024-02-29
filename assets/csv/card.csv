@@ -1,0 +1,38 @@
+ResourceName,Name,Cost,Attack,Health,Keywords
+the_magician,The Magician,-3,2,2,companionship_ATK1;alive2_switch
+the_high_priestess,The High Priestess,-3,2,2,companionship_HP1;alive2.1_switch
+the_empress,The Empress,-2,1,4,DrainATK1;attack_damage_switch7
+the_emperor,The Emperor,-2,5,6,slow;kill2_switch
+the_hierophant,The Hierophant,-1,1,2,deathrattle_sacrifice;flip;keyword_switch2
+the_lovers,The Lovers,-4,2,3,SplitAttack;switch_cards_played3
+the_chariot,The Chariot,-5,2,3,TripleAttack;keyword_switch2.1
+death,Death,-5,3,3,ConsumeATK1HP1;switch_player_hp20
+page_of_daggers,Page of Daggers,5,0,1,deathrattle_ATK1
+page_of_thorns,Page of Thorns,4,0,2,deathrattle_damage2
+page_of_herbs,Page of Herbs,4,0,2,deathrattle_HP1
+page_of_flags,Page of Flags,3,0,3,companionship_shield
+the_hermit,The Hermit,-2,2,3,atk_nerf_in_front1;switch_take_damage2
+the_moon,The Moon,-4,5,4,damage_controller2;flip;switch_card_karma_negative2
+the_sun,The Sun,-4,2,4,heal_controller2;switch_card_karma_positive2
+strength,Strength,-3,1,5,self_buff1;attack_damage_switch7.1
+the_star,The Star,-3,2,4,atk_nerf1;switch_card_copy2
+the_hanged_man,The Hanged Man,-4,4,6,slow;shield;switch_karma_count10
+the_tower,The Tower,-5,2,6,shield;switch_card_copy2.1
+king_of_daggers,King of Daggers,3,0,3,deathrattle_ATK1
+king_of_thorns,King of Thorns,5,0,1,deathrattle_damage2
+king_of_herbs,King of Herbs,4,0,2,deathrattle_HP1
+king_of_flags,King of Flags,4,0,2,companionship_shield
+the_devil,The Devil,-5,2,4,lifesteal_keyword;switch_attack_stronger_card
+temperance,Temperance,-4,0,5,companionship_HP1;switch_card_karma_positive2.1
+wheel_fortune,Wheel of Fortune,-4,0,3,attackprevent;shield;switch_cards_played3.1
+justice,Justice,-3,0,4,atk_nerf1;atk_nerf_in_front1;switch_take_damage_amount6
+judgement,Judgement,-3,3,1,position_summon;switch_player_hp20.1
+the_world,The World,-5,2,3,multi_attack;switch_card_karma_negative2.1
+queen_of_daggers,Queen of Daggers,4,0,2,buff_next_card_attack
+queen_of_thorns,Queen of Thorns,3,0,3,counter_damage
+queen_of_herbs,Queen of Herbs,5,0,1,play_heal
+queen_of_flags,Queen of Flags,4,0,2,buff_next_card_hp
+knight_of_daggers,Knight of Daggers,4,0,2,buff_next_card_attack
+knight_of_thorns,Knight of Thorns,4,0,2,counter_damage
+knight_of_herbs,Knight of Herbs,3,0,3,play_heal
+knight_of_flags,Knight of Flags,5,0,1,buff_next_card_hp

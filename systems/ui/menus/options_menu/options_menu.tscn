@@ -1,0 +1,641 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8xs6q5trxx58"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/options_menu.gd" id="1_j4gvh"]
+[ext_resource type="Theme" uid="uid://by7y30d2dbxb2" path="res://assets/ui/themes/menu_title_theme.tres" id="1_yx2ik"]
+[ext_resource type="Texture2D" uid="uid://d233avcta64f" path="res://assets/ui/underlays/options_underlay.png" id="3_iqdc3"]
+[ext_resource type="Theme" uid="uid://l2whpxkwhcdn" path="res://assets/ui/themes/menu_ui_theme.tres" id="3_x54wv"]
+[ext_resource type="Texture2D" uid="uid://bvnruxmnnshsm" path="res://assets/ui/underlays/deck_tab.png" id="4_lagsh"]
+[ext_resource type="Texture2D" uid="uid://dxdqk7nuke6pl" path="res://assets/ui/underlays/checkbox_normal.png" id="5_xw2eo"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="6_4sw4x"]
+[ext_resource type="Texture2D" uid="uid://elmcuxrwc3gy" path="res://assets/ui/underlays/checkbox_pressed.png" id="6_o2d4v"]
+[ext_resource type="Texture2D" uid="uid://ktdctvbdmxa4" path="res://assets/ui/underlays/checkbox_hover.png" id="7_ei6wn"]
+[ext_resource type="Script" path="res://systems/ui/menus/utils/bus_slider.gd" id="7_rihke"]
+[ext_resource type="Script" path="res://systems/ui/menus/utils/resolution_selection.gd" id="8_8p61a"]
+[ext_resource type="Script" path="res://systems/ui/menus/utils/fullscreen_selection.gd" id="9_v38kh"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_j4gvh")
+
+[node name="OptionsMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuTitle" type="RichTextLabel" parent="OptionsMenu"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 994.0
+offset_bottom = 192.0
+theme = ExtResource("1_yx2ik")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[b]OPTIONS"
+
+[node name="MenuSubtitle" type="RichTextLabel" parent="OptionsMenu"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 628.0
+offset_bottom = 240.0
+theme = ExtResource("1_yx2ik")
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "or the illusion of them"
+
+[node name="OptionsMenuButtons" type="VBoxContainer" parent="OptionsMenu"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 560.0
+theme_override_constants/separation = 0
+
+[node name="AudioButton" type="Button" parent="OptionsMenu/OptionsMenuButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "AUDIO"
+alignment = 0
+
+[node name="HoverSound" parent="OptionsMenu/OptionsMenuButtons/AudioButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="OptionsMenu/OptionsMenuButtons/AudioButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="VideoButton" type="Button" parent="OptionsMenu/OptionsMenuButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "VIDEO"
+alignment = 0
+
+[node name="HoverSound" parent="OptionsMenu/OptionsMenuButtons/VideoButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="OptionsMenu/OptionsMenuButtons/VideoButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="AccessibilityButton" type="Button" parent="OptionsMenu/OptionsMenuButtons"]
+visible = false
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "ACCESSIBILITY"
+alignment = 0
+
+[node name="HoverSound" parent="OptionsMenu/OptionsMenuButtons/AccessibilityButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="OptionsMenu/OptionsMenuButtons/AccessibilityButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="Options" type="Control" parent="OptionsMenu"]
+anchors_preset = 0
+offset_left = 704.0
+offset_top = 192.0
+offset_right = 1728.0
+offset_bottom = 888.0
+
+[node name="OptionsUnderlay" type="TextureRect" parent="OptionsMenu/Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iqdc3")
+
+[node name="AudioOptions" type="Control" parent="OptionsMenu/Options"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="OptionsTitleUnderlay" type="TextureRect" parent="OptionsMenu/Options/AudioOptions"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -135.0
+offset_right = 197.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_lagsh")
+
+[node name="OptionsTitle" type="Label" parent="OptionsMenu/Options/AudioOptions/OptionsTitleUnderlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_x54wv")
+theme_override_font_sizes/font_size = 35
+text = "AUDIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="OptionsMenu/Options/AudioOptions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.0
+offset_top = 40.0
+offset_right = 301.0
+offset_bottom = 362.0
+grow_horizontal = 2
+theme_override_constants/separation = 23
+
+[node name="MasterVolume" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AudioOptions/Options/MasterVolume"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "MASTER VOLUME"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options/MasterVolume"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+
+[node name="hoverSound" parent="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer"]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_x54wv")
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_rihke")
+
+[node name="MusicVolume" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AudioOptions/Options/MusicVolume"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "MUSIC VOLUME"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options/MusicVolume"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+
+[node name="hoverSound" parent="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer"]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_x54wv")
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_rihke")
+target_bus = "Music"
+
+[node name="AmbienceVolume" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "AMBIENCE VOLUME"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+
+[node name="hoverSound" parent="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer"]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_x54wv")
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_rihke")
+target_bus = "Ambience"
+
+[node name="SFXVolume" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AudioOptions/Options/SFXVolume"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "SFX VOLUME"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options/SFXVolume"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+
+[node name="hoverSound" parent="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer"]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_x54wv")
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_rihke")
+target_bus = "SFX"
+
+[node name="UIVolume" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AudioOptions/Options/UIVolume"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "UI VOLUME"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options/UIVolume"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+
+[node name="hoverSound" parent="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/CheckBox" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer"]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_x54wv")
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_rihke")
+target_bus = "UI"
+
+[node name="SoundTrack" type="HBoxContainer" parent="OptionsMenu/Options/AudioOptions/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AudioOptions/Options/SoundTrack"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "SOUNDTRACK"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/Options/AudioOptions/Options/SoundTrack"]
+custom_minimum_size = Vector2(296, 0)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+item_count = 2
+popup/item_0/text = "Winter"
+popup/item_0/id = 0
+popup/item_1/text = "Spring"
+popup/item_1/id = 1
+
+[node name="VideoOptions" type="Control" parent="OptionsMenu/Options"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="OptionsTitleUnderlay" type="TextureRect" parent="OptionsMenu/Options/VideoOptions"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -135.0
+offset_right = 197.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_lagsh")
+
+[node name="OptionsTitle" type="Label" parent="OptionsMenu/Options/VideoOptions/OptionsTitleUnderlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_x54wv")
+theme_override_font_sizes/font_size = 35
+text = "VIDEO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="OptionsMenu/Options/VideoOptions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.0
+offset_top = 40.0
+offset_right = 301.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_constants/separation = 23
+
+[node name="Resolution" type="HBoxContainer" parent="OptionsMenu/Options/VideoOptions/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/VideoOptions/Options/Resolution"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "RESOLUTION"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/Options/VideoOptions/Options/Resolution"]
+custom_minimum_size = Vector2(296, 0)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+script = ExtResource("8_8p61a")
+resolutions = Array[Vector2i]([Vector2i(1024, 768), Vector2i(1280, 720), Vector2i(1366, 768), Vector2i(1920, 1080)])
+
+[node name="hoverSound" parent="OptionsMenu/Options/VideoOptions/Options/Resolution/OptionButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/VideoOptions/Options/Resolution/OptionButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="WindowMode" type="HBoxContainer" parent="OptionsMenu/Options/VideoOptions/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/VideoOptions/Options/WindowMode"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "WINDOW MODE"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/Options/VideoOptions/Options/WindowMode"]
+custom_minimum_size = Vector2(296, 0)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+script = ExtResource("9_v38kh")
+
+[node name="hoverSound" parent="OptionsMenu/Options/VideoOptions/Options/WindowMode/OptionButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/Options/VideoOptions/Options/WindowMode/OptionButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="AccessibilityOptions" type="Control" parent="OptionsMenu/Options"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="OptionsTitleUnderlay" type="TextureRect" parent="OptionsMenu/Options/AccessibilityOptions"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.5
+offset_top = -135.0
+offset_right = 196.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_lagsh")
+
+[node name="OptionsTitle" type="Label" parent="OptionsMenu/Options/AccessibilityOptions/OptionsTitleUnderlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_x54wv")
+theme_override_font_sizes/font_size = 35
+text = "ACCESSIBILITY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="OptionsMenu/Options/AccessibilityOptions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -311.0
+offset_top = 40.0
+offset_right = 311.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_constants/separation = 23
+
+[node name="DyslexiaFont" type="HBoxContainer" parent="OptionsMenu/Options/AccessibilityOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AccessibilityOptions/Options/DyslexiaFont"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "DYSLEXIA FONT"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AccessibilityOptions/Options/DyslexiaFont"]
+custom_minimum_size = Vector2(296, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Options/AccessibilityOptions/Options/DyslexiaFont/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+
+[node name="ResetTutorials" type="HBoxContainer" parent="OptionsMenu/Options/AccessibilityOptions/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/Options/AccessibilityOptions/Options/ResetTutorials"]
+custom_minimum_size = Vector2(296, 46)
+layout_mode = 2
+theme = ExtResource("3_x54wv")
+text = "RESET TUTORIALS"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/Options/AccessibilityOptions/Options/ResetTutorials"]
+custom_minimum_size = Vector2(296, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="OptionsMenu/Options/AccessibilityOptions/Options/ResetTutorials/HBoxContainer"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+texture_normal = ExtResource("5_xw2eo")
+texture_pressed = ExtResource("6_o2d4v")
+texture_hover = ExtResource("7_ei6wn")
+
+[node name="ReturnButton" type="Button" parent="OptionsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -144.0
+offset_right = 384.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme = ExtResource("3_x54wv")
+text = "RETURN"
+alignment = 0
+
+[node name="HoverSound" parent="OptionsMenu/ReturnButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="OptionsMenu/ReturnButton" instance=ExtResource("6_4sw4x")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[connection signal="button_up" from="OptionsMenu/OptionsMenuButtons/AudioButton" to="." method="_on_audio_button_button_up"]
+[connection signal="button_up" from="OptionsMenu/OptionsMenuButtons/VideoButton" to="." method="_on_video_button_button_up"]
+[connection signal="toggled" from="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/CheckBox" to="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/HSlider" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/MasterVolume/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/CheckBox" to="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/HSlider" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/MusicVolume/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/CheckBox" to="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/HSlider" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/AmbienceVolume/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/CheckBox" to="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/HSlider" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/SFXVolume/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/CheckBox" to="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/HSlider" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/HSlider" to="OptionsMenu/Options/AudioOptions/Options/UIVolume/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="item_selected" from="OptionsMenu/Options/VideoOptions/Options/Resolution/OptionButton" to="OptionsMenu/Options/VideoOptions/Options/Resolution/OptionButton" method="_on_item_selected"]
+[connection signal="item_selected" from="OptionsMenu/Options/VideoOptions/Options/WindowMode/OptionButton" to="OptionsMenu/Options/VideoOptions/Options/WindowMode/OptionButton" method="_on_item_selected"]
+[connection signal="button_up" from="OptionsMenu/ReturnButton" to="." method="_on_return_button_button_up"]

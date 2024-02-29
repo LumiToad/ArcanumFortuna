@@ -1,0 +1,168 @@
+[gd_scene load_steps=13 format=3 uid="uid://dq1c3cgx11dk8"]
+
+[ext_resource type="Script" path="res://systems/ui/ui_base/ui_popup.gd" id="1_uc4qs"]
+[ext_resource type="Texture2D" uid="uid://wur6pg5xwpvh" path="res://assets/ui/underlays/nine_patch_rect.png" id="2_byvas"]
+[ext_resource type="Texture2D" uid="uid://bjm1q37flpaxq" path="res://assets/ui/buttons/default_button_normal.png" id="3_3xiu2"]
+[ext_resource type="Texture2D" uid="uid://ra1cxkpi3adh" path="res://assets/ui/underlays/pop_up.png" id="3_whnro"]
+[ext_resource type="Theme" uid="uid://c2as6vbqpnrve" path="res://assets/ui/themes/tutorial_and_tooltips_theme.tres" id="4_bnnff"]
+[ext_resource type="Texture2D" uid="uid://ih2700jnklo8" path="res://assets/ui/buttons/default_button_pressed.png" id="4_gv58y"]
+[ext_resource type="Texture2D" uid="uid://bavfmynt0nuxn" path="res://assets/ui/buttons/default_button_hover.png" id="5_2hte8"]
+[ext_resource type="Texture2D" uid="uid://df2r4ns72cbex" path="res://assets/ui/buttons/default_button_disabled.png" id="6_y41qu"]
+[ext_resource type="Texture2D" uid="uid://c48u8hn8flumi" path="res://assets/ui/buttons/r_default_button_normal.png" id="7_20s2a"]
+[ext_resource type="Texture2D" uid="uid://bomjy6ur8pe7e" path="res://assets/ui/buttons/r_default_button_pressed.png" id="8_fhwej"]
+[ext_resource type="Texture2D" uid="uid://c7lhocjhym6xs" path="res://assets/ui/buttons/r_default_button_hover.png" id="9_qcawb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfhd7"]
+
+[node name="UIPopup" type="CanvasLayer"]
+script = ExtResource("1_uc4qs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="CardTooltip" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CardTooltip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -214.0
+offset_right = 200.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CardTooltip/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(768, 440)
+layout_mode = 2
+texture = ExtResource("2_byvas")
+draw_center = false
+region_rect = Rect2(0, 0, 500, 500)
+patch_margin_left = 51
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 48
+
+[node name="Background" type="TextureRect" parent="CardTooltip/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_whnro")
+
+[node name="MarginContainer" type="MarginContainer" parent="CardTooltip/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardTooltip/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("4_bnnff")
+bbcode_enabled = true
+text = "[center]Title[/center]"
+fit_content = true
+
+[node name="Content" type="RichTextLabel" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_bnnff")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[center]Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+fit_content = true
+
+[node name="HSeparatorButton" type="HSeparator" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nfhd7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ConfirmButton" type="TextureButton" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+texture_normal = ExtResource("3_3xiu2")
+texture_pressed = ExtResource("4_gv58y")
+texture_hover = ExtResource("5_2hte8")
+texture_disabled = ExtResource("6_y41qu")
+
+[node name="Confirm" type="Label" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton"]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_bnnff")
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeclineButton" type="TextureButton" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+texture_normal = ExtResource("7_20s2a")
+texture_pressed = ExtResource("8_fhwej")
+texture_hover = ExtResource("9_qcawb")
+texture_disabled = ExtResource("6_y41qu")
+
+[node name="Decline" type="Label" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/DeclineButton"]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_bnnff")
+text = "Decline"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_up"]
+[connection signal="button_up" from="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/DeclineButton" to="." method="_on_decline_button_up"]

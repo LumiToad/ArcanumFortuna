@@ -1,0 +1,221 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjaecj5rdauy3"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/shop/shop_trade_section.gd" id="1_li3lg"]
+[ext_resource type="PackedScene" uid="uid://ba7hqrlkxau6b" path="res://systems/ui/menus/shop/shop_card.tscn" id="2_5sgb4"]
+[ext_resource type="Texture2D" uid="uid://dmdpoee7un5qv" path="res://assets/ui/underlays/shop_tray.png" id="3_dd2nf"]
+[ext_resource type="Resource" uid="uid://du4544pn8giog" path="res://utils/all_cards_resource.tres" id="3_fyg27"]
+[ext_resource type="Texture2D" uid="uid://dwer7hq8eur8w" path="res://assets/ui/buttons/regular_button_normal.png" id="5_e27xk"]
+[ext_resource type="Texture2D" uid="uid://7o3muws1gqo6" path="res://assets/ui/buttons/regular_button_pressed.png" id="6_x6y62"]
+[ext_resource type="Texture2D" uid="uid://bsevcaoypxrrw" path="res://assets/ui/buttons/regular_button_hover.png" id="7_rt4em"]
+[ext_resource type="Texture2D" uid="uid://bfgcr5ueque8m" path="res://assets/ui/buttons/regular_button_disabled.png" id="8_cotqf"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="9_xxihm"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="10_kh4yl"]
+
+[node name="ShopTradeSection" type="Control" node_paths=PackedStringArray("cost_label", "shop_card_1", "shop_card_2", "shop_card_3", "hand_card_1", "hand_card_2", "hand_card_3")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_li3lg")
+all_cards_resource = ExtResource("3_fyg27")
+cost_label = NodePath("TradeButton/Label")
+shop_card_1 = NodePath("AvailableOffer/HBoxContainer/ShopCard1")
+shop_card_2 = NodePath("AvailableOffer/HBoxContainer/ShopCard2")
+shop_card_3 = NodePath("AvailableOffer/HBoxContainer/ShopCard3")
+hand_card_1 = NodePath("HandCards/HBoxContainer/HandCard1")
+hand_card_2 = NodePath("HandCards/HBoxContainer/HandCard2")
+hand_card_3 = NodePath("HandCards/HBoxContainer/HandCard3")
+
+[node name="SectionExplanation" type="Control" parent="."]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -928.0
+offset_right = 240.0
+offset_bottom = -808.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="SectionExplanation"]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 0
+offset_left = -7.5
+offset_top = -21.0
+offset_right = 486.5
+offset_bottom = 150.0
+texture = ExtResource("3_dd2nf")
+
+[node name="SectionTitle" type="Label" parent="SectionExplanation"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = -87.0
+offset_right = 394.0
+offset_bottom = 7.0
+theme = ExtResource("9_xxihm")
+theme_override_font_sizes/font_size = 55
+text = "Trade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SectionExplanation"]
+custom_minimum_size = Vector2(475, 115)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -53.0
+offset_right = 235.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_xxihm")
+theme_override_font_sizes/font_size = 35
+text = "Trade 3 Gold and one of your cards for a new one"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AvailableOffer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.65, 1.65)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AvailableOffer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -452.727
+offset_right = 324.0
+offset_bottom = -186.727
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 72
+alignment = 1
+
+[node name="ShopCard1" parent="AvailableOffer/HBoxContainer" instance=ExtResource("2_5sgb4")]
+layout_mode = 2
+delete_material = null
+
+[node name="ShopCard2" parent="AvailableOffer/HBoxContainer" instance=ExtResource("2_5sgb4")]
+layout_mode = 2
+delete_material = null
+
+[node name="ShopCard3" parent="AvailableOffer/HBoxContainer" instance=ExtResource("2_5sgb4")]
+layout_mode = 2
+delete_material = null
+
+[node name="TradeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_top = -260.0
+offset_right = 219.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_e27xk")
+texture_pressed = ExtResource("6_x6y62")
+texture_hover = ExtResource("7_rt4em")
+texture_disabled = ExtResource("8_cotqf")
+
+[node name="Label" type="Label" parent="TradeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -45.0
+offset_right = 200.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_xxihm")
+theme_override_font_sizes/font_size = 26
+text = "Trade for [amount] Gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="TradeButton" instance=ExtResource("10_kh4yl")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="TradeButton" instance=ExtResource("10_kh4yl")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="HandCards" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -120.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HandCards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.0
+offset_right = 259.0
+offset_bottom = 266.0
+grow_horizontal = 2
+mouse_filter = 0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HandCard1" parent="HandCards/HBoxContainer" instance=ExtResource("2_5sgb4")]
+layout_mode = 2
+delete_material = null
+
+[node name="HandCard2" parent="HandCards/HBoxContainer" instance=ExtResource("2_5sgb4")]
+layout_mode = 2
+delete_material = null
+
+[node name="HandCard3" parent="HandCards/HBoxContainer" instance=ExtResource("2_5sgb4")]
+layout_mode = 2
+delete_material = null
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="clicked" from="AvailableOffer/HBoxContainer/ShopCard1" to="." method="_on_shop_card_clicked"]
+[connection signal="clicked" from="AvailableOffer/HBoxContainer/ShopCard2" to="." method="_on_shop_card_clicked"]
+[connection signal="clicked" from="AvailableOffer/HBoxContainer/ShopCard3" to="." method="_on_shop_card_clicked"]
+[connection signal="button_up" from="TradeButton" to="." method="_on_trade_button_button_up"]
+[connection signal="clicked" from="HandCards/HBoxContainer/HandCard1" to="." method="_on_hand_card_clicked"]
+[connection signal="clicked" from="HandCards/HBoxContainer/HandCard2" to="." method="_on_hand_card_clicked"]
+[connection signal="clicked" from="HandCards/HBoxContainer/HandCard3" to="." method="_on_hand_card_clicked"]

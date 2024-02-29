@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Slow" load_steps=3 format=3 uid="uid://l23udqkfbm1c"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/slow.gd" id="1_v7xas"]
+[ext_resource type="Texture2D" uid="uid://b5uhse7ml61re" path="res://assets/sprites/keywords/kw_patience.png" id="1_yvotc"]
+
+[resource]
+script = ExtResource("1_v7xas")
+turns_to_skip = 1
+attack_on_first_turn = true
+title = "Patience"
+description = "This card skips %d turn after each attack."
+icon = ExtResource("1_yvotc")
+highlight_duration = 0.5

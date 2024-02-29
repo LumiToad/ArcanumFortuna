@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DamageController" load_steps=5 format=3 uid="uid://b7b1qjvocpnpq"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/combat_phase_trigger.gd" id="1_0nfrp"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/damage_controller.gd" id="1_e6sru"]
+[ext_resource type="Texture2D" uid="uid://ds3he0cgf3krq" path="res://assets/sprites/keywords/kw_reckless.png" id="2_igfim"]
+
+[sub_resource type="Resource" id="Resource_nm2bf"]
+script = ExtResource("1_0nfrp")
+source_phase = 9
+timing = 0
+
+[resource]
+script = ExtResource("1_e6sru")
+damage_amount = 2
+combat_phase_triggers = Array[ExtResource("1_0nfrp")]([SubResource("Resource_nm2bf")])
+triggers = 0
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Reckless"
+description = "This card deals %d damage to its owner at the end of every turn."
+icon = ExtResource("2_igfim")
+highlight_duration = 0.5

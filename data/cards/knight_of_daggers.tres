@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://s2luhru0dtce"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_otgqu"]
+[ext_resource type="Texture2D" uid="uid://cg5wcb1w8sf8h" path="res://assets/sprites/cards/knight_of_daggers.png" id="1_s1bsp"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_vpdba"]
+[ext_resource type="Resource" uid="uid://drvm1tnfo6hm6" path="res://data/keyword/buff_next_card_attack.tres" id="3_wl32n"]
+
+[resource]
+script = ExtResource("1_otgqu")
+name = "Knight of Daggers"
+description = "Ravenous in their bloodthirst, these warriors know little fear. "
+artwork = ExtResource("1_s1bsp")
+cost = 4
+attack = 1
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_wl32n")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_vpdba")

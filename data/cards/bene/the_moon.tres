@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://bitn4lw4darn4"]
+
+[ext_resource type="Texture2D" uid="uid://dp4o7wrdsgven" path="res://assets/sprites/cards/moon.png" id="1_u3r3r"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_w1k5e"]
+[ext_resource type="AudioStream" uid="uid://bqnry8pp55vsj" path="res://assets/sounds/cards/voices/the_moon.ogg" id="3_gl4dh"]
+
+[resource]
+script = ExtResource("2_w1k5e")
+name = "The Moon"
+description = "\"May you find all you have lost.\""
+artwork = ExtResource("1_u3r3r")
+cost = -2
+attack = 3
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 30
+sound_effect = ExtResource("3_gl4dh")

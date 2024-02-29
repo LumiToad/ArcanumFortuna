@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://14ikdx8s3gs7"]
+
+[ext_resource type="PackedScene" uid="uid://b45r81lj73pdb" path="res://systems/tutorial/tutorial_popups/tutorial_popup.tscn" id="1_uabn3"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_popups/tutorial_popup_endturn.gd" id="2_u5iah"]
+
+[node name="TutorialPopupEndturn" instance=ExtResource("1_uabn3")]
+script = ExtResource("2_u5iah")

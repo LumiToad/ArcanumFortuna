@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5mnw025kyefa"]
+
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="1_neq4c"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/nodes/combat_node.gd" id="2_itd2s"]
+[ext_resource type="Texture2D" uid="uid://dy7tcnyepo7yq" path="res://assets/sprites/nodemap/combat.png" id="3_b4kjy"]
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_tooltip.gd" id="6_fu8cw"]
+[ext_resource type="PackedScene" uid="uid://bml43x2miuf00" path="res://systems/dungeon_events/battle_event.tscn" id="11_ent3l"]
+
+[node name="CombatNode" instance=ExtResource("1_neq4c")]
+script = ExtResource("2_itd2s")
+lookahead = 2
+event = ExtResource("11_ent3l")
+level_gain = 0.34
+disabledColor = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="icon" parent="background" index="0"]
+visible = true
+texture = ExtResource("3_b4kjy")
+
+[node name="ShowTooltip" type="Control" parent="." index="1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("6_fu8cw")
+hover_min_duration = 1.0

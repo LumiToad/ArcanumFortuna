@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Flip" load_steps=5 format=3 uid="uid://b7si7oceraga6"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/flip.gd" id="1_ekhnk"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/combat_phase_trigger.gd" id="1_nhvvg"]
+[ext_resource type="Texture2D" uid="uid://dm4s1cktcrjsn" path="res://assets/sprites/keywords/kw_flexibility.png" id="3_ndylx"]
+
+[sub_resource type="Resource" id="Resource_74j2r"]
+script = ExtResource("1_nhvvg")
+source_phase = 9
+timing = 0
+
+[resource]
+script = ExtResource("1_ekhnk")
+rotation_duration = 0.8
+icon_rotation = 1.0
+combat_phase_triggers = Array[ExtResource("1_nhvvg")]([SubResource("Resource_74j2r")])
+triggers = 0
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Flexibility"
+description = "This card swaps its current attack and health at the end of every turn."
+icon = ExtResource("3_ndylx")
+highlight_duration = 1.0

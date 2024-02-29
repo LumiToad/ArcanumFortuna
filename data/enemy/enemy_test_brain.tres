@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=14 format=3 uid="uid://wyb2qp5gbdd7"]
+
+[ext_resource type="Resource" uid="uid://dwx1jg5fmwy31" path="res://data/cards/ace_of_thorns.tres" id="1_gbk5i"]
+[ext_resource type="Resource" uid="uid://oeyng1ktx360" path="res://data/cards/ace_of_daggers.tres" id="2_724jm"]
+[ext_resource type="Resource" uid="uid://cyeh4q64sjp70" path="res://data/cards/ace_of_herbs.tres" id="3_v8df4"]
+[ext_resource type="Resource" uid="uid://dfad3qo3mi3uh" path="res://data/cards/ace_of_flags.tres" id="4_s6aa5"]
+[ext_resource type="Resource" uid="uid://bdbn32r8x8g4v" path="res://data/cards/the_high_priestess.tres" id="5_7f2tx"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="6_xv5wx"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="7_i1yv1"]
+[ext_resource type="Resource" uid="uid://cyiqtt8grlnlq" path="res://data/cards/the_lovers.tres" id="8_xwhmm"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="9_jcrg8"]
+[ext_resource type="Resource" uid="uid://3t5jry37we2f" path="res://data/cards/the_chariot.tres" id="10_qcguk"]
+[ext_resource type="Resource" uid="uid://c0p160e6m2l0t" path="res://data/cards/the_magician.tres" id="11_6a3uv"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="12_dc0o7"]
+[ext_resource type="Resource" uid="uid://b8tli328m1c1r" path="res://data/enemy/StrategyModules/enemy_karma_module.tres" id="13_4yaml"]
+
+[resource]
+script = ExtResource("12_dc0o7")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_gbk5i"), ExtResource("2_724jm"), ExtResource("3_v8df4"), ExtResource("4_s6aa5"), ExtResource("5_7f2tx"), ExtResource("6_xv5wx"), ExtResource("7_i1yv1"), ExtResource("8_xwhmm"), ExtResource("9_jcrg8"), ExtResource("10_qcguk"), ExtResource("11_6a3uv")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("13_4yaml")])

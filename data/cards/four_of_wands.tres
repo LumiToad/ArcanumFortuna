@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://bjoson87r537x"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_6n7ku"]
+[ext_resource type="Texture2D" uid="uid://b68bjjikuwbt6" path="res://assets/sprites/cards/card_wands_4.png" id="1_yxi5p"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_206i6"]
+
+[resource]
+script = ExtResource("1_6n7ku")
+name = "Four of Wands"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_yxi5p")
+cost = 4
+attack = 1
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_206i6")

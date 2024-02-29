@@ -1,0 +1,194 @@
+[gd_scene load_steps=13 format=3 uid="uid://ul6vq1b44cxh"]
+
+[ext_resource type="Script" path="res://systems/dungeon_events/reward_gold_event.gd" id="1_huadp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ittjo"]
+line_spacing = 0.0
+font_size = 66
+font_color = Color(1, 1, 0.137255, 1)
+
+[sub_resource type="Gradient" id="Gradient_g1hmy"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4dyxd"]
+gradient = SubResource("Gradient_g1hmy")
+
+[sub_resource type="Curve" id="Curve_0kwrl"]
+_data = [Vector2(0, 0.504172), 0.0, 0.0, 0, 0, Vector2(0.969789, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wffif"]
+curve = SubResource("Curve_0kwrl")
+
+[sub_resource type="Curve" id="Curve_r0bdy"]
+_data = [Vector2(0, 0.891537), 0.0, 0.0, 0, 0, Vector2(0.501511, 1), 0.0, 0.088426, 0, 0, Vector2(1, 0), -2.22902, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_uqeud"]
+curve = SubResource("Curve_r0bdy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5uue"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 0.0
+emission_ring_inner_radius = 0.0
+spread = 180.0
+initial_velocity_min = 134.97
+initial_velocity_max = 134.97
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 25.0
+scale_curve = SubResource("CurveTexture_uqeud")
+color = Color(0.639216, 0.623529, 0, 1)
+color_ramp = SubResource("GradientTexture1D_4dyxd")
+emission_curve = SubResource("CurveTexture_wffif")
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 0.127
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+
+[sub_resource type="Animation" id="Animation_tvpmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("reward_text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(658.5, 494.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("reward_text:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("reward_text:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_taagy"]
+resource_name = "present"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("reward_text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 2.07053, 1),
+"update": 0,
+"values": [Vector2(658.5, 494.5), Vector2(658.5, 494.5), Vector2(658.5, 494.5), Vector2(658.5, 411.915)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("reward_text:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.577772, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("reward_text:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("reward_text/GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("reward_text:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.6, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1iqi5"]
+_data = {
+"RESET": SubResource("Animation_tvpmj"),
+"present": SubResource("Animation_taagy")
+}
+
+[node name="RewardGoldEvent" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_huadp")
+
+[node name="reward_text" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 658.5
+offset_top = 494.5
+offset_right = 1261.5
+offset_bottom = 585.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(301, 45)
+text = "you gained 4 coins!"
+label_settings = SubResource("LabelSettings_ittjo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="reward_text"]
+show_behind_parent = true
+position = Vector2(295.5, 57.5)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_m5uue")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1iqi5")
+}

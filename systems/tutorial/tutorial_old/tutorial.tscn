@@ -1,0 +1,545 @@
+[gd_scene load_steps=48 format=3 uid="uid://bxifydx1hdpwf"]
+
+[ext_resource type="PackedScene" uid="uid://cbqvu0uo5eaku" path="res://systems/card_combat/card_battle.tscn" id="1_lco5q"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/tutorial.gd" id="2_xmauc"]
+[ext_resource type="Resource" uid="uid://dc3rsjy1lbvrd" path="res://data/enemy/old/basic_enemy.tres" id="3_c0ejg"]
+[ext_resource type="Script" path="res://data/scripts/player_data.gd" id="4_qmnt7"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/steps/tutorial_step.gd" id="5_txu6s"]
+[ext_resource type="Script" path="res://data/scripts/debug_enemy_data.gd" id="6_lxqc0"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_tutorial_chat.gd" id="8_lf455"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_change_visiblity.gd" id="8_r3c85"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/conditions/tc_button_pressed.gd" id="8_ubcot"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/conditions/tc_no_cards.gd" id="10_c5ygj"]
+[ext_resource type="PackedScene" uid="uid://d2hl78obwhmmt" path="res://systems/tutorial/tutorial_old/tutorial_box.tscn" id="10_ni5w3"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_draw_card.gd" id="10_u046w"]
+[ext_resource type="Resource" uid="uid://cyeh4q64sjp70" path="res://data/cards/ace_of_herbs.tres" id="10_wm3gc"]
+[ext_resource type="Texture2D" uid="uid://chn0s2w1mnhj0" path="res://assets/sprites/magician.png" id="10_x770v"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/conditions/tcd_delayed.gd" id="11_xqb1o"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_change_enabled.gd" id="12_ojt8p"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/conditions/tc_signal_emitted.gd" id="13_pw7qy"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/friendly_placement_phase.gd" id="13_y6t7h"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_change_tutorial_chat_visible.gd" id="14_akgfj"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/conditions/tcd_await_actions.gd" id="15_7wyih"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_friendly_cards_attack.gd" id="16_m80f0"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_handle_karma.gd" id="17_4i5j4"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_enemy_cards_attack.gd" id="18_eq6fb"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_enemy_play_card.gd" id="18_mtdgx"]
+[ext_resource type="Texture2D" uid="uid://da686q86v5n60" path="res://assets/sprites/cards/spell.png" id="19_ymsqq"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="20_yi4lx"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="21_oad6i"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_play_out_turn.gd" id="22_o7xjc"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/friendly_attack_phase.gd" id="23_mj0yg"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_change_process_mode.gd" id="23_s0rud"]
+[ext_resource type="PackedScene" uid="uid://d04yhti50qih4" path="res://assets/vfx/big_blob.tscn" id="24_46t30"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/friendly_karma_phase.gd" id="24_allw1"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/enemy_attack_phase.gd" id="25_nrcpb"]
+[ext_resource type="PackedScene" uid="uid://b84sklippd45m" path="res://assets/vfx/karma_particle.tscn" id="26_clcvc"]
+[ext_resource type="Resource" uid="uid://bw4sry587x05m" path="res://data/cards/judgement.tres" id="26_s5xfr"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/actions/ta_swap_scene.gd" id="26_t18aa"]
+
+[sub_resource type="Resource" id="Resource_wj3g8"]
+script = ExtResource("4_qmnt7")
+cardStack = Array[ExtResource("20_yi4lx")]([])
+health = 10.0
+start_hand_size = 1
+draw_amount = 1
+karma = 0
+draw_rng_seed = 1337
+currency = 0
+
+[sub_resource type="Resource" id="Resource_6hp1s"]
+script = ExtResource("6_lxqc0")
+health = 0.0
+fixed_placement_cards = Array[ExtResource("20_yi4lx")]([])
+fixed_friendly_placement_cards = Array[ExtResource("20_yi4lx")]([])
+
+[sub_resource type="Resource" id="Resource_3wse5"]
+script = ExtResource("13_y6t7h")
+
+[sub_resource type="Resource" id="Resource_fh7bg"]
+script = ExtResource("20_yi4lx")
+name = "The Spell"
+description = "It can do stuff."
+artwork = ExtResource("19_ymsqq")
+cost = 0
+attack = 2
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("21_oad6i")
+
+[sub_resource type="Resource" id="Resource_67liv"]
+script = ExtResource("23_mj0yg")
+
+[sub_resource type="Resource" id="Resource_43ql8"]
+script = ExtResource("24_allw1")
+karma_blob = ExtResource("24_46t30")
+small_blob = ExtResource("26_clcvc")
+karma_duration = 2.3
+karma_delay = 0.6
+blob_move = 20
+
+[sub_resource type="Resource" id="Resource_wlrrh"]
+script = ExtResource("25_nrcpb")
+
+[sub_resource type="Resource" id="Resource_ih0bu"]
+script = ExtResource("23_mj0yg")
+
+[sub_resource type="Resource" id="Resource_hfuxg"]
+script = ExtResource("24_allw1")
+karma_blob = ExtResource("24_46t30")
+small_blob = ExtResource("26_clcvc")
+karma_duration = 2.3
+karma_delay = 0.6
+blob_move = 20
+
+[sub_resource type="Resource" id="Resource_1upqg"]
+script = ExtResource("25_nrcpb")
+
+[sub_resource type="Resource" id="Resource_7fli2"]
+script = ExtResource("20_yi4lx")
+name = "The Magician"
+description = "It can do stuff."
+artwork = ExtResource("10_x770v")
+cost = 0
+attack = 666
+health = 666
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("21_oad6i")
+
+[node name="Tutorial" node_paths=PackedStringArray("tutorial_steps") instance=ExtResource("1_lco5q")]
+script = ExtResource("2_xmauc")
+enemy_data = ExtResource("3_c0ejg")
+tutorial_steps = NodePath("Steps")
+next_scene = "res://systems/ui/main_menu.tscn"
+debug_player_data = SubResource("Resource_wj3g8")
+debug_enemy_data = SubResource("Resource_6hp1s")
+
+[node name="Panel" parent="GameBoard/PlayerTiles" index="0"]
+visible = false
+
+[node name="Panel2" parent="GameBoard/PlayerTiles" index="1"]
+visible = false
+
+[node name="Panel4" parent="GameBoard/PlayerTiles" index="3"]
+visible = false
+
+[node name="Panel5" parent="GameBoard/PlayerTiles" index="4"]
+visible = false
+
+[node name="BonusDrawButton" parent="CardPlayer" index="3"]
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 244.0
+offset_bottom = 54.0
+
+[node name="SkipButton" type="Button" parent="." index="3"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 172.0
+offset_bottom = 89.0
+text = "Skip Tutorial"
+
+[node name="ShowTooltip" parent="EndTurnButton" index="0"]
+process_mode = 4
+
+[node name="Steps" type="Node" parent="." index="6"]
+
+[node name="TutorialStep1" type="Node" parent="Steps" index="0"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatIntroduction" type="Node" parent="Steps/TutorialStep1" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Hi there, I'm the Magician and I will try my best to explain how this game of cards is played.
+Just click the left mouse button to get started."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep1" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep2" type="Node" parent="Steps" index="1"]
+script = ExtResource("5_txu6s")
+
+[node name="DrawCard" type="Node" parent="Steps/TutorialStep2" index="0" node_paths=PackedStringArray("card_player")]
+script = ExtResource("10_u046w")
+card_to_draw = ExtResource("10_wm3gc")
+card_player = NodePath("../../../CardPlayer")
+
+[node name="ChatPlayChariotCard" type="Node" parent="Steps/TutorialStep2" index="1" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Firstly, why don't you play the chariot card?
+Simply drag and drop it onto the free slot on your side to place it down."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfNoCardsLeft" type="Node" parent="Steps/TutorialStep2" index="2" node_paths=PackedStringArray("card_player")]
+script = ExtResource("10_c5ygj")
+card_player = NodePath("../../../CardPlayer")
+
+[node name="TutorialStep3" type="Node" parent="Steps" index="2"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatEndTurn" type="Node" parent="Steps/TutorialStep3" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Nicely done! 
+Now press the \"End Turn\" button to attack the enemy!"
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="PlacementTurn" type="Node" parent="Steps/TutorialStep3" index="1" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("22_o7xjc")
+card_battle = NodePath("../../..")
+phases = Array[Resource("res://systems/card_combat/combat_phases/combat_phase.gd")]([SubResource("Resource_3wse5")])
+
+[node name="IfCombatStarted" type="Node" parent="Steps/TutorialStep3" index="2" node_paths=PackedStringArray("node_with_signal")]
+script = ExtResource("13_pw7qy")
+node_with_signal = NodePath("../../../EndTurnButton")
+signal_name = "pressed"
+
+[node name="TutorialStep4" type="Node" parent="Steps" index="3"]
+script = ExtResource("5_txu6s")
+
+[node name="HideTutorial" type="Node" parent="Steps/TutorialStep4" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="DoCombat" type="Node" parent="Steps/TutorialStep4" index="1"]
+script = ExtResource("15_7wyih")
+
+[node name="FriendlyCardAttack" type="Node" parent="Steps/TutorialStep4/DoCombat" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("16_m80f0")
+card_battle = NodePath("../../../..")
+
+[node name="TutorialStep5" type="Node" parent="Steps" index="4"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatCombatFinished" type="Node" parent="Steps/TutorialStep5" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Good job! You just dealt some damage to your enemy."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep5" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep6" type="Node" parent="Steps" index="5"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatCombatKarma" type="Node" parent="Steps/TutorialStep6" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "After your cards are done attacking, their karma value is added to your total karma count."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep6" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep7" type="Node" parent="Steps" index="6"]
+script = ExtResource("5_txu6s")
+
+[node name="HideTutorial" type="Node" parent="Steps/TutorialStep7" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfKarmaAdded" type="Node" parent="Steps/TutorialStep7" index="1"]
+script = ExtResource("15_7wyih")
+
+[node name="KarmaAdded" type="Node" parent="Steps/TutorialStep7/IfKarmaAdded" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("17_4i5j4")
+card_battle = NodePath("../../../..")
+
+[node name="TutorialStep8" type="Node" parent="Steps" index="7"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatKarmaExplanation" type="Node" parent="Steps/TutorialStep8" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Notice how you just gained one karma?
+Karma is kept when you start a new turn but will be set back to zero once the battle is over.
+Be careful tough: whenever your karma would go below zero, you'll take damage instead!"
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep8" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep9" type="Node" parent="Steps" index="8"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatKarmaExplanation2" type="Node" parent="Steps/TutorialStep9" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Some Cards will increase your karma and others will drain it.
+You can tell how a card will affect your karma total by looking at the number on the top left of each card."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep9" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep10" type="Node" parent="Steps" index="9"]
+script = ExtResource("5_txu6s")
+
+[node name="EnemyPlayCard" type="Node" parent="Steps/TutorialStep10" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("18_mtdgx")
+card_battle = NodePath("../../..")
+card_to_play = SubResource("Resource_fh7bg")
+
+[node name="ChatEnemyAttack" type="Node" parent="Steps/TutorialStep10" index="1" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Oh no, the enemy just played a card. Let's hope things won't turn out nasty for you."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep10" index="2" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep11" type="Node" parent="Steps" index="10"]
+script = ExtResource("5_txu6s")
+
+[node name="HideTutorial" type="Node" parent="Steps/TutorialStep11" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="AwaitEnemyAttack" type="Node" parent="Steps/TutorialStep11" index="1"]
+script = ExtResource("15_7wyih")
+
+[node name="EnemyAttack" type="Node" parent="Steps/TutorialStep11/AwaitEnemyAttack" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("18_eq6fb")
+card_battle = NodePath("../../../..")
+
+[node name="TutorialStep12" type="Node" parent="Steps" index="11"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatEnemyAttacked" type="Node" parent="Steps/TutorialStep12" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Yikes, that card just dealt some damage to your card!
+Once the health of your card goes down to zero it dies, and the enemy can attack you directly."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep12" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep13" type="Node" parent="Steps" index="12"]
+script = ExtResource("5_txu6s")
+
+[node name="HideTutorial" type="Node" parent="Steps/TutorialStep13" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="AwaitTurn" type="Node" parent="Steps/TutorialStep13" index="1"]
+script = ExtResource("15_7wyih")
+
+[node name="CompleteTurn" type="Node" parent="Steps/TutorialStep13/AwaitTurn" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("22_o7xjc")
+card_battle = NodePath("../../../..")
+phases = Array[Resource("res://systems/card_combat/combat_phases/combat_phase.gd")]([SubResource("Resource_67liv"), SubResource("Resource_43ql8"), SubResource("Resource_wlrrh")])
+
+[node name="TutorialStep14" type="Node" parent="Steps" index="13"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatEnemyKilled" type="Node" parent="Steps/TutorialStep14" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "And there goes your card, such a pity."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep14" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep15" type="Node" parent="Steps" index="14"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatEnemyKilled2" type="Node" parent="Steps/TutorialStep15" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Here have another card so you can fight back!"
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="DrawCard" type="Node" parent="Steps/TutorialStep15" index="1" node_paths=PackedStringArray("card_player")]
+script = ExtResource("10_u046w")
+card_to_draw = ExtResource("26_s5xfr")
+card_player = NodePath("../../../CardPlayer")
+
+[node name="IfNoCardsInHand" type="Node" parent="Steps/TutorialStep15" index="2" node_paths=PackedStringArray("card_player")]
+script = ExtResource("10_c5ygj")
+card_player = NodePath("../../../CardPlayer")
+
+[node name="TutorialStep16" type="Node" parent="Steps" index="15"]
+script = ExtResource("5_txu6s")
+
+[node name="EnableEndTurn" type="Node" parent="Steps/TutorialStep16" index="0" node_paths=PackedStringArray("nodes")]
+script = ExtResource("12_ojt8p")
+nodes = [NodePath("../../../EndTurnButton")]
+
+[node name="EnableTooltip" type="Node" parent="Steps/TutorialStep16" index="1" node_paths=PackedStringArray("nodes")]
+script = ExtResource("23_s0rud")
+nodes = [NodePath("../../../EndTurnButton/ShowTooltip")]
+
+[node name="IfTurnStarted" type="Node" parent="Steps/TutorialStep16" index="2" node_paths=PackedStringArray("node_with_signal")]
+script = ExtResource("13_pw7qy")
+node_with_signal = NodePath("../../../EndTurnButton")
+signal_name = "pressed"
+
+[node name="TutorialStep17" type="Node" parent="Steps" index="16"]
+script = ExtResource("5_txu6s")
+
+[node name="DisableEndTurn" type="Node" parent="Steps/TutorialStep17" index="0" node_paths=PackedStringArray("nodes")]
+script = ExtResource("12_ojt8p")
+nodes = [NodePath("../../../EndTurnButton")]
+new_status = false
+
+[node name="HideChat" type="Node" parent="Steps/TutorialStep17" index="1" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="AwaitTurn" type="Node" parent="Steps/TutorialStep17" index="2"]
+script = ExtResource("15_7wyih")
+
+[node name="PlayTurn" type="Node" parent="Steps/TutorialStep17/AwaitTurn" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("22_o7xjc")
+card_battle = NodePath("../../../..")
+phases = Array[Resource("res://systems/card_combat/combat_phases/combat_phase.gd")]([SubResource("Resource_ih0bu"), SubResource("Resource_hfuxg"), SubResource("Resource_1upqg")])
+
+[node name="TutorialStep18" type="Node" parent="Steps" index="17"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatChit" type="Node" parent="Steps/TutorialStep18" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Haha take that!"
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep18" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep19" type="Node" parent="Steps" index="18"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatSigils" type="Node" parent="Steps/TutorialStep19" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "You might have noticed that the strength of your card just grew!
+That’s thanks to the special symbols on this card. You can hover over your card to find out what they do!"
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep19" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep19_5" type="Node" parent="Steps" index="19"]
+script = ExtResource("5_txu6s")
+
+[node name="ChatLanes" type="Node" parent="Steps/TutorialStep19_5" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "By the way, this game isn't usually played on just one lane."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="ShowLanes" type="Node" parent="Steps/TutorialStep19_5" index="1" node_paths=PackedStringArray("nodes")]
+script = ExtResource("8_r3c85")
+nodes = [null, null, null, null, null, null, null, null, NodePath("../../../GameBoard/PlayerTiles/Panel"), NodePath("../../../GameBoard/PlayerTiles/Panel2"), NodePath("../../../GameBoard/PlayerTiles/Panel4"), NodePath("../../../GameBoard/PlayerTiles/Panel5")]
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep19_5" index="2" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep20" type="Node" parent="Steps" index="20"]
+script = ExtResource("5_txu6s")
+
+[node name="chatFinale1" type="Node" parent="Steps/TutorialStep20" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "And now, with all of that out of the way..."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep20" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep21" type="Node" parent="Steps" index="21"]
+script = ExtResource("5_txu6s")
+
+[node name="chatFinale2" type="Node" parent="Steps/TutorialStep21" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "It's time to let you get into the game."
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="EnemyPlayCard" type="Node" parent="Steps/TutorialStep21" index="1" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("18_mtdgx")
+card_battle = NodePath("../../..")
+card_to_play = SubResource("Resource_7fli2")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep21" index="2" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep22" type="Node" parent="Steps" index="22"]
+script = ExtResource("5_txu6s")
+
+[node name="hideChat" type="Node" parent="Steps/TutorialStep22" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="AwaitEnemyAttack" type="Node" parent="Steps/TutorialStep22" index="1"]
+script = ExtResource("15_7wyih")
+
+[node name="EnemyAttack" type="Node" parent="Steps/TutorialStep22/AwaitEnemyAttack" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("18_eq6fb")
+card_battle = NodePath("../../../..")
+
+[node name="TutorialStep23" type="Node" parent="Steps" index="23"]
+script = ExtResource("5_txu6s")
+
+[node name="chatFinale3" type="Node" parent="Steps/TutorialStep23" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("8_lf455")
+text = "Good luck on your journey out there!"
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="IfActionPressed" type="Node" parent="Steps/TutorialStep23" index="1" node_paths=PackedStringArray("button")]
+script = ExtResource("8_ubcot")
+button = NodePath("../../../CanvasLayer/TutorialBox/HBoxContainer/ContinueButton")
+
+[node name="TutorialStep24" type="Node" parent="Steps" index="24"]
+script = ExtResource("5_txu6s")
+
+[node name="hideChat" type="Node" parent="Steps/TutorialStep24" index="0" node_paths=PackedStringArray("tutorial_box")]
+script = ExtResource("14_akgfj")
+tutorial_box = NodePath("../../../CanvasLayer/TutorialBox")
+
+[node name="AwaitEnemyAttack" type="Node" parent="Steps/TutorialStep24" index="1"]
+script = ExtResource("15_7wyih")
+
+[node name="EnemyAttack" type="Node" parent="Steps/TutorialStep24/AwaitEnemyAttack" index="0" node_paths=PackedStringArray("card_battle")]
+script = ExtResource("18_eq6fb")
+card_battle = NodePath("../../../..")
+
+[node name="TutorialStep25" type="Node" parent="Steps" index="25"]
+script = ExtResource("5_txu6s")
+
+[node name="delay" type="Node" parent="Steps/TutorialStep25" index="0"]
+script = ExtResource("11_xqb1o")
+cooldown = 1.2
+
+[node name="TutorialStep26" type="Node" parent="Steps" index="26"]
+script = ExtResource("5_txu6s")
+
+[node name="swapScene" type="Node" parent="Steps/TutorialStep26" index="0"]
+script = ExtResource("26_t18aa")
+scene = "res://systems/ui/main_menu.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+layer = 9
+
+[node name="TutorialBox" parent="CanvasLayer" index="0" instance=ExtResource("10_ni5w3")]
+custom_minimum_size = Vector2(0, 150)
+offset_top = -87.0
+
+[node name="ContinueButton" parent="CanvasLayer/TutorialBox/HBoxContainer" index="2"]
+visible = false
+
+[connection signal="button_down" from="SkipButton" to="." method="_on_skip_button_button_down"]
+
+[editable path="CardPlayer"]
+[editable path="CanvasLayer/TutorialBox"]

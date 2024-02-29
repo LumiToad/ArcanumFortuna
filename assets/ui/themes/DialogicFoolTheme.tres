@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=3 format=3 uid="uid://hfh6o3hfprrf"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="1_7ktt8"]
+[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://assets/ui/themes/CustomDialogicFoolTheme/custom_dialogic_fool_theme.tscn" id="1_tmw60"]
+
+[resource]
+script = ExtResource("1_7ktt8")
+name = "DialogicFoolTheme"
+base_scene = ExtResource("1_tmw60")
+base_overrides = {}
+layers = Array[Resource("res://addons/dialogic/Resources/dialogic_style_layer.gd")]([])
+metadata/_latest_layer = -1

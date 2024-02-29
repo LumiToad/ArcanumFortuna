@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TripleAttack" load_steps=3 format=3 uid="uid://dvt6vrtfufa0t"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/triple_attack.gd" id="1_dn2gv"]
+[ext_resource type="Texture2D" uid="uid://cgouio4kmcmx3" path="res://assets/sprites/keywords/kw_trinity.png" id="1_vay6t"]
+
+[resource]
+script = ExtResource("1_dn2gv")
+title = "Trinity"
+description = "This card attacks both diagonally and straight. "
+icon = ExtResource("1_vay6t")
+highlight_duration = 1.0

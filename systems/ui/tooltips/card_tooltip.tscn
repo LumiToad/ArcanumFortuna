@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7qbbf3idp0cf"]
+
+[ext_resource type="Script" path="res://systems/ui/tooltips/card_tooltip.gd" id="1_j2xxw"]
+[ext_resource type="Texture2D" uid="uid://byjyf63eau3ba" path="res://assets/ui/underlays/nine_patch_rect_2.png" id="2_2bylk"]
+[ext_resource type="Texture2D" uid="uid://uf36g406dvlv" path="res://assets/ui/underlays/tooltip_underlay.png" id="3_12b81"]
+[ext_resource type="Theme" uid="uid://c2as6vbqpnrve" path="res://assets/ui/themes/tutorial_and_tooltips_theme.tres" id="4_w223y"]
+
+[node name="CardTooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_j2xxw")
+mouse_offset = Vector2(1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 53.0
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_right = -1
+theme_override_constants/margin_bottom = -1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("2_2bylk")
+draw_center = false
+region_rect = Rect2(0, 0, 500, 500)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 25
+patch_margin_bottom = 26
+
+[node name="Background" type="Sprite2D" parent="MarginContainer/NinePatchRect"]
+unique_name_in_owner = true
+z_index = -1
+texture = ExtResource("3_12b81")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 20
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("4_w223y")
+text = "Name"
+
+[node name="Sigils" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2

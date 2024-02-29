@@ -1,0 +1,192 @@
+[gd_scene load_steps=17 format=3 uid="uid://313ltwpa7fyq"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/shop/shop.gd" id="1_555t3"]
+[ext_resource type="Script" path="res://systems/ui/ui_base/ui_popup_data.gd" id="2_npfwa"]
+[ext_resource type="PackedScene" uid="uid://cjaecj5rdauy3" path="res://systems/ui/menus/shop/shop_trade_section.tscn" id="4_en8fe"]
+[ext_resource type="PackedScene" uid="uid://4ksadcfwwt52" path="res://systems/ui/menus/shop/shop_buy_section.tscn" id="4_s3t54"]
+[ext_resource type="Texture2D" uid="uid://06r8ajn6dyym" path="res://assets/ui/underlays/shop_underlay.png" id="5_1dbra"]
+[ext_resource type="PackedScene" uid="uid://fa4xb26tm6iu" path="res://systems/ui/menus/shop/shop_burn_section.tscn" id="6_nknc1"]
+[ext_resource type="Texture2D" uid="uid://u0ep6mcp6w3h" path="res://assets/ui/underlays/shop_underlay_2.png" id="6_xgc04"]
+[ext_resource type="Texture2D" uid="uid://c8rdebv3cvpi5" path="res://assets/ui/underlays/shop_tab_normal.png" id="7_xj0gx"]
+[ext_resource type="Texture2D" uid="uid://8384x7lx3nw2" path="res://assets/ui/underlays/shop_tab_hover.png" id="8_kd4rt"]
+[ext_resource type="Texture2D" uid="uid://bwexgd4isf4pt" path="res://assets/ui/underlays/shop_tab_focused.png" id="9_u6va7"]
+[ext_resource type="Texture2D" uid="uid://bjm1q37flpaxq" path="res://assets/ui/buttons/default_button_normal.png" id="10_e7vgr"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="11_1p6hx"]
+[ext_resource type="Texture2D" uid="uid://bavfmynt0nuxn" path="res://assets/ui/buttons/default_button_hover.png" id="11_y4e46"]
+[ext_resource type="Texture2D" uid="uid://ih2700jnklo8" path="res://assets/ui/buttons/default_button_pressed.png" id="12_107yi"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="14_1q6cw"]
+
+[sub_resource type="Resource" id="Resource_ekxm3"]
+script = ExtResource("2_npfwa")
+title_text = "unfinished business"
+content_text = "[center]You still have unfinished trades.
+Are you sure that you want to leave anyways?"
+confirm_label_text = "Confirm"
+decline_label_text = "Cancel"
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource("1_555t3")
+close_unfinished_popup = SubResource("Resource_ekxm3")
+shop_buy_tab = ExtResource("4_s3t54")
+shop_trade_tab = ExtResource("4_en8fe")
+shop_burn_tab = ExtResource("6_nknc1")
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="UpperShopUnderlay" type="TextureRect" parent="Shop"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1080.0
+offset_right = 960.0
+offset_bottom = -834.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_1dbra")
+
+[node name="ShopUnderlay" type="TextureRect" parent="Shop"]
+custom_minimum_size = Vector2(1920, 928)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_xgc04")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = -1008.0
+offset_right = 720.0
+offset_bottom = -928.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 160
+
+[node name="BuySectionButton" type="TextureButton" parent="Shop/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+texture_normal = ExtResource("7_xj0gx")
+texture_hover = ExtResource("8_kd4rt")
+texture_focused = ExtResource("9_u6va7")
+
+[node name="HoverSound" parent="Shop/HBoxContainer/BuySectionButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="Shop/HBoxContainer/BuySectionButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="TradeSectionButton" type="TextureButton" parent="Shop/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+texture_normal = ExtResource("7_xj0gx")
+texture_hover = ExtResource("8_kd4rt")
+texture_focused = ExtResource("9_u6va7")
+
+[node name="HoverSound" parent="Shop/HBoxContainer/TradeSectionButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="Shop/HBoxContainer/TradeSectionButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="BurnSectionButton" type="TextureButton" parent="Shop/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+texture_normal = ExtResource("7_xj0gx")
+texture_hover = ExtResource("8_kd4rt")
+texture_focused = ExtResource("9_u6va7")
+
+[node name="HoverSound" parent="Shop/HBoxContainer/BurnSectionButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="Shop/HBoxContainer/BurnSectionButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="LeaveShopButton" type="TextureButton" parent="Shop"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 624.0
+offset_top = -192.0
+offset_right = 944.0
+offset_bottom = -112.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("10_e7vgr")
+texture_pressed = ExtResource("11_y4e46")
+texture_hover = ExtResource("12_107yi")
+
+[node name="Label" type="Label" parent="Shop/LeaveShopButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("14_1q6cw")
+theme_override_font_sizes/font_size = 32
+text = "Proceed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="Shop/LeaveShopButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="Shop/LeaveShopButton" instance=ExtResource("11_1p6hx")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[connection signal="button_up" from="Shop/HBoxContainer/BuySectionButton" to="." method="_on_buy_section_button_button_up"]
+[connection signal="button_up" from="Shop/HBoxContainer/TradeSectionButton" to="." method="_on_trade_section_button_button_up"]
+[connection signal="button_up" from="Shop/HBoxContainer/BurnSectionButton" to="." method="_on_burn_section_button_button_up"]
+[connection signal="button_up" from="Shop/LeaveShopButton" to="." method="_on_leave_shop_button_button_up"]

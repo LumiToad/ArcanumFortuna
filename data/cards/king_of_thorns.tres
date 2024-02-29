@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://nr5du58leen5"]
+
+[ext_resource type="Texture2D" uid="uid://bhks1grxrynox" path="res://assets/sprites/cards/king_of_thorns.png" id="1_5t04l"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_uako4"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_ayb3m"]
+[ext_resource type="Resource" uid="uid://b7ptolrsdo5le" path="res://data/keyword/deathrattle_damage2.tres" id="3_j1op7"]
+
+[resource]
+script = ExtResource("1_uako4")
+name = "King of Thorns"
+description = "Stoic in essence, but accordingly reckless. "
+artwork = ExtResource("1_5t04l")
+cost = 5
+attack = 0
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_j1op7")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_ayb3m")

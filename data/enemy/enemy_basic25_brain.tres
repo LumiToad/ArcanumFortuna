@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=14 format=3 uid="uid://blek0k5vu7r5r"]
+
+[ext_resource type="Resource" uid="uid://clbklsr1u3gn5" path="res://data/cards/page_of_daggers.tres" id="1_n8pdn"]
+[ext_resource type="Resource" uid="uid://cdyp516wjxron" path="res://data/cards/page_of_thorns.tres" id="2_8kd33"]
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="3_c55bx"]
+[ext_resource type="Resource" uid="uid://b5ytokrx5why5" path="res://data/cards/page_of_flags.tres" id="4_3r6n0"]
+[ext_resource type="Resource" uid="uid://ccymn0mj5bdvy" path="res://data/cards/the_sun.tres" id="5_4bfe0"]
+[ext_resource type="Resource" uid="uid://bitn4lw4darn4" path="res://data/cards/the_moon.tres" id="6_vnws2"]
+[ext_resource type="Resource" uid="uid://dpspidmqwqebx" path="res://data/cards/the_world.tres" id="8_2xk03"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="8_qaht4"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="9_onq1s"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="10_85n76"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="11_u28sp"]
+[ext_resource type="Resource" uid="uid://cyu186axhjfax" path="res://data/cards/justice.tres" id="11_wf2ak"]
+[ext_resource type="Resource" uid="uid://1udixxkqvcyb" path="res://data/enemy/StrategyModules/enemy_basic_karma_module.tres" id="12_41n2l"]
+
+[resource]
+script = ExtResource("11_u28sp")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_n8pdn"), ExtResource("2_8kd33"), ExtResource("3_c55bx"), ExtResource("4_3r6n0"), ExtResource("5_4bfe0"), ExtResource("6_vnws2"), ExtResource("8_2xk03"), ExtResource("8_qaht4"), ExtResource("9_onq1s"), ExtResource("10_85n76"), ExtResource("11_wf2ak")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("12_41n2l")])

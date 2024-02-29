@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1nd4vm3n3a8d"]
+
+[sub_resource type="GDScript" id="GDScript_gwrei"]
+script/source = "extends Node
+
+@export_file(\"*.tscn\") var main_scene = \"\"
+@export_file(\"*.tscn\") var web_load_scene = \"\"
+
+
+func _ready():
+	randomize()
+	await get_parent().ready
+	
+	if OS.has_feature(\"web\"):
+		if not web_load_scene.is_empty():
+			var instance = load(web_load_scene).instantiate() as Node
+			add_child(instance)
+			await instance.complete
+	
+	load_audio_config()
+	load_video_config()
+	
+	if not main_scene.is_empty():
+		SceneHandler.change_scene(main_scene)
+
+
+func load_audio_config():
+	var dict = Settings.get_loaded_audiosettings()
+	
+	for key in dict.keys():
+		var bus_idx := AudioServer.get_bus_index(key)
+		if bus_idx == -1:
+			push_error(\"BUS %s NOT FOUND!!!\" % bus_idx)
+			continue
+		AudioServer.set_bus_volume_db(bus_idx, dict[key] as float)
+
+
+func load_video_config():
+	DisplayServer.window_set_size(Settings.get_video_resolution())
+	DisplayServer.window_set_mode(Settings.get_window_mode())
+	DisplayServer.window_set_current_screen(Settings.get_screen_index())
+	DisplayServer.window_set_position(Settings.get_window_position())
+"
+
+[node name="EntryScene" type="Node"]
+script = SubResource("GDScript_gwrei")
+main_scene = "res://systems/ui/menus/main_menu/main_menu.tscn"
+web_load_scene = "res://utils/web_loading.tscn"

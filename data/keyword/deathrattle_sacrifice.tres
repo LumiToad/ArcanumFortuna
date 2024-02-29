@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DeathrattleSacrifice" load_steps=3 format=3 uid="uid://dj1ot1up85sup"]
+
+[ext_resource type="Texture2D" uid="uid://cphv2ex44ox8w" path="res://assets/sprites/keywords/kw_sacrifice.png" id="1_67tp7"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/deathrattle_sacrifice.gd" id="1_tsvho"]
+
+[resource]
+script = ExtResource("1_tsvho")
+heal_amount = 3
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 8
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Deathrattle: Sacrifice"
+description = "When this card dies, its owner regenerates %d health. (Cannot surpass maximum health)"
+icon = ExtResource("1_67tp7")
+highlight_duration = 0.5

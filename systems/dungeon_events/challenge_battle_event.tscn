@@ -1,0 +1,45 @@
+[gd_scene load_steps=33 format=3 uid="uid://cdmbv5kshgi6w"]
+
+[ext_resource type="Script" path="res://systems/dungeon_events/battle_event.gd" id="1_jn11o"]
+[ext_resource type="Resource" uid="uid://dows6m8ajlccp" path="res://data/enemy/enemy_elite.tres" id="2_o4rtw"]
+[ext_resource type="Resource" uid="uid://b84wfhshysdh8" path="res://data/enemy/enemy_elite2.tres" id="3_qao00"]
+[ext_resource type="Resource" uid="uid://cujcolw66kdil" path="res://data/enemy/enemy_elite3.tres" id="4_tsqw4"]
+[ext_resource type="Resource" uid="uid://dnrh06owgw4hu" path="res://data/enemy/enemy_elite4.tres" id="5_mn0ua"]
+[ext_resource type="Resource" uid="uid://cxb8fdx8l8rsc" path="res://data/enemy/enemy_elite5.tres" id="6_mx257"]
+[ext_resource type="Resource" uid="uid://dnp5x28ymobnp" path="res://data/enemy/enemy_elite6.tres" id="7_yvquq"]
+[ext_resource type="Resource" uid="uid://bm2j1pyax8ikj" path="res://data/enemy/enemy_elite7.tres" id="8_uljwm"]
+[ext_resource type="Resource" uid="uid://wt8pkh2ow4qy" path="res://data/enemy/enemy_elite8.tres" id="9_adpqd"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic9.tres" id="10_33fub"]
+[ext_resource type="PackedScene" uid="uid://cbqvu0uo5eaku" path="res://systems/card_combat/card_battle.tscn" id="10_gxw8d"]
+[ext_resource type="PackedScene" uid="uid://cn0otoe0nvpis" path="res://systems/dungeon_events/battle_over_reward.tscn" id="11_4taow"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic10.tres" id="11_biil1"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic11.tres" id="12_p6epe"]
+[ext_resource type="PackedScene" uid="uid://sqcbrvq8vlwu" path="res://systems/ui/game_over_screen.tscn" id="12_tdo76"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic12.tres" id="13_d61id"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic13.tres" id="14_kagk3"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic14.tres" id="15_6t382"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic15.tres" id="16_rgmc8"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic16.tres" id="17_p36ir"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic17.tres" id="18_mk2xw"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic18.tres" id="19_u6q54"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic19.tres" id="20_ycja6"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic20.tres" id="21_g606b"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic21.tres" id="22_578sv"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic22.tres" id="23_mjcbi"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic23.tres" id="24_46l5g"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic24.tres" id="25_uec0k"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic25.tres" id="26_yw45l"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic26.tres" id="27_misum"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic27.tres" id="28_gda0x"]
+[ext_resource type="Resource" path="res://data/enemy/enemy_basic28.tres" id="29_qe1cq"]
+
+[node name="ChallangeBattleEvent" type="Node"]
+process_mode = 1
+script = ExtResource("1_jn11o")
+potential_enemies = Array[Resource("res://data/scripts/enemy_data.gd")]([ExtResource("2_o4rtw"), ExtResource("3_qao00"), ExtResource("4_tsqw4"), ExtResource("5_mn0ua"), ExtResource("6_mx257"), ExtResource("7_yvquq"), ExtResource("8_uljwm"), ExtResource("9_adpqd"), ExtResource("10_33fub"), ExtResource("11_biil1"), ExtResource("12_p6epe"), ExtResource("13_d61id"), ExtResource("14_kagk3"), ExtResource("15_6t382"), ExtResource("16_rgmc8"), ExtResource("17_p36ir"), ExtResource("18_mk2xw"), ExtResource("19_u6q54"), ExtResource("20_ycja6"), ExtResource("21_g606b"), ExtResource("22_578sv"), ExtResource("23_mjcbi"), ExtResource("24_46l5g"), ExtResource("25_uec0k"), ExtResource("26_yw45l"), ExtResource("27_misum"), ExtResource("28_gda0x"), ExtResource("29_qe1cq")])
+battleField = ExtResource("10_gxw8d")
+winEvent = ExtResource("11_4taow")
+loseEvent = ExtResource("12_tdo76")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true

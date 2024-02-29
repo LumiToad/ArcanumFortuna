@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://4jvegipgfekw"]
+
+[ext_resource type="Shader" path="res://shaders/burn.gdshader" id="1_rshv1"]
+[ext_resource type="Shader" path="res://shaders/fake_3d.gdshader" id="2_ontat"]
+[ext_resource type="Shader" path="res://shaders/invert.gdshader" id="3_q10pc"]
+[ext_resource type="Shader" path="res://shaders/noise_walk.gdshader" id="4_0d7en"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmemk"]
+shader = ExtResource("1_rshv1")
+shader_parameter/progress = 0.0
+shader_parameter/width = 0.2
+shader_parameter/timed = true
+shader_parameter/speed = 1.0
+shader_parameter/angle = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuhhj"]
+shader = ExtResource("2_ontat")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3f82s"]
+shader = ExtResource("3_q10pc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1jrw"]
+shader = ExtResource("4_0d7en")
+shader_parameter/strength = 0.0
+shader_parameter/noise_speed = 0.1
+shader_parameter/noise_threshold = 0.2
+shader_parameter/noise_falloff = 0.1
+shader_parameter/bleed_strength = 1.1
+
+[node name="ShadersToLoad" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lmemk")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_tuhhj")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3f82s")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_n1jrw")
+offset_right = 40.0
+offset_bottom = 40.0

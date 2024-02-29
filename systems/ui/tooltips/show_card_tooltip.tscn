@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c21gcj8wgm736"]
+
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_card_tooltip.gd" id="1_mm8e3"]
+[ext_resource type="PackedScene" uid="uid://c7qbbf3idp0cf" path="res://systems/ui/tooltips/card_tooltip.tscn" id="2_jtn7d"]
+
+[node name="ShowCardTooltip" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_mm8e3")
+tooltip_template = ExtResource("2_jtn7d")

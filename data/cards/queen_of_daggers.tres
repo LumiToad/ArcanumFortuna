@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://bjlneh5al3d8x"]
+
+[ext_resource type="Texture2D" uid="uid://ds5oiomh08sh7" path="res://assets/sprites/cards/queen_of_daggers.png" id="1_idm7s"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_rvq1k"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_hcrdd"]
+[ext_resource type="Resource" uid="uid://drvm1tnfo6hm6" path="res://data/keyword/buff_next_card_attack.tres" id="3_jjbex"]
+
+[resource]
+script = ExtResource("1_rvq1k")
+name = "Queen of Daggers"
+description = "Powerful and widely feared, she controls conflict like a marionette."
+artwork = ExtResource("1_idm7s")
+cost = 4
+attack = 0
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_jjbex")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_hcrdd")

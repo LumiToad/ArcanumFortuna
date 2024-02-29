@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=13 format=3 uid="uid://g8vvshf5aiya"]
+
+[ext_resource type="Resource" uid="uid://bjlneh5al3d8x" path="res://data/cards/queen_of_daggers.tres" id="1_c50vn"]
+[ext_resource type="Resource" uid="uid://ciai4bipoidj6" path="res://data/cards/queen_of_thorns.tres" id="2_ysdir"]
+[ext_resource type="Resource" uid="uid://d2b7yscmtse2l" path="res://data/cards/queen_of_herbs.tres" id="3_8irfd"]
+[ext_resource type="Resource" uid="uid://ccymn0mj5bdvy" path="res://data/cards/the_sun.tres" id="4_81j1x"]
+[ext_resource type="Resource" uid="uid://bitn4lw4darn4" path="res://data/cards/the_moon.tres" id="5_d1gto"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="7_c3wtu"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="8_o8p50"]
+[ext_resource type="Resource" uid="uid://dpspidmqwqebx" path="res://data/cards/the_world.tres" id="8_op6jj"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="9_5fh2k"]
+[ext_resource type="Resource" uid="uid://cyu186axhjfax" path="res://data/cards/justice.tres" id="10_cs53u"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="11_kurr5"]
+[ext_resource type="Resource" uid="uid://1udixxkqvcyb" path="res://data/enemy/StrategyModules/enemy_basic_karma_module.tres" id="12_nkjtp"]
+
+[resource]
+script = ExtResource("11_kurr5")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_c50vn"), ExtResource("2_ysdir"), ExtResource("3_8irfd"), ExtResource("4_81j1x"), ExtResource("5_d1gto"), ExtResource("8_op6jj"), ExtResource("7_c3wtu"), ExtResource("8_o8p50"), ExtResource("9_5fh2k"), ExtResource("10_cs53u")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("12_nkjtp")])

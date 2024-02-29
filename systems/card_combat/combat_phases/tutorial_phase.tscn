@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baxl847akqx6g"]
+
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/tutorial_phase.gd" id="1_gpc84"]
+
+[node name="Tutorial" type="Node"]
+script = ExtResource("1_gpc84")

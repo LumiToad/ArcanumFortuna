@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://g5bch5a3t0aj"]
+
+[ext_resource type="Shader" path="res://shaders/blob_background.gdshader" id="1_mvsji"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ffgt3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fov2i"]
+seamless = true
+noise = SubResource("FastNoiseLite_ffgt3")
+
+[resource]
+shader = ExtResource("1_mvsji")
+shader_parameter/strength = 2.3
+shader_parameter/noise = SubResource("NoiseTexture2D_fov2i")

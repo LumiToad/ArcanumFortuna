@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyKarmaStrategyModule" load_steps=3 format=3 uid="uid://yh1e2xgkqn0b"]
+
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_karma_strategy_module.gd" id="1_scmfy"]
+
+[sub_resource type="Curve" id="Curve_sxyqq"]
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("1_scmfy")
+karma_goal = 2
+point_multiplier = 1.0
+points_relative_to_goal = SubResource("Curve_sxyqq")
+curve_x_target = 0.5

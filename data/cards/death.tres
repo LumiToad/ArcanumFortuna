@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://biih8ndy7cwuu"]
+
+[ext_resource type="Texture2D" uid="uid://h0448sn65e2l" path="res://assets/sprites/cards/death.png" id="1_lancp"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_4eh3m"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_340qs"]
+[ext_resource type="Resource" uid="uid://bad0llajg2pb5" path="res://data/keyword/ConsumeATK1HP1.tres" id="2_nat0g"]
+[ext_resource type="Resource" uid="uid://clej2ss56ddog" path="res://data/keyword/switch_player_hp20.tres" id="4_aka0q"]
+[ext_resource type="AudioStream" uid="uid://b3geylsb3okyg" path="res://Audio/Signatures/SignatureDeath.ogg" id="6_f4hdl"]
+
+[resource]
+script = ExtResource("2_4eh3m")
+name = "Death"
+description = "\"Every end marks a new beginning.\""
+artwork = ExtResource("1_lancp")
+cost = -5
+attack = 3
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_nat0g"), ExtResource("4_aka0q")])
+spawn_frequency = 20
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_f4hdl")
+keyword_slot_texture = ExtResource("2_340qs")

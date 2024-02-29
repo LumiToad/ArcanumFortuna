@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt4d5c3p5t43v"]
+
+[ext_resource type="Script" path="res://systems/ui/tooltips/keyword_info.gd" id="1_01h56"]
+[ext_resource type="Shader" path="res://shaders/blob_background.gdshader" id="1_yy5ck"]
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="3_a3e81"]
+[ext_resource type="Theme" uid="uid://c2as6vbqpnrve" path="res://assets/ui/themes/tutorial_and_tooltips_theme.tres" id="3_s5n8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvw8w"]
+atlas = ExtResource("3_a3e81")
+region = Rect2(0, 0, 66, 66)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nftiq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_it2lc"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_nftiq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpfac"]
+shader = ExtResource("1_yy5ck")
+shader_parameter/strength = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_it2lc")
+
+[node name="KeywordInfo" type="VBoxContainer"]
+offset_right = 365.0
+offset_bottom = 150.0
+script = ExtResource("1_01h56")
+
+[node name="header" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="icon" type="TextureRect" parent="header"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_dvw8w")
+
+[node name="title" type="Label" parent="header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s5n8y")
+text = "Longest Possible Name"
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s5n8y")
+text = "Lorem Ipsum dolor sit amet...
+TWO LINES!"
+autowrap_mode = 3
+
+[node name="separator" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_gpfac")
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2

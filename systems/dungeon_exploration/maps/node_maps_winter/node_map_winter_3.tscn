@@ -1,0 +1,629 @@
+[gd_scene load_steps=9 format=3 uid="uid://bttxeghweiv65"]
+
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/node_map.gd" id="1_xe3d7"]
+[ext_resource type="PackedScene" uid="uid://b2vx0edf3t6u3" path="res://systems/dungeon_exploration/player/player.tscn" id="2_2s1nl"]
+[ext_resource type="Resource" uid="uid://22opo18s7wkj" path="res://data/player/basic_player.tres" id="3_o3j4q"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="4_cui5s"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/seed_text.gd" id="5_xvm7w"]
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="6_vbujs"]
+[ext_resource type="PackedScene" uid="uid://y05vxgjpeday" path="res://systems/dungeon_exploration/maps/random_event_node.tscn" id="7_p82m5"]
+[ext_resource type="PackedScene" uid="uid://rd4s1jnxga1w" path="res://systems/dungeon_exploration/nodes/final_node.tscn" id="8_2ke8x"]
+
+[node name="NodeMap2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xe3d7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -24.0
+offset_right = 1920.0
+offset_bottom = 840.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 864.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 864.0
+color = Color(0.886275, 0.780392, 0.898039, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 864.0
+color = Color(0.992157, 0.886275, 0.862745, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1280.0
+offset_bottom = 864.0
+color = Color(0.772549, 0.956863, 0.92549, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1280.0
+offset_right = 1600.0
+offset_bottom = 864.0
+color = Color(0.862745, 0.921569, 0.972549, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1600.0
+offset_right = 1920.0
+offset_bottom = 864.0
+color = Color(0.937255, 0.913725, 0.819608, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1920.0
+offset_right = 3840.0
+offset_bottom = 864.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect7"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 864.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect7"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 864.0
+color = Color(0.886275, 0.780392, 0.898039, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect7"]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 864.0
+color = Color(0.992157, 0.886275, 0.862745, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect/ColorRect7"]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1280.0
+offset_bottom = 864.0
+color = Color(0.772549, 0.956863, 0.92549, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="ColorRect/ColorRect7"]
+layout_mode = 0
+offset_left = 1280.0
+offset_right = 1600.0
+offset_bottom = 864.0
+color = Color(0.862745, 0.921569, 0.972549, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="ColorRect/ColorRect7"]
+layout_mode = 0
+offset_left = 1600.0
+offset_right = 1920.0
+offset_bottom = 864.0
+color = Color(0.937255, 0.913725, 0.819608, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 3840.0
+offset_right = 5760.0
+offset_bottom = 864.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect8"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 864.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect8"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 864.0
+color = Color(0.886275, 0.780392, 0.898039, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect8"]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 864.0
+color = Color(0.992157, 0.886275, 0.862745, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect/ColorRect8"]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1280.0
+offset_bottom = 864.0
+color = Color(0.772549, 0.956863, 0.92549, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="ColorRect/ColorRect8"]
+layout_mode = 0
+offset_left = 1280.0
+offset_right = 1600.0
+offset_bottom = 864.0
+color = Color(0.862745, 0.921569, 0.972549, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="ColorRect/ColorRect8"]
+layout_mode = 0
+offset_left = 1600.0
+offset_right = 1920.0
+offset_bottom = 864.0
+color = Color(0.937255, 0.913725, 0.819608, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 5760.0
+offset_right = 6390.0
+offset_bottom = 864.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect9"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 864.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect9"]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 864.0
+color = Color(0.886275, 0.780392, 0.898039, 1)
+
+[node name="Player" parent="." node_paths=PackedStringArray("startNode") instance=ExtResource("2_2s1nl")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+startNode = NodePath("../StartNode")
+startData = ExtResource("3_o3j4q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme = ExtResource("4_cui5s")
+theme_override_font_sizes/font_size = 24
+text = "Seed: 1337"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("5_xvm7w")
+
+[node name="StartNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("6_vbujs")]
+layout_mode = 1
+offset_left = -807.0
+offset_top = -128.0
+offset_right = -807.0
+offset_bottom = -128.0
+connectsTo = [NodePath("../RandomEventNode")]
+offset = 45.0
+
+[node name="RandomEventNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = -481.0
+offset_top = -169.0
+offset_right = -481.0
+offset_bottom = -169.0
+connectsTo = [NodePath("../RandomEventNode2"), NodePath("../RandomEventNode3")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode2" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = -157.0
+offset_top = -295.0
+offset_right = -157.0
+offset_bottom = -295.0
+connectsTo = [NodePath("../RandomEventNode4"), NodePath("../RandomEventNode5")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode3" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = -211.0
+offset_top = 38.0
+offset_right = -211.0
+offset_bottom = 38.0
+connectsTo = [NodePath("../RandomEventNode6")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode4" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 207.0
+offset_top = -461.0
+offset_right = 207.0
+offset_bottom = -461.0
+connectsTo = [NodePath("../RandomEventNode7")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode5" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 113.0
+offset_top = -130.0
+offset_right = 113.0
+offset_bottom = -130.0
+connectsTo = [NodePath("../RandomEventNode7")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode6" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 134.0
+offset_top = 141.0
+offset_right = 134.0
+offset_bottom = 141.0
+connectsTo = [NodePath("../RandomEventNode8")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode7" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 449.0
+offset_top = -315.0
+offset_right = 449.0
+offset_bottom = -315.0
+connectsTo = [NodePath("../RandomEventNode9")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode8" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 410.0
+offset_top = 14.0
+offset_right = 410.0
+offset_bottom = 14.0
+connectsTo = [NodePath("../RandomEventNode9"), NodePath("../RandomEventNode10")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode9" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 813.0
+offset_top = -215.0
+offset_right = 813.0
+offset_bottom = -215.0
+connectsTo = [NodePath("../RandomEventNode11"), NodePath("../RandomEventNode12")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode10" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 781.0
+offset_top = 109.0
+offset_right = 781.0
+offset_bottom = 109.0
+connectsTo = [NodePath("../RandomEventNode11")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode11" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 1114.0
+offset_top = -56.0
+offset_right = 1114.0
+offset_bottom = -56.0
+connectsTo = [NodePath("../RandomEventNode13")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode12" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 1077.0
+offset_top = -375.0
+offset_right = 1077.0
+offset_bottom = -375.0
+connectsTo = [NodePath("../RandomEventNode13")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode13" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 1457.0
+offset_top = -208.0
+offset_right = 1457.0
+offset_bottom = -208.0
+connectsTo = [NodePath("../RandomEventNode14"), NodePath("../RandomEventNode15"), NodePath("../RandomEventNode16")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode14" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 1734.0
+offset_top = -455.0
+offset_right = 1734.0
+offset_bottom = -455.0
+connectsTo = [NodePath("../RandomEventNode17")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode15" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 1832.0
+offset_top = -153.0
+offset_right = 1832.0
+offset_bottom = -153.0
+connectsTo = [NodePath("../RandomEventNode18"), NodePath("../RandomEventNode19")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode16" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 1681.0
+offset_top = 114.0
+offset_right = 1681.0
+offset_bottom = 114.0
+connectsTo = [NodePath("../RandomEventNode19")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode17" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2112.0
+offset_top = -435.0
+offset_right = 2112.0
+offset_bottom = -435.0
+connectsTo = [NodePath("../RandomEventNode20")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode18" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2106.0
+offset_top = -188.0
+offset_right = 2106.0
+offset_bottom = -188.0
+connectsTo = [NodePath("../RandomEventNode20")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode19" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2066.0
+offset_top = 108.0
+offset_right = 2066.0
+offset_bottom = 108.0
+connectsTo = [NodePath("../RandomEventNode21")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode20" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2403.0
+offset_top = -334.0
+offset_right = 2403.0
+offset_bottom = -334.0
+connectsTo = [NodePath("../RandomEventNode22")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode21" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2408.0
+offset_top = 38.0
+offset_right = 2408.0
+offset_bottom = 38.0
+connectsTo = [NodePath("../RandomEventNode23"), NodePath("../RandomEventNode24")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode22" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2704.0
+offset_top = -413.0
+offset_right = 2704.0
+offset_bottom = -413.0
+connectsTo = [NodePath("../RandomEventNode25")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode23" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2777.0
+offset_top = -130.0
+offset_right = 2777.0
+offset_bottom = -130.0
+connectsTo = [NodePath("../RandomEventNode25")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode24" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 2679.0
+offset_top = 146.0
+offset_right = 2679.0
+offset_bottom = 146.0
+connectsTo = [NodePath("../RandomEventNode25")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode25" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 3083.0
+offset_top = -107.0
+offset_right = 3083.0
+offset_bottom = -107.0
+connectsTo = [NodePath("../RandomEventNode26"), NodePath("../RandomEventNode27")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode26" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 3392.0
+offset_top = -295.0
+offset_right = 3392.0
+offset_bottom = -295.0
+connectsTo = [NodePath("../RandomEventNode28"), NodePath("../RandomEventNode29")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode27" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 3347.0
+offset_top = 17.0
+offset_right = 3347.0
+offset_bottom = 17.0
+connectsTo = [NodePath("../RandomEventNode30")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode28" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 3635.0
+offset_top = -428.0
+offset_right = 3635.0
+offset_bottom = -428.0
+connectsTo = [NodePath("../RandomEventNode31")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode29" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 3740.0
+offset_top = -181.0
+offset_right = 3740.0
+offset_bottom = -181.0
+connectsTo = [NodePath("../RandomEventNode32")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode30" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 3669.0
+offset_top = 133.0
+offset_right = 3669.0
+offset_bottom = 133.0
+connectsTo = [NodePath("../RandomEventNode32")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode31" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4016.0
+offset_top = -336.0
+offset_right = 4016.0
+offset_bottom = -336.0
+connectsTo = [NodePath("../RandomEventNode34")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode32" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4018.0
+offset_top = -15.0
+offset_right = 4018.0
+offset_bottom = -15.0
+connectsTo = [NodePath("../RandomEventNode33")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode33" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4344.0
+offset_top = 33.0
+offset_right = 4344.0
+offset_bottom = 33.0
+connectsTo = [NodePath("../RandomEventNode36"), NodePath("../RandomEventNode37")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode34" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4256.0
+offset_top = -390.0
+offset_right = 4256.0
+offset_bottom = -390.0
+connectsTo = [NodePath("../RandomEventNode35")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode35" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4660.0
+offset_top = -385.0
+offset_right = 4660.0
+offset_bottom = -385.0
+connectsTo = [NodePath("../RandomEventNode38")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode36" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4601.0
+offset_top = -135.0
+offset_right = 4601.0
+offset_bottom = -135.0
+connectsTo = [NodePath("../RandomEventNode38")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode37" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4634.0
+offset_top = 122.0
+offset_right = 4634.0
+offset_bottom = 122.0
+connectsTo = [NodePath("../RandomEventNode38")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode38" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_p82m5")]
+layout_mode = 1
+offset_left = 4967.0
+offset_top = -111.0
+offset_right = 4967.0
+offset_bottom = -111.0
+connectsTo = [NodePath("../FinalNode")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="FinalNode" parent="." instance=ExtResource("8_2ke8x")]
+layout_mode = 1
+offset_left = 5285.0
+offset_top = -131.0
+offset_right = 5285.0
+offset_bottom = -131.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme = ExtResource("4_cui5s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "Seed: 1337"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("5_xvm7w")
+
+[connection signal="mouse_entered" from="CanvasLayer2/SeedLabel" to="CanvasLayer2/SeedLabel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer2/SeedLabel" to="CanvasLayer2/SeedLabel" method="_on_mouse_exited"]

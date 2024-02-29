@@ -1,0 +1,125 @@
+[gd_resource type="Theme" load_steps=38 format=3 uid="uid://l2whpxkwhcdn"]
+
+[ext_resource type="Texture2D" uid="uid://diuotxd43kep6" path="res://assets/ui/placeholders/empty.png" id="1_nhmbk"]
+[ext_resource type="Texture2D" uid="uid://b40dk0amujmgc" path="res://assets/ui/underlays/menu_highlight.png" id="2_jlku6"]
+[ext_resource type="Texture2D" uid="uid://7w77k8lowu8" path="res://assets/ui/underlays/menu_highlight_pressed.png" id="3_13teg"]
+[ext_resource type="Texture2D" uid="uid://djt1lqp7xolba" path="res://assets/ui/underlays/checkbox_x.png" id="4_gqejg"]
+[ext_resource type="Texture2D" uid="uid://ktdctvbdmxa4" path="res://assets/ui/underlays/checkbox_hover.png" id="6_0q5eb"]
+[ext_resource type="Texture2D" uid="uid://dxdqk7nuke6pl" path="res://assets/ui/underlays/checkbox_normal.png" id="8_2uqr7"]
+[ext_resource type="Texture2D" uid="uid://elmcuxrwc3gy" path="res://assets/ui/underlays/checkbox_pressed.png" id="9_g6w5p"]
+[ext_resource type="Texture2D" uid="uid://snxcal3egpq4" path="res://assets/ui/underlays/slider_fill.png" id="10_ijaeg"]
+[ext_resource type="Texture2D" uid="uid://d0v3qq7ly8mci" path="res://assets/ui/underlays/diamond.png" id="10_rmyom"]
+[ext_resource type="Texture2D" uid="uid://bjwu371lday1y" path="res://assets/ui/underlays/slider_empty.png" id="11_6a8ii"]
+[ext_resource type="Texture2D" uid="uid://vmwusstlwoxr" path="res://assets/ui/underlays/diamond_highlight.png" id="11_ymn2d"]
+[ext_resource type="FontFile" uid="uid://ds6fkaks0twky" path="res://assets/ui/fonts/RomanAntique.ttf" id="12_jpktw"]
+[ext_resource type="Texture2D" uid="uid://cxus1gwafldoq" path="res://assets/ui/underlays/arrow_rotate.png" id="12_js0ve"]
+[ext_resource type="Texture2D" uid="uid://ekybiptenoks" path="res://assets/ui/underlays/dropdown_hover.png" id="13_8w43k"]
+[ext_resource type="Texture2D" uid="uid://cb8qb2e1h7j15" path="res://assets/ui/underlays/dropdown_normal.png" id="14_suvl3"]
+[ext_resource type="Texture2D" uid="uid://druqflvaf6u3u" path="res://assets/ui/underlays/dropdown_pressed.png" id="15_vyktn"]
+[ext_resource type="Texture2D" uid="uid://d233avcta64f" path="res://assets/ui/underlays/options_underlay.png" id="16_pdg3v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exx6k"]
+texture = ExtResource("1_nhmbk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkpcq"]
+texture = ExtResource("1_nhmbk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgai2"]
+texture = ExtResource("2_jlku6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s818a"]
+texture = ExtResource("1_nhmbk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3s28"]
+texture = ExtResource("3_13teg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jihiw"]
+texture = ExtResource("9_g6w5p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bmuj"]
+texture = ExtResource("6_0q5eb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3x4j4"]
+texture = ExtResource("6_0q5eb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81h4m"]
+texture = ExtResource("8_2uqr7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ordp0"]
+texture = ExtResource("9_g6w5p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_efcj6"]
+texture = ExtResource("10_ijaeg")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro8bn"]
+texture = ExtResource("10_ijaeg")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgg8s"]
+texture = ExtResource("11_6a8ii")
+texture_margin_top = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h467q"]
+texture = ExtResource("13_8w43k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kml1y"]
+texture = ExtResource("13_8w43k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awlsg"]
+texture = ExtResource("14_suvl3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7fqw"]
+texture = ExtResource("15_vyktn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xvo6"]
+texture = ExtResource("3_13teg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obkvj"]
+texture = ExtResource("16_pdg3v")
+
+[sub_resource type="FontVariation" id="FontVariation_bruvd"]
+base_font = ExtResource("12_jpktw")
+variation_embolden = 0.3
+
+[resource]
+default_font = ExtResource("12_jpktw")
+default_font_size = 25
+Button/font_sizes/font_size = 80
+Button/styles/disabled = SubResource("StyleBoxTexture_exx6k")
+Button/styles/focus = SubResource("StyleBoxTexture_kkpcq")
+Button/styles/hover = SubResource("StyleBoxTexture_fgai2")
+Button/styles/normal = SubResource("StyleBoxTexture_s818a")
+Button/styles/pressed = SubResource("StyleBoxTexture_m3s28")
+CheckBox/constants/check_v_offset = 0
+CheckBox/constants/h_separation = 40
+CheckBox/icons/checked = ExtResource("4_gqejg")
+CheckBox/icons/checked_disabled = null
+CheckBox/icons/unchecked = ExtResource("1_nhmbk")
+CheckBox/icons/unchecked_disabled = null
+CheckBox/styles/focus = SubResource("StyleBoxTexture_jihiw")
+CheckBox/styles/hover = SubResource("StyleBoxTexture_3bmuj")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_3x4j4")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_81h4m")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_ordp0")
+HSlider/icons/grabber = ExtResource("10_rmyom")
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource("11_ymn2d")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_efcj6")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ro8bn")
+HSlider/styles/slider = SubResource("StyleBoxTexture_lgg8s")
+OptionButton/constants/arrow_margin = 16
+OptionButton/icons/arrow = ExtResource("12_js0ve")
+OptionButton/styles/focus = SubResource("StyleBoxTexture_h467q")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_kml1y")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_awlsg")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_q7fqw")
+PopupMenu/icons/radio_checked = ExtResource("4_gqejg")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_1xvo6")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_obkvj")
+RichTextLabel/constants/line_separation = 12
+RichTextLabel/font_sizes/bold_font_size = 50
+RichTextLabel/font_sizes/normal_font_size = 35
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_bruvd")

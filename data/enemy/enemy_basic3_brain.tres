@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=9 format=3 uid="uid://b2plj1honyqf4"]
+
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="1_6nnn4"]
+[ext_resource type="Resource" uid="uid://d2b7yscmtse2l" path="res://data/cards/queen_of_herbs.tres" id="3_rycg7"]
+[ext_resource type="Resource" uid="uid://csr1pvebvy0ae" path="res://data/cards/king_of_herbs.tres" id="3_vxv0y"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="5_71ix8"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="6_wq4jx"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="6_wtjnc"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="9_gjcil"]
+[ext_resource type="Resource" uid="uid://1udixxkqvcyb" path="res://data/enemy/StrategyModules/enemy_basic_karma_module.tres" id="10_hqgyt"]
+
+[resource]
+script = ExtResource("9_gjcil")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_6nnn4"), ExtResource("3_vxv0y"), ExtResource("3_rycg7"), ExtResource("5_71ix8"), ExtResource("6_wq4jx"), ExtResource("6_wtjnc")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("10_hqgyt")])

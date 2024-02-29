@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://c10dfrcj8toxb"]
+
+[ext_resource type="Shader" path="res://shaders/burn.gdshader" id="1_miteb"]
+[ext_resource type="Texture2D" uid="uid://ddugqwyt5cfxl" path="res://assets/ui/gameboard/card_stack/card_stack_1.png" id="2_4njko"]
+
+[sub_resource type="Gradient" id="Gradient_klnfu"]
+offsets = PackedFloat32Array(0.468599, 0.560386, 0.666667, 0.763285, 0.869565, 0.951691, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.288609, 0.0243205, 0.0305265, 1, 0.673476, 0.0356387, 0, 1, 0.984314, 0.407843, 0.0392157, 1, 0.910204, 0.728571, 0.183673, 1, 1, 0.878274, 0.728987, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dfin6"]
+gradient = SubResource("Gradient_klnfu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hse0m"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mx8aj"]
+noise = SubResource("FastNoiseLite_hse0m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vakxh"]
+shader = ExtResource("1_miteb")
+shader_parameter/progress = 0.0
+shader_parameter/width = 0.5
+shader_parameter/timed = true
+shader_parameter/speed = 1.0
+shader_parameter/angle = -1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_mx8aj")
+shader_parameter/colorCurve = SubResource("GradientTexture1D_dfin6")
+
+[node name="TextureRect" type="TextureRect"]
+material = SubResource("ShaderMaterial_vakxh")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_4njko")

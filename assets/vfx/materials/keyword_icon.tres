@@ -1,0 +1,31 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://7sj2hjrf2mv4"]
+
+[sub_resource type="Curve" id="Curve_v63tl"]
+_data = [Vector2(0, 0), 0.0, 9.64521, 0, 0, Vector2(0.0497076, 1), -0.218513, -0.218513, 0, 0, Vector2(0.4975, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.63504, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xo2qk"]
+curve = SubResource("Curve_v63tl")
+
+[sub_resource type="Curve" id="Curve_taioq"]
+_data = [Vector2(0, 0.136233), 0.0, 0.0, 0, 0, Vector2(0.16, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qrfjx"]
+curve = SubResource("Curve_taioq")
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -3.0
+linear_accel_max = 3.0
+scale_min = 0.2
+scale_max = 0.25
+color = Color(0.831373, 0.65098, 1, 1)
+alpha_curve = SubResource("CurveTexture_xo2qk")
+emission_curve = SubResource("CurveTexture_qrfjx")
+turbulence_enabled = true
+turbulence_noise_scale = 2.05

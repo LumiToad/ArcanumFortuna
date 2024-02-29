@@ -1,0 +1,20 @@
+join the_fool (default_w_dog) 0
+Sure, steady footsteps approach you.
+join the_magician 4
+the_magician: Young one!
+the_magician: Forgive me for overhearing your conversation, but I've been looking to test my mastery of the game for some time.
+the_magician: Would you care to play?
+the_magician: A fine pupil! You'll go far.
+- Go where?
+	the_magician: Somwehere in life! Stagnation is the most horrible of fates, after all.
+- Must I?
+	the_magician: Purpose is essential in one's life! What else is there? 
+the_magician: You have a keen eye, and a great mind - I am sure of it. 
+the_magician: It would be a waste not to nurture it to its full potential, don't you think? 
+He leaves you with a flourish, so sure of the path to take you'd think he's mapped the location of each blade of grass. 
+leave the_magician
+update the_fool (default)
+join the_dog 1
+the_dog (default): I wouldn't listen to that braggart. 
+the_fool (default): But what if...
+the_fool (default): No, nevermind.

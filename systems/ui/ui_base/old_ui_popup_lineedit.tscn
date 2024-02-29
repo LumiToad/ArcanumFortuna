@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnlshn1t1esbw"]
+
+[ext_resource type="Script" path="res://systems/ui/ui_base/ui_popup.gd" id="1_xxktc"]
+[ext_resource type="PackedScene" uid="uid://dq1c3cgx11dk8" path="res://systems/ui/ui_base/ui_popup.tscn" id="2_sd1nx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfhd7"]
+
+[node name="UIPopupLineEdit" type="CanvasLayer"]
+script = ExtResource("1_xxktc")
+
+[node name="UIPopup" parent="." instance=ExtResource("2_sd1nx")]
+
+[node name="Content" parent="UIPopup/CardTooltip/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[center]Which route did you plan?"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIPopup/CardTooltip/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="UIPopup/CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+
+[node name="HSeparatorButton2" type="HSeparator" parent="UIPopup/CardTooltip/MarginContainer/MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nfhd7")
+
+[editable path="UIPopup"]

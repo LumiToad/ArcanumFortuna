@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CompanionshipHealth" load_steps=3 format=3 uid="uid://ki5fnavgpp2w"]
+
+[ext_resource type="Texture2D" uid="uid://brltkxlqecosp" path="res://assets/sprites/keywords/kw_comp_health.png" id="1_d57y2"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/companionship_health.gd" id="1_nhkqd"]
+
+[resource]
+script = ExtResource("1_nhkqd")
+health_gain = 1
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = false
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Companionship: Health"
+description = "While this card is alive, the next cards to its left and right gain +%d health."
+icon = ExtResource("1_d57y2")
+highlight_duration = 0.5

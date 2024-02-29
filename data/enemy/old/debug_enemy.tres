@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DebugEnemyData" load_steps=9 format=3 uid="uid://bucp7s5xyq334"]
+
+[ext_resource type="Resource" uid="uid://knsiayub4ihe" path="res://data/cards/the_fool.tres" id="1_hhmt5"]
+[ext_resource type="Script" path="res://data/scripts/debug_enemy_data.gd" id="1_tcm52"]
+[ext_resource type="Resource" uid="uid://deonq2pnkifc2" path="res://data/cards/the_devil.tres" id="2_cmg4a"]
+[ext_resource type="Resource" uid="uid://b4tc66w5jk5ii" path="res://data/cards/the_star.tres" id="2_ujrgd"]
+[ext_resource type="Resource" uid="uid://cyiqtt8grlnlq" path="res://data/cards/the_lovers.tres" id="3_qbywt"]
+[ext_resource type="Resource" uid="uid://dpspidmqwqebx" path="res://data/cards/the_world.tres" id="4_cm53t"]
+[ext_resource type="Resource" uid="uid://bk8j8nba8r18d" path="res://data/cards/wheel_of_fortune.tres" id="4_e78l3"]
+[ext_resource type="Resource" uid="uid://cyeh4q64sjp70" path="res://data/cards/ace_of_herbs.tres" id="6_216n7"]
+
+[resource]
+script = ExtResource("1_tcm52")
+health = 10.0
+rows = Array[Array]([[ExtResource("1_hhmt5"), ExtResource("2_cmg4a"), ExtResource("2_ujrgd"), ExtResource("4_cm53t"), null], [ExtResource("3_qbywt"), null, null, null, null], [ExtResource("4_e78l3"), ExtResource("6_216n7")]])

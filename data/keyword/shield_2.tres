@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="shield" load_steps=3 format=3 uid="uid://cdgl3x8r5jgtr"]
+
+[ext_resource type="Texture2D" uid="uid://d0ynpjxgwyb2c" path="res://assets/sprites/keywords/kw_fortified.png" id="1_m3xgn"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/shield.gd" id="3_su3jl"]
+
+[resource]
+script = ExtResource("3_su3jl")
+damage_reduction = 0.0
+fixed_damage_reduction = 1
+uses = -1
+title = "Fortified"
+description = "Any damage dealt to this cards is reduced by %d."
+icon = ExtResource("1_m3xgn")
+highlight_duration = 0.5

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://wuqvwr1tovdg"]
+
+[ext_resource type="Texture2D" uid="uid://b1gk7yfskd8p3" path="res://assets/ui/gameboard/coin_sprite_sheet.png" id="1_gaydi"]
+
+[resource]
+atlas = ExtResource("1_gaydi")
+region = Rect2(0, 1, 152, 151)

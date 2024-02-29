@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://7s6ukggf8o7q"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/pause_menu.gd" id="1_qdilc"]
+[ext_resource type="PackedScene" uid="uid://biy5pjrvhi2le" path="res://systems/ui/menus/options_menu.tscn" id="2_rf1yi"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="3_5y8xt"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="3_p63jw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fy8l"]
+bg_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 50
+script = ExtResource("1_qdilc")
+options_scene = ExtResource("2_rf1yi")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fy8l")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_5y8xt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "The game is PAUSED"
+
+[node name="btnContinue" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="hoverSound" parent="CenterContainer/VBoxContainer/btnContinue" instance=ExtResource("3_p63jw")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="CenterContainer/VBoxContainer/btnContinue" instance=ExtResource("3_p63jw")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="btnOptions" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="hoverSound" parent="CenterContainer/VBoxContainer/btnOptions" instance=ExtResource("3_p63jw")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="CenterContainer/VBoxContainer/btnOptions" instance=ExtResource("3_p63jw")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="btnBackToMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="hoverSound" parent="CenterContainer/VBoxContainer/btnBackToMenu" instance=ExtResource("3_p63jw")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="CenterContainer/VBoxContainer/btnBackToMenu" instance=ExtResource("3_p63jw")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btnBackToMenu" to="." method="_on_btn_back_to_menu_pressed"]

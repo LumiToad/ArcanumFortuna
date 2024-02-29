@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=11 format=3 uid="uid://cly8nkk7rtc1w"]
+
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="1_cdter"]
+[ext_resource type="Resource" uid="uid://csr1pvebvy0ae" path="res://data/cards/king_of_herbs.tres" id="2_iih2g"]
+[ext_resource type="Resource" uid="uid://d2b7yscmtse2l" path="res://data/cards/queen_of_herbs.tres" id="3_4tagh"]
+[ext_resource type="Resource" uid="uid://b05drmja6ckug" path="res://data/cards/knight_of_herbs.tres" id="4_tlk2v"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="5_nfj60"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="6_cwnt6"]
+[ext_resource type="Resource" uid="uid://cyu186axhjfax" path="res://data/cards/justice.tres" id="7_hbm74"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="9_dyl2i"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="11_xvdrw"]
+[ext_resource type="Resource" uid="uid://1udixxkqvcyb" path="res://data/enemy/StrategyModules/enemy_basic_karma_module.tres" id="12_n5vu4"]
+
+[resource]
+script = ExtResource("11_xvdrw")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_cdter"), ExtResource("2_iih2g"), ExtResource("3_4tagh"), ExtResource("4_tlk2v"), ExtResource("5_nfj60"), ExtResource("6_cwnt6"), ExtResource("7_hbm74"), ExtResource("9_dyl2i")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("12_n5vu4")])

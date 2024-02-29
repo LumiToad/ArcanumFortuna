@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://31aqxfyoi4ha"]
+
+[ext_resource type="PackedScene" uid="uid://b45r81lj73pdb" path="res://systems/tutorial/tutorial_popups/tutorial_popup.tscn" id="1_fltoy"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_popups/tutorial_popup_tooltip.gd" id="2_bi0aa"]
+[ext_resource type="Texture2D" uid="uid://wur6pg5xwpvh" path="res://assets/ui/underlays/nine_patch_rect.png" id="3_gxfd1"]
+
+[node name="TutorialPopupTooltip" instance=ExtResource("1_fltoy")]
+script = ExtResource("2_bi0aa")
+
+[node name="NinePatchRect" parent="MarginContainer" index="0"]
+texture = ExtResource("3_gxfd1")
+region_rect = Rect2(0, 0, 500, 500)
+patch_margin_left = 52
+patch_margin_top = 52
+patch_margin_right = 51
+patch_margin_bottom = 52

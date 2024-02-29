@@ -1,0 +1,88 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://c1n1fu0qqediq"]
+
+[ext_resource type="Texture2D" uid="uid://b1gk7yfskd8p3" path="res://assets/ui/gameboard/coin_sprite_sheet.png" id="1_t2iy8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsmtg"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(308, 308, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm8r0"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(154, 308, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s5to"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(0, 308, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwqjf"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(462, 154, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s4kh"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(308, 154, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wewr"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(154, 154, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebs72"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(0, 154, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g53kr"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(462, 0, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u8fw"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(308, 0, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vkx2"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(154, 0, 154, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yge1a"]
+atlas = ExtResource("1_t2iy8")
+region = Rect2(0, 0, 154, 154)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsmtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm8r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s5to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwqjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s4kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wewr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebs72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g53kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u8fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vkx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yge1a")
+}],
+"loop": false,
+"name": &"coin_flip",
+"speed": 60.0
+}]

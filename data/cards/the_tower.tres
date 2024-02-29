@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://cngbvoyvbgogi"]
+
+[ext_resource type="Texture2D" uid="uid://bcp3wbpwph58o" path="res://assets/sprites/cards/tower.png" id="1_qhii3"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_1jc2m"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_772n4"]
+[ext_resource type="Resource" uid="uid://chpr5uue01ill" path="res://data/keyword/shield.tres" id="3_w10wa"]
+[ext_resource type="Resource" uid="uid://doh4b516ln2hl" path="res://data/keyword/switch_card_copy2.1.tres" id="4_17waa"]
+[ext_resource type="AudioStream" uid="uid://cqx6mxy7edfn2" path="res://Audio/Signatures/SignatureTower.ogg" id="6_er3ol"]
+
+[resource]
+script = ExtResource("2_1jc2m")
+name = "The Tower"
+description = "\"May you find sturdiness amidst change.\""
+artwork = ExtResource("1_qhii3")
+cost = -5
+attack = 2
+health = 6
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_w10wa"), ExtResource("4_17waa")])
+spawn_frequency = 80
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_er3ol")
+keyword_slot_texture = ExtResource("2_772n4")

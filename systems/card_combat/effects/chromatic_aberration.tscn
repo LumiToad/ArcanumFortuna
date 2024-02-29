@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://p7soawcmcth1"]
+
+[ext_resource type="Material" uid="uid://dcfv0vvexhq5y" path="res://shaders/chromatic_aberration.tres" id="1_rxwg2"]
+
+[node name="ChromaticAberration" type="ColorRect"]
+material = ExtResource("1_rxwg2")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2

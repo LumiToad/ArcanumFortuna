@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://bkyesrjdlfc1n"]
+
+[ext_resource type="Texture2D" uid="uid://00qa0ma7gk20" path="res://assets/sprites/cards/card_swords_10.png" id="1_8kp1m"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_y4nh4"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_yo3u1"]
+
+[resource]
+script = ExtResource("1_y4nh4")
+name = "Ten of Swords"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_8kp1m")
+cost = 4
+attack = 3
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_yo3u1")

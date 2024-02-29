@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnnxq5nxppklt"]
+
+[ext_resource type="Material" uid="uid://ygwq26b11i74" path="res://assets/sprites/vfx/overlays/dust_particles.tres" id="1_48xea"]
+[ext_resource type="Texture2D" uid="uid://bhbdcokx6wolh" path="res://assets/sprites/vfx/dust_particle_2.png" id="1_fppfi"]
+
+[sub_resource type="Environment" id="Environment_hnxb4"]
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_bloom = 1.0
+glow_hdr_threshold = 1.5
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+amount = 20
+process_material = ExtResource("1_48xea")
+texture = ExtResource("1_fppfi")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hnxb4")

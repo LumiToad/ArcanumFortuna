@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=4 format=3 uid="uid://dxi48twwh3fci"]
+
+[ext_resource type="Resource" uid="uid://b5ytokrx5why5" path="res://data/cards/page_of_flags.tres" id="5_tsa06"]
+[ext_resource type="Resource" uid="uid://biih8ndy7cwuu" path="res://data/cards/death.tres" id="7_u04s8"]
+[ext_resource type="Script" path="res://data/scripts/player_data.gd" id="9_sqsux"]
+
+[resource]
+script = ExtResource("9_sqsux")
+cardStack = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("5_tsa06"), ExtResource("5_tsa06"), ExtResource("7_u04s8")])
+health = 50.0
+start_hand_size = 1
+draw_amount = 1
+karma = 0
+draw_rng_seed = 1337
+currency = 0

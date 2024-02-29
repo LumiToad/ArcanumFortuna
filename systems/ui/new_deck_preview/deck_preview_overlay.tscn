@@ -1,0 +1,361 @@
+[gd_scene load_steps=27 format=3 uid="uid://cbsn1r2h288lq"]
+
+[ext_resource type="Script" path="res://systems/ui/new_deck_preview/deck_preview_overlay.gd" id="1_mj3a2"]
+[ext_resource type="PackedScene" uid="uid://djimo5osb2i1s" path="res://systems/ui/new_deck_preview/deck_preview_card.tscn" id="2_ilop0"]
+[ext_resource type="Texture2D" uid="uid://bvnruxmnnshsm" path="res://assets/ui/underlays/deck_tab.png" id="3_2fnly"]
+[ext_resource type="Texture2D" uid="uid://863840k0cerb" path="res://assets/ui/underlays/deck_underlay.png" id="4_cswfr"]
+[ext_resource type="Texture2D" uid="uid://ccpoxcmcvxn4u" path="res://assets/ui/buttons/deck_k_normal.png" id="5_0lvex"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="5_1v447"]
+[ext_resource type="Texture2D" uid="uid://dvna27tlep0o8" path="res://assets/ui/buttons/deck_k_hover.png" id="6_at3c3"]
+[ext_resource type="Texture2D" uid="uid://b28mteee5836h" path="res://assets/ui/buttons/deck_k_focus.png" id="7_l4icu"]
+[ext_resource type="Texture2D" uid="uid://ih5nm4ivt1ok" path="res://assets/ui/buttons/deck_atk_normal.png" id="8_mmhbq"]
+[ext_resource type="Texture2D" uid="uid://hgfrbu6t8huw" path="res://assets/ui/buttons/deck_atk_hover.png" id="9_xssl8"]
+[ext_resource type="Texture2D" uid="uid://dxsy12r3wtcd" path="res://assets/ui/buttons/deck_atk_focus.png" id="10_c0sn4"]
+[ext_resource type="Texture2D" uid="uid://cm4okmxdsbf4e" path="res://assets/ui/buttons/deck_hp_normal.png" id="11_utsbn"]
+[ext_resource type="Texture2D" uid="uid://d32jj70uqug7p" path="res://assets/ui/buttons/deck_hp_hover.png" id="12_fyjpl"]
+[ext_resource type="PackedScene" uid="uid://cecd2obec3kr0" path="res://systems/ui/new_deck_preview/player_deck.tscn" id="12_odq63"]
+[ext_resource type="Texture2D" uid="uid://dgyfujgafmpvi" path="res://assets/ui/buttons/deck_hp_focus.png" id="13_bnowr"]
+[ext_resource type="Texture2D" uid="uid://b16jfdfiacscf" path="res://assets/ui/icons/close_window.png" id="15_eqh66"]
+[ext_resource type="Texture2D" uid="uid://bbayxaoe15g4b" path="res://assets/ui/icons/close_window_pressed.png" id="16_lrcsa"]
+[ext_resource type="Texture2D" uid="uid://p772nvy8b7b4" path="res://assets/ui/icons/close_window_hover.png" id="17_pnl16"]
+[ext_resource type="Texture2D" uid="uid://bjm1q37flpaxq" path="res://assets/ui/buttons/default_button_normal.png" id="18_4n4xa"]
+[ext_resource type="Texture2D" uid="uid://ih2700jnklo8" path="res://assets/ui/buttons/default_button_pressed.png" id="19_eo4s1"]
+[ext_resource type="Texture2D" uid="uid://bavfmynt0nuxn" path="res://assets/ui/buttons/default_button_hover.png" id="20_puisa"]
+[ext_resource type="Texture2D" uid="uid://df2r4ns72cbex" path="res://assets/ui/buttons/default_button_disabled.png" id="21_7xi0r"]
+
+[sub_resource type="Animation" id="Animation_7857e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeckPreview:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CloseWindowButton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloseWindowButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_h107q"]
+resource_name = "close_deck_preview"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeckPreview:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 1035)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CloseWindowButton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloseWindowButton:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_aqm1v"]
+resource_name = "open_deck_preview"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeckPreview:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1008), Vector2(0, 261.333), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CloseWindowButton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloseWindowButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nkvf"]
+_data = {
+"RESET": SubResource("Animation_7857e"),
+"close_deck_preview": SubResource("Animation_h107q"),
+"open_deck_preview": SubResource("Animation_aqm1v")
+}
+
+[node name="DeckPreviewOverlay" type="CanvasLayer"]
+script = ExtResource("1_mj3a2")
+deck_card_template = ExtResource("2_ilop0")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.509804)
+
+[node name="DeckPreviewOverlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DeckPreview" type="Control" parent="DeckPreviewOverlay"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0004
+
+[node name="DeckPreviewFrame" type="Control" parent="DeckPreviewOverlay/DeckPreview"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = -20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="DeckPreviewOverlay/DeckPreview/DeckPreviewFrame"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -1008.0
+offset_right = 160.0
+offset_bottom = -928.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_2fnly")
+
+[node name="DeckPreviewUnderlay" type="TextureRect" parent="DeckPreviewOverlay/DeckPreview/DeckPreviewFrame/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -590.5
+offset_top = -61.0
+offset_right = 590.5
+offset_bottom = 1039.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+texture = ExtResource("4_cswfr")
+
+[node name="Label" type="Label" parent="DeckPreviewOverlay/DeckPreview/DeckPreviewFrame"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -1015.0
+offset_right = 151.0
+offset_bottom = -944.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_1v447")
+theme_override_font_sizes/font_size = 45
+text = "Your Deck"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SortCategories" type="Control" parent="DeckPreviewOverlay/DeckPreview"]
+anchors_preset = 0
+offset_left = -46.0
+offset_right = -6.0
+offset_bottom = 40.0
+
+[node name="SortByKarmaButton" type="TextureButton" parent="DeckPreviewOverlay/DeckPreview/SortCategories"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -619.0
+offset_top = -832.0
+offset_right = -539.0
+offset_bottom = -752.0
+texture_normal = ExtResource("5_0lvex")
+texture_hover = ExtResource("6_at3c3")
+texture_focused = ExtResource("7_l4icu")
+
+[node name="SortByAttackButton" type="TextureButton" parent="DeckPreviewOverlay/DeckPreview/SortCategories"]
+layout_mode = 0
+offset_left = -619.0
+offset_top = -736.0
+offset_right = -539.0
+offset_bottom = -656.0
+texture_normal = ExtResource("8_mmhbq")
+texture_hover = ExtResource("9_xssl8")
+texture_focused = ExtResource("10_c0sn4")
+
+[node name="SortByHealthButton" type="TextureButton" parent="DeckPreviewOverlay/DeckPreview/SortCategories"]
+layout_mode = 0
+offset_left = -619.0
+offset_top = -640.0
+offset_right = -539.0
+offset_bottom = -560.0
+texture_normal = ExtResource("11_utsbn")
+texture_hover = ExtResource("12_fyjpl")
+texture_focused = ExtResource("13_bnowr")
+
+[node name="PlayerDeck" parent="DeckPreviewOverlay/DeckPreview" instance=ExtResource("12_odq63")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -510.0
+offset_top = -950.0
+offset_right = 484.0
+offset_bottom = -40.0
+grow_vertical = 0
+
+[node name="CloseWindowButton" type="TextureButton" parent="DeckPreviewOverlay"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 864.0
+offset_top = -1048.0
+offset_right = 928.0
+offset_bottom = -984.0
+grow_horizontal = 0
+mouse_filter = 1
+disabled = true
+texture_normal = ExtResource("15_eqh66")
+texture_pressed = ExtResource("16_lrcsa")
+texture_hover = ExtResource("17_pnl16")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DeckPreviewOverlay"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_4nkvf")
+}
+
+[node name="SelectCardsToBurnShopButton" type="TextureButton" parent="DeckPreviewOverlay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 624.0
+offset_top = -192.0
+offset_right = 944.0
+offset_bottom = -112.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+texture_normal = ExtResource("18_4n4xa")
+texture_pressed = ExtResource("19_eo4s1")
+texture_hover = ExtResource("20_puisa")
+texture_disabled = ExtResource("21_7xi0r")
+
+[node name="Label" type="Label" parent="DeckPreviewOverlay/SelectCardsToBurnShopButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_1v447")
+theme_override_font_sizes/font_size = 32
+text = "Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Background" to="." method="_on_background_gui_input"]
+[connection signal="button_up" from="DeckPreviewOverlay/DeckPreview/SortCategories/SortByKarmaButton" to="." method="_on_sort_by_karma_button_button_up"]
+[connection signal="button_up" from="DeckPreviewOverlay/DeckPreview/SortCategories/SortByAttackButton" to="." method="_on_sort_by_attack_button_button_up"]
+[connection signal="button_up" from="DeckPreviewOverlay/DeckPreview/SortCategories/SortByHealthButton" to="." method="_on_sort_by_health_button_button_up"]
+[connection signal="button_up" from="DeckPreviewOverlay/CloseWindowButton" to="." method="_on_close_window_button_button_up"]
+[connection signal="button_up" from="DeckPreviewOverlay/SelectCardsToBurnShopButton" to="." method="_on_select_cards_to_burn_shop_button_button_up"]

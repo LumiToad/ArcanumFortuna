@@ -1,0 +1,336 @@
+[gd_scene load_steps=9 format=3 uid="uid://biy5pjrvhi2le"]
+
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="1_1lro1"]
+[ext_resource type="Script" path="res://systems/ui/menus/options_menu.gd" id="1_38pu7"]
+[ext_resource type="Script" path="res://systems/ui/menus/utils/bus_slider.gd" id="1_rj2ur"]
+[ext_resource type="Script" path="res://systems/ui/menus/utils/resolution_selection.gd" id="2_pjhbc"]
+[ext_resource type="Script" path="res://systems/ui/menus/utils/fullscreen_selection.gd" id="3_lts5j"]
+[ext_resource type="Script" path="res://systems/ui/visible_for_feature.gd" id="3_wit75"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="6_ym477"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0j42"]
+bg_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+corner_detail = 1
+
+[node name="OptionsMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_38pu7")
+
+[node name="OptionsMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1lro1")
+
+[node name="TabContainer" type="TabContainer" parent="OptionsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/side_margin = 12
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/panel = SubResource("StyleBoxFlat_t0j42")
+
+[node name="Audio" type="Control" parent="OptionsMenu/TabContainer"]
+layout_mode = 2
+
+[node name="sliders" type="VBoxContainer" parent="OptionsMenu/TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slider_master" type="HBoxContainer" parent="OptionsMenu/TabContainer/Audio/sliders"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="enabled" type="CheckBox" parent="OptionsMenu/TabContainer/Audio/sliders/slider_master"]
+layout_mode = 2
+button_pressed = true
+text = "Master"
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_master/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_master/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="master_slider" type="HSlider" parent="OptionsMenu/TabContainer/Audio/sliders/slider_master"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_rj2ur")
+
+[node name="slider_music" type="HBoxContainer" parent="OptionsMenu/TabContainer/Audio/sliders"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="enabled" type="CheckBox" parent="OptionsMenu/TabContainer/Audio/sliders/slider_music"]
+layout_mode = 2
+button_pressed = true
+text = "Music"
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_music/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_music/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="music" type="HSlider" parent="OptionsMenu/TabContainer/Audio/sliders/slider_music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_rj2ur")
+target_bus = "Music"
+
+[node name="slider_bgfx" type="HBoxContainer" parent="OptionsMenu/TabContainer/Audio/sliders"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="enabled" type="CheckBox" parent="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx"]
+layout_mode = 2
+button_pressed = true
+text = "Ambience"
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="bgx" type="HSlider" parent="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_rj2ur")
+target_bus = "BackgroundFX"
+
+[node name="slider_ui" type="HBoxContainer" parent="OptionsMenu/TabContainer/Audio/sliders"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="enabled" type="CheckBox" parent="OptionsMenu/TabContainer/Audio/sliders/slider_ui"]
+layout_mode = 2
+button_pressed = true
+text = "Diagetics"
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_ui/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_ui/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="ui" type="HSlider" parent="OptionsMenu/TabContainer/Audio/sliders/slider_ui"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_rj2ur")
+target_bus = "UI"
+
+[node name="slider_vfx" type="HBoxContainer" parent="OptionsMenu/TabContainer/Audio/sliders"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="enabled" type="CheckBox" parent="OptionsMenu/TabContainer/Audio/sliders/slider_vfx"]
+layout_mode = 2
+button_pressed = true
+text = "SFXOther"
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="vfx" type="HSlider" parent="OptionsMenu/TabContainer/Audio/sliders/slider_vfx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_rj2ur")
+target_bus = "VFX"
+
+[node name="slider_voices" type="HBoxContainer" parent="OptionsMenu/TabContainer/Audio/sliders"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="enabled" type="CheckBox" parent="OptionsMenu/TabContainer/Audio/sliders/slider_voices"]
+layout_mode = 2
+button_pressed = true
+text = "UI"
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_voices/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Audio/sliders/slider_voices/enabled" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="voices" type="HSlider" parent="OptionsMenu/TabContainer/Audio/sliders/slider_voices"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_rj2ur")
+target_bus = "Voices"
+
+[node name="Video" type="Control" parent="OptionsMenu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VideoOptions" type="VBoxContainer" parent="OptionsMenu/TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResolutionSelection" type="HBoxContainer" parent="OptionsMenu/TabContainer/Video/VideoOptions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/TabContainer/Video/VideoOptions/ResolutionSelection"]
+layout_mode = 2
+text = "Resolution:"
+
+[node name="resolution" type="OptionButton" parent="OptionsMenu/TabContainer/Video/VideoOptions/ResolutionSelection"]
+layout_mode = 2
+script = ExtResource("2_pjhbc")
+resolutions = Array[Vector2i]([Vector2i(640, 480), Vector2i(1024, 600), Vector2i(1280, 720), Vector2i(1920, 1080), Vector2i(3840, 2160), Vector2i(7680, 4320)])
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Video/VideoOptions/ResolutionSelection/resolution" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Video/VideoOptions/ResolutionSelection/resolution" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="FullscreenSelection" type="HBoxContainer" parent="OptionsMenu/TabContainer/Video/VideoOptions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsMenu/TabContainer/Video/VideoOptions/FullscreenSelection"]
+layout_mode = 2
+text = "Window Mode:"
+
+[node name="fullscreen_mode" type="OptionButton" parent="OptionsMenu/TabContainer/Video/VideoOptions/FullscreenSelection"]
+layout_mode = 2
+script = ExtResource("3_lts5j")
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer/Video/VideoOptions/FullscreenSelection/fullscreen_mode" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer/Video/VideoOptions/FullscreenSelection/fullscreen_mode" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "pressed"
+
+[node name="HideInWeb" type="Node" parent="OptionsMenu/TabContainer/Video"]
+script = ExtResource("3_wit75")
+show_or_hide = 0
+
+[node name="Accessibilty" type="Control" parent="OptionsMenu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="hoverSound" parent="OptionsMenu/TabContainer" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+
+[node name="clickSound" parent="OptionsMenu/TabContainer" instance=ExtResource("6_ym477")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+
+[node name="BtnBack" type="Button" parent="OptionsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[connection signal="tab_clicked" from="OptionsMenu/TabContainer" to="OptionsMenu/TabContainer/clickSound" method="execute" unbinds=1]
+[connection signal="tab_hovered" from="OptionsMenu/TabContainer" to="OptionsMenu/TabContainer/hoverSound" method="execute" unbinds=1]
+[connection signal="toggled" from="OptionsMenu/TabContainer/Audio/sliders/slider_master/enabled" to="OptionsMenu/TabContainer/Audio/sliders/slider_master/master_slider" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/TabContainer/Audio/sliders/slider_master/master_slider" to="OptionsMenu/TabContainer/Audio/sliders/slider_master/master_slider" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/TabContainer/Audio/sliders/slider_master/master_slider" to="OptionsMenu/TabContainer/Audio/sliders/slider_master/master_slider" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/TabContainer/Audio/sliders/slider_music/enabled" to="OptionsMenu/TabContainer/Audio/sliders/slider_music/music" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/TabContainer/Audio/sliders/slider_music/music" to="OptionsMenu/TabContainer/Audio/sliders/slider_music/music" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/TabContainer/Audio/sliders/slider_music/music" to="OptionsMenu/TabContainer/Audio/sliders/slider_music/music" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/enabled" to="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/bgx" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/bgx" to="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/bgx" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/bgx" to="OptionsMenu/TabContainer/Audio/sliders/slider_bgfx/bgx" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/TabContainer/Audio/sliders/slider_ui/enabled" to="OptionsMenu/TabContainer/Audio/sliders/slider_ui/ui" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/TabContainer/Audio/sliders/slider_ui/ui" to="OptionsMenu/TabContainer/Audio/sliders/slider_ui/ui" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/TabContainer/Audio/sliders/slider_ui/ui" to="OptionsMenu/TabContainer/Audio/sliders/slider_ui/ui" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/enabled" to="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/vfx" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/vfx" to="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/vfx" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/vfx" to="OptionsMenu/TabContainer/Audio/sliders/slider_vfx/vfx" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsMenu/TabContainer/Audio/sliders/slider_voices/enabled" to="OptionsMenu/TabContainer/Audio/sliders/slider_voices/voices" method="_on_check_box_toggled"]
+[connection signal="drag_started" from="OptionsMenu/TabContainer/Audio/sliders/slider_voices/voices" to="OptionsMenu/TabContainer/Audio/sliders/slider_voices/voices" method="_on_drag_started"]
+[connection signal="value_changed" from="OptionsMenu/TabContainer/Audio/sliders/slider_voices/voices" to="OptionsMenu/TabContainer/Audio/sliders/slider_voices/voices" method="_on_value_changed"]
+[connection signal="item_selected" from="OptionsMenu/TabContainer/Video/VideoOptions/ResolutionSelection/resolution" to="OptionsMenu/TabContainer/Video/VideoOptions/ResolutionSelection/resolution" method="_on_item_selected"]
+[connection signal="item_selected" from="OptionsMenu/TabContainer/Video/VideoOptions/FullscreenSelection/fullscreen_mode" to="OptionsMenu/TabContainer/Video/VideoOptions/FullscreenSelection/fullscreen_mode" method="_on_item_selected"]
+[connection signal="button_up" from="OptionsMenu/BtnBack" to="." method="_on_btn_back_button_up"]

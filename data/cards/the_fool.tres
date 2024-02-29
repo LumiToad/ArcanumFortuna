@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://knsiayub4ihe"]
+
+[ext_resource type="Texture2D" uid="uid://c3q8ba7jcbwff" path="res://assets/sprites/cards/fool.png" id="1_oq4bk"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_skw0c"]
+[ext_resource type="AudioStream" uid="uid://ds470yc2lk08s" path="res://assets/sounds/cards/voices/the_fool.ogg" id="3_4ab0l"]
+
+[resource]
+script = ExtResource("2_skw0c")
+name = "The Fool"
+description = "\"Where journey begins.\""
+artwork = ExtResource("1_oq4bk")
+cost = -1
+attack = 3
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("3_4ab0l")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=11 format=3 uid="uid://bl6n0skxc40jg"]
+
+[ext_resource type="Resource" uid="uid://d4guw6tm3pttg" path="res://data/cards/king_of_daggers.tres" id="2_1ssor"]
+[ext_resource type="Resource" uid="uid://bjlneh5al3d8x" path="res://data/cards/queen_of_daggers.tres" id="3_2130d"]
+[ext_resource type="Resource" uid="uid://s2luhru0dtce" path="res://data/cards/knight_of_daggers.tres" id="4_322q8"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="6_mi4xt"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="6_v62ee"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="7_snvh3"]
+[ext_resource type="Resource" uid="uid://clbklsr1u3gn5" path="res://data/cards/page_of_daggers.tres" id="9_x6pa2"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="9_x7u5y"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="12_04j4s"]
+[ext_resource type="Resource" uid="uid://yh1e2xgkqn0b" path="res://data/enemy/StrategyModules/enemy_elite_karma_module.tres" id="13_to0se"]
+
+[resource]
+script = ExtResource("12_04j4s")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("9_x6pa2"), ExtResource("2_1ssor"), ExtResource("3_2130d"), ExtResource("4_322q8"), ExtResource("9_x7u5y"), ExtResource("6_v62ee"), ExtResource("7_snvh3"), ExtResource("6_mi4xt")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("13_to0se")])

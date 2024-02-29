@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw6nap050sofb"]
+
+[ext_resource type="PackedScene" uid="uid://dl86q0oq58j6q" path="res://systems/card_combat/cards/card_base.tscn" id="1_fh83p"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="2_n644p"]
+[ext_resource type="Script" path="res://systems/card_combat/cards/preview_card.gd" id="2_nvahl"]
+[ext_resource type="Texture2D" uid="uid://dbyi1351k1yo4" path="res://assets/ui/icons/karma_icon.png" id="3_1wpwd"]
+[ext_resource type="Texture2D" uid="uid://bbhiw0qkg6diy" path="res://assets/ui/icons/hp_icon.png" id="4_yuw8o"]
+[ext_resource type="Texture2D" uid="uid://d265weqofswe6" path="res://assets/ui/icons/atk_icon.png" id="6_fax5g"]
+
+[node name="PreviewCard" instance=ExtResource("1_fh83p")]
+mouse_filter = 2
+script = ExtResource("2_nvahl")
+buff_color = Color(0.160784, 0.858824, 0.517647, 1)
+debuff_color = Color(0.541176, 0, 0, 1)
+
+[node name="SwitchFrame" parent="Artwork" index="0"]
+offset_left = -11.0
+
+[node name="Cost" parent="." index="2"]
+offset_left = 17.2
+offset_top = -48.0
+offset_right = 57.2
+offset_bottom = -8.0
+texture = ExtResource("3_1wpwd")
+
+[node name="Health" parent="." index="3"]
+texture = ExtResource("4_yuw8o")
+
+[node name="BaseHealthLabel" type="Label" parent="Health" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.425
+offset_top = -10.8188
+offset_right = 0.425003
+offset_bottom = -10.8188
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_n644p")
+theme_override_colors/font_color = Color(0.541176, 0.541176, 0.541176, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthCost" parent="Health" index="1"]
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+
+[node name="Attack" parent="." index="4"]
+texture = ExtResource("6_fax5g")
+
+[node name="BaseAttackLabel" type="Label" parent="Attack" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.425
+offset_top = -10.8188
+offset_right = 0.425003
+offset_bottom = -10.8188
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_n644p")
+theme_override_colors/font_color = Color(0.541176, 0.541176, 0.541176, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackCost" parent="Attack" index="1"]
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+
+[node name="ShowCardTooltip" parent="." index="14"]
+visible = false
+
+[editable path="KeyWordSlots/KeywordSlot1/KeywordIcon"]

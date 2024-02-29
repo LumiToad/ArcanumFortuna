@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CardCopySwitch" load_steps=8 format=3 uid="uid://doh4b516ln2hl"]
+
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="1_2qk1t"]
+[ext_resource type="PackedScene" uid="uid://p7soawcmcth1" path="res://systems/card_combat/effects/chromatic_aberration.tscn" id="1_xs7dq"]
+[ext_resource type="Resource" uid="uid://cpxcddsxlgqw6" path="res://data/keyword/DrainATK1.tres" id="2_l3d65"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/switch/card_copy_switch.gd" id="2_xqkiv"]
+[ext_resource type="Material" uid="uid://bi84ni64yadvs" path="res://shaders/gradient_shader.tres" id="3_y4ejd"]
+[ext_resource type="Texture2D" uid="uid://d3gn7cjww2f6i" path="res://assets/ui/icons/keyword_slots_reversed.png" id="4_4g4gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj8qu"]
+atlas = ExtResource("1_2qk1t")
+region = Rect2(0, 264, 66, 66)
+
+[resource]
+script = ExtResource("2_xqkiv")
+required_card_count = 2
+attack_difference = 0
+health_difference = 0
+keywords_to_gain = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_l3d65")])
+keywords_to_remove = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+tranform_delay = 1.0
+transformed_artwork_shader = ExtResource("3_y4ejd")
+transformed_keyword_slot_atlas = ExtResource("4_4g4gv")
+chromatic_scene = ExtResource("1_xs7dq")
+rotation_duration = 0.8
+icon_rotation = 1.0
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Awaken: Identity"
+description = "This card will awaken once its owner controls %d copies of it."
+icon = SubResource("AtlasTexture_tj8qu")
+highlight_duration = 0.5

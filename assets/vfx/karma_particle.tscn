@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b84sklippd45m"]
+
+[ext_resource type="Material" uid="uid://n67jhv3xv2db" path="res://assets/vfx/materials/karma_particle.tres" id="1_xq6yt"]
+[ext_resource type="Texture2D" uid="uid://c77cyj3pckb7t" path="res://assets/sprites/vfx/big_blob_texture05.png" id="2_1fy5o"]
+[ext_resource type="Script" path="res://assets/vfx/karma_particle.gd" id="3_ihdd4"]
+[ext_resource type="Material" uid="uid://bvhyxtr0b6ktj" path="res://assets/vfx/materials/trail.tres" id="3_nt8vu"]
+[ext_resource type="FontFile" uid="uid://ds6fkaks0twky" path="res://assets/ui/fonts/RomanAntique.ttf" id="6_3k6wd"]
+
+[node name="KarmaParticle" type="GPUParticles2D"]
+modulate = Color(0.6, 0, 0.603922, 1)
+z_index = 5
+amount = 100
+process_material = ExtResource("1_xq6yt")
+texture = ExtResource("2_1fy5o")
+lifetime = 3.0
+visibility_rect = Rect2(-42.6722, -41.149, 83.2858, 82.9271)
+local_coords = true
+script = ExtResource("3_ihdd4")
+
+[node name="trail" type="GPUParticles2D" parent="."]
+z_index = -1
+scale = Vector2(0.185, 0.185)
+amount = 32
+process_material = ExtResource("3_nt8vu")
+texture = ExtResource("2_1fy5o")
+lifetime = 0.65
+trail_sections = 2
+
+[node name="text" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_3k6wd")
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1

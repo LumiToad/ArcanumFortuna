@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bi84ni64yadvs"]
+
+[ext_resource type="Shader" path="res://shaders/switch_gradient.gdshader" id="1_7m5mu"]
+
+[sub_resource type="Gradient" id="Gradient_h16r0"]
+offsets = PackedFloat32Array(0, 0.056962, 0.122363, 0.166667, 0.21097, 0.276371, 0.360759, 0.438819, 0.740506, 0.869198, 1)
+colors = PackedColorArray(0, 0, 0, 1, 4.51226e-09, 0.0227404, 0.0319893, 1, 0.0457105, 2.37044e-06, 0.274823, 1, 0.127517, 0.0755334, 0.146813, 1, 0.0627316, 0.189742, 0.230845, 1, 0.400776, 0.000563322, 0.509388, 1, 0.116482, 0.272053, 0.469044, 1, 1.54018e-06, 0.430209, 0.59857, 1, 0, 0.904438, 0.893257, 1, 0.182317, 1, 0.679188, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kw4lj"]
+gradient = SubResource("Gradient_h16r0")
+use_hdr = true
+
+[sub_resource type="Gradient" id="Gradient_5g0bs"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pu6v4"]
+gradient = SubResource("Gradient_5g0bs")
+
+[resource]
+shader = ExtResource("1_7m5mu")
+shader_parameter/lerper = 0.05
+shader_parameter/pal0 = SubResource("GradientTexture1D_kw4lj")
+shader_parameter/pal1 = SubResource("GradientTexture1D_pu6v4")

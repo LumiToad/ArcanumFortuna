@@ -1,0 +1,148 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=26 format=3 uid="uid://dun0e4lm0kt3m"]
+
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="1_1bako"]
+[ext_resource type="Resource" uid="uid://clbklsr1u3gn5" path="res://data/cards/page_of_daggers.tres" id="1_ox2by"]
+[ext_resource type="Resource" uid="uid://cdyp516wjxron" path="res://data/cards/page_of_thorns.tres" id="2_dwvvw"]
+[ext_resource type="Resource" uid="uid://3t5jry37we2f" path="res://data/cards/the_chariot.tres" id="2_moesw"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="2_qdad0"]
+[ext_resource type="Resource" uid="uid://c0p160e6m2l0t" path="res://data/cards/the_magician.tres" id="3_ao8qt"]
+[ext_resource type="Resource" uid="uid://bdbn32r8x8g4v" path="res://data/cards/the_high_priestess.tres" id="5_5526f"]
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="6_naytw"]
+[ext_resource type="Resource" uid="uid://cyiqtt8grlnlq" path="res://data/cards/the_lovers.tres" id="7_he3dc"]
+[ext_resource type="Resource" uid="uid://b5ytokrx5why5" path="res://data/cards/page_of_flags.tres" id="7_sy2da"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="8_2dod3"]
+[ext_resource type="Resource" uid="uid://biih8ndy7cwuu" path="res://data/cards/death.tres" id="12_2ytgw"]
+[ext_resource type="Script" path="res://data/scripts/enemy_data.gd" id="16_kjdst"]
+[ext_resource type="Script" path="res://data/scripts/enemy_stats.gd" id="17_eu73n"]
+
+[sub_resource type="Curve" id="Curve_q27p5"]
+min_value = 0.2
+max_value = 0.4
+_data = [Vector2(0, 0.213773), 0.0, 0.123943, 0, 0, Vector2(1, 0.4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_qes8a"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 2.0
+card_level_2_frequency = 1.0
+card_level_3_frequency = 0.0
+max_row = 5
+spawn_chance_by_row = SubResource("Curve_q27p5")
+min_enemies_per_row = 0
+max_enemies_per_row = 3
+min_total_enemies = 4
+max_total_enemies = 8
+min_health = 16
+max_health = 24
+
+[sub_resource type="Curve" id="Curve_b36kp"]
+min_value = 0.25
+max_value = 0.4
+_data = [Vector2(0, 0.25), 0.0, 0.369967, 0, 0, Vector2(1, 0.4), 0.176266, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_g2q6x"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 1.0
+card_level_2_frequency = 1.0
+card_level_3_frequency = 0.0
+max_row = 4
+spawn_chance_by_row = SubResource("Curve_b36kp")
+min_enemies_per_row = 0
+max_enemies_per_row = 3
+min_total_enemies = 4
+max_total_enemies = 8
+min_health = 17
+max_health = 30
+
+[sub_resource type="Curve" id="Curve_ckda8"]
+min_value = 0.2
+max_value = 0.4
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 0.4), 0.0686423, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_1jykb"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 3.0
+card_level_2_frequency = 3.0
+card_level_3_frequency = 1.0
+max_row = 6
+spawn_chance_by_row = SubResource("Curve_ckda8")
+min_enemies_per_row = 1
+max_enemies_per_row = 3
+min_total_enemies = 6
+max_total_enemies = 10
+min_health = 20
+max_health = 30
+
+[sub_resource type="Curve" id="Curve_8xs0h"]
+min_value = 0.2
+max_value = 0.4
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 0.4), 0.123204, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_21y0a"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 2.0
+card_level_2_frequency = 3.0
+card_level_3_frequency = 1.0
+max_row = 7
+spawn_chance_by_row = SubResource("Curve_8xs0h")
+min_enemies_per_row = 1
+max_enemies_per_row = 4
+min_total_enemies = 7
+max_total_enemies = 12
+min_health = 25
+max_health = 33
+
+[sub_resource type="Resource" id="Resource_06p36"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 2.0
+card_level_2_frequency = 2.0
+card_level_3_frequency = 1.0
+max_row = 7
+spawn_chance_by_row = SubResource("Curve_8xs0h")
+min_enemies_per_row = 1
+max_enemies_per_row = 4
+min_total_enemies = 8
+max_total_enemies = 14
+min_health = 30
+max_health = 36
+
+[sub_resource type="Resource" id="Resource_ogi7t"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 2.0
+card_level_2_frequency = 3.0
+card_level_3_frequency = 2.0
+max_row = 7
+spawn_chance_by_row = SubResource("Curve_8xs0h")
+min_enemies_per_row = 1
+max_enemies_per_row = 4
+min_total_enemies = 10
+max_total_enemies = 14
+min_health = 35
+max_health = 42
+
+[sub_resource type="Resource" id="Resource_ylaks"]
+script = ExtResource("17_eu73n")
+card_level_1_frequency = 2.0
+card_level_2_frequency = 2.0
+card_level_3_frequency = 2.0
+max_row = 7
+spawn_chance_by_row = SubResource("Curve_8xs0h")
+min_enemies_per_row = 1
+max_enemies_per_row = 5
+min_total_enemies = 11
+max_total_enemies = 16
+min_health = 38
+max_health = 45
+
+[resource]
+script = ExtResource("16_kjdst")
+level1_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_ox2by"), ExtResource("2_dwvvw"), ExtResource("3_ao8qt"), ExtResource("2_qdad0"), ExtResource("5_5526f")])
+level2_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("6_naytw"), ExtResource("7_sy2da"), ExtResource("8_2dod3"), ExtResource("1_1bako"), ExtResource("7_he3dc"), ExtResource("2_moesw"), ExtResource("12_2ytgw")])
+level3_cards = Array[Resource("res://data/scripts/card_data.gd")]([])
+gold_reward = 8
+stats_per_level = Array[ExtResource("17_eu73n")]([SubResource("Resource_qes8a"), SubResource("Resource_g2q6x"), SubResource("Resource_1jykb"), SubResource("Resource_21y0a"), SubResource("Resource_06p36"), SubResource("Resource_ogi7t"), SubResource("Resource_ylaks")])
+level = 0
+rng_seed = 171236

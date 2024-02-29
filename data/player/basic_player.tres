@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=10 format=3 uid="uid://22opo18s7wkj"]
+
+[ext_resource type="Script" path="res://data/scripts/player_data.gd" id="1_osl3y"]
+[ext_resource type="Resource" uid="uid://bdbn32r8x8g4v" path="res://data/cards/the_high_priestess.tres" id="2_vv5so"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="3_62ngx"]
+[ext_resource type="Resource" uid="uid://clbklsr1u3gn5" path="res://data/cards/page_of_daggers.tres" id="3_v3hoi"]
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="4_xipei"]
+[ext_resource type="Resource" uid="uid://b5ytokrx5why5" path="res://data/cards/page_of_flags.tres" id="5_qnemy"]
+[ext_resource type="Resource" uid="uid://cdyp516wjxron" path="res://data/cards/page_of_thorns.tres" id="6_sp6wk"]
+[ext_resource type="Resource" uid="uid://biih8ndy7cwuu" path="res://data/cards/death.tres" id="7_e7e7i"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="8_g8a2p"]
+
+[resource]
+script = ExtResource("1_osl3y")
+cardStack = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("2_vv5so"), ExtResource("3_62ngx"), ExtResource("3_v3hoi"), ExtResource("4_xipei"), ExtResource("5_qnemy"), ExtResource("6_sp6wk"), ExtResource("7_e7e7i"), ExtResource("8_g8a2p")])
+health = 50.0
+start_hand_size = 4
+draw_amount = 1
+karma = 0
+draw_rng_seed = 1337
+currency = 0

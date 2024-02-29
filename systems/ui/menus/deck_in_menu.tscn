@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://etc28xe2dqhi"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/deck_in_menu.gd" id="1_wtint"]
+[ext_resource type="PackedScene" uid="uid://vnsgfexxjwpl" path="res://systems/card_combat/copy_of_card_stack.tscn" id="2_4h1w3"]
+[ext_resource type="PackedScene" uid="uid://cbsn1r2h288lq" path="res://systems/ui/new_deck_preview/deck_preview_overlay.tscn" id="2_as7na"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnkxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86mu1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p2d05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yql7b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21rxr"]
+
+[node name="Deck" type="CanvasLayer"]
+process_mode = 1
+script = ExtResource("1_wtint")
+deck_preview_overlay = ExtResource("2_as7na")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 1
+z_index = 100
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="Control"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -695.0
+offset_top = -233.0
+offset_right = -472.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wnkxm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_86mu1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p2d05")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yql7b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_21rxr")
+
+[node name="CardStack" parent="Control/Button" instance=ExtResource("2_4h1w3")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.5
+offset_top = -14.0
+offset_right = -11.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ShowTooltip" parent="Control/Button/CardStack/DeckTexture" index="1"]
+text = "Contains all cards you collected this run.
+Click on it to view your collection."
+
+[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+
+[editable path="Control/Button/CardStack"]

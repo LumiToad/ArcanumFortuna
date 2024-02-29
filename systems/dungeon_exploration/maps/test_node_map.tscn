@@ -1,0 +1,164 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc1r1ia2w6k1y"]
+
+[ext_resource type="PackedScene" uid="uid://dgbod0er521or" path="res://systems/dungeon_exploration/maps/node_map.tscn" id="1_ckwaa"]
+[ext_resource type="PackedScene" uid="uid://b5mnw025kyefa" path="res://systems/dungeon_exploration/nodes/combat_node.tscn" id="2_v5jx1"]
+[ext_resource type="PackedScene" uid="uid://cigk4jsderg20" path="res://systems/dungeon_exploration/nodes/card_loot_node.tscn" id="3_0gmtk"]
+[ext_resource type="PackedScene" uid="uid://clkhyvbwxf5pd" path="res://systems/dungeon_exploration/nodes/regeneration_node.tscn" id="4_2kob0"]
+
+[node name="test_node-map" instance=ExtResource("1_ckwaa")]
+
+[node name="StartNode" parent="." index="0" node_paths=PackedStringArray("connectsTo")]
+offset_left = -1231.0
+offset_top = -457.0
+offset_right = -1231.0
+offset_bottom = -457.0
+connectsTo = [NodePath("../CombatNode")]
+
+[node name="Enboss" parent="." index="1" instance=ExtResource("2_v5jx1")]
+layout_mode = 1
+offset_left = -1078.0
+offset_top = -2128.0
+offset_right = -1078.0
+offset_bottom = -2128.0
+
+[node name="CombatNode" parent="." index="2" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+layout_mode = 1
+offset_left = -1226.0
+offset_top = -632.0
+offset_right = -1226.0
+offset_bottom = -632.0
+connectsTo = [NodePath("../right_ risky, advanced/CardLootNode"), NodePath("../left_ safe, beginner/RegenerationNode")]
+
+[node name="right_ risky, advanced" type="Node" parent="." index="4"]
+
+[node name="CardLootNode" parent="right_ risky, advanced" index="0" node_paths=PackedStringArray("connectsTo") instance=ExtResource("3_0gmtk")]
+offset_left = -972.0
+offset_top = -821.0
+offset_right = -972.0
+offset_bottom = -821.0
+connectsTo = [NodePath("../CombatNode3")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0
+
+[node name="CombatNode3" parent="right_ risky, advanced" index="1" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -902.0
+offset_top = -1074.0
+offset_right = -902.0
+offset_bottom = -1074.0
+connectsTo = [NodePath("../CombatNode2")]
+
+[node name="CombatNode2" parent="right_ risky, advanced" index="2" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -1010.0
+offset_top = -1358.0
+offset_right = -1010.0
+offset_bottom = -1358.0
+connectsTo = [NodePath("../../right need help_ less risky path/RegenerationNode"), NodePath("../../left goes right_ riskier/CardLootNode2")]
+
+[node name="right need help_ less risky path" type="Node" parent="." index="5"]
+
+[node name="RegenerationNode" parent="right need help_ less risky path" index="0" node_paths=PackedStringArray("connectsTo") instance=ExtResource("4_2kob0")]
+offset_left = -734.0
+offset_top = -1511.0
+offset_right = -734.0
+offset_bottom = -1511.0
+connectsTo = [NodePath("../CombatNode2")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0
+
+[node name="CombatNode2" parent="right need help_ less risky path" index="1" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -584.0
+offset_top = -1763.0
+offset_right = -584.0
+offset_bottom = -1763.0
+connectsTo = [NodePath("../CombatNode4")]
+
+[node name="CombatNode4" parent="right need help_ less risky path" index="2" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -795.0
+offset_top = -1992.0
+offset_right = -795.0
+offset_bottom = -1992.0
+connectsTo = [NodePath("../../Enboss")]
+
+[node name="left_ safe, beginner" type="Node" parent="." index="6"]
+
+[node name="RegenerationNode" parent="left_ safe, beginner" index="0" node_paths=PackedStringArray("connectsTo") instance=ExtResource("4_2kob0")]
+offset_left = -1381.0
+offset_top = -818.0
+offset_right = -1381.0
+offset_bottom = -818.0
+connectsTo = [NodePath("../CombatNode2")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0
+
+[node name="CombatNode2" parent="left_ safe, beginner" index="1" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -1549.0
+offset_top = -1088.0
+offset_right = -1549.0
+offset_bottom = -1088.0
+connectsTo = [NodePath("../CardLootNode")]
+
+[node name="CardLootNode" parent="left_ safe, beginner" index="2" node_paths=PackedStringArray("connectsTo") instance=ExtResource("3_0gmtk")]
+offset_left = -1559.0
+offset_top = -1307.0
+offset_right = -1559.0
+offset_bottom = -1307.0
+connectsTo = [NodePath("../CombatNode3"), NodePath("../../left goes right_ riskier/CombatNode5")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0
+
+[node name="CombatNode3" parent="left_ safe, beginner" index="3" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -1757.0
+offset_top = -1521.0
+offset_right = -1757.0
+offset_bottom = -1521.0
+connectsTo = [NodePath("../CombatNode4")]
+
+[node name="CombatNode4" parent="left_ safe, beginner" index="4" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -1741.0
+offset_top = -1739.0
+offset_right = -1741.0
+offset_bottom = -1739.0
+connectsTo = [NodePath("../RegenerationNode2")]
+
+[node name="RegenerationNode2" parent="left_ safe, beginner" index="5" node_paths=PackedStringArray("connectsTo") instance=ExtResource("4_2kob0")]
+offset_left = -1576.0
+offset_top = -1954.0
+offset_right = -1576.0
+offset_bottom = -1954.0
+connectsTo = [NodePath("../CardLootNode2")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0
+
+[node name="CardLootNode2" parent="left_ safe, beginner" index="6" node_paths=PackedStringArray("connectsTo") instance=ExtResource("3_0gmtk")]
+offset_left = -1373.0
+offset_top = -2113.0
+offset_right = -1373.0
+offset_bottom = -2113.0
+connectsTo = [NodePath("../../Enboss")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0
+
+[node name="left goes right_ riskier" type="Node" parent="." index="7"]
+
+[node name="CombatNode5" parent="left goes right_ riskier" index="0" node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_v5jx1")]
+offset_left = -1398.0
+offset_top = -1470.0
+offset_right = -1398.0
+offset_bottom = -1470.0
+connectsTo = [NodePath("../CardLootNode2")]
+
+[node name="CardLootNode2" parent="left goes right_ riskier" index="1" node_paths=PackedStringArray("connectsTo") instance=ExtResource("3_0gmtk")]
+offset_left = -1225.0
+offset_top = -1708.0
+offset_right = -1225.0
+offset_bottom = -1708.0
+connectsTo = [NodePath("../../Enboss")]
+level_gain = 0.0
+is_scene_switch = false
+offset = 50.0

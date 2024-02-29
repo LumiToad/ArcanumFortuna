@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1mf8pt7l600e"]
+
+[ext_resource type="AudioStream" uid="uid://os102lihb6jw" path="res://assets/sounds/ui/ui_button_generic_01.ogg" id="1_c2swe"]
+
+[sub_resource type="GDScript" id="GDScript_opi4d"]
+script/source = "extends AudioStreamPlayer
+
+@export var signal_name = \"pressed\"
+
+
+func _ready():
+	var parent = get_parent()
+	var root = get_tree().root
+	var sound_node
+	if not root.has_node(\"Sounds\"):
+		sound_node = Node.new()
+		sound_node.name = \"Sounds\"
+		root.add_child(sound_node)
+	else:
+		sound_node = root.get_node(\"Sounds\")
+	name = parent.name + \"_\" + name
+	reparent.call_deferred(sound_node)
+	if parent.has_signal(signal_name):
+		parent.connect(signal_name, _emitted)
+
+
+func _emitted():
+	play()
+"
+
+[node name="PlayOnSignal" type="AudioStreamPlayer"]
+stream = ExtResource("1_c2swe")
+bus = &"VFX"
+script = SubResource("GDScript_opi4d")

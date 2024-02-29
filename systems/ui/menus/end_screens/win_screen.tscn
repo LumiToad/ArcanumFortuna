@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx6fby17l2h4g"]
+
+[ext_resource type="Theme" uid="uid://by7y30d2dbxb2" path="res://assets/ui/themes/menu_title_theme.tres" id="1_6t487"]
+[ext_resource type="Script" path="res://systems/ui/menus/end_screens/run_end_screen.gd" id="1_bc82o"]
+[ext_resource type="Texture2D" uid="uid://uf36g406dvlv" path="res://assets/ui/underlays/tooltip_underlay.png" id="1_rpno0"]
+[ext_resource type="Texture2D" uid="uid://dwer7hq8eur8w" path="res://assets/ui/buttons/regular_button_normal.png" id="4_ghria"]
+[ext_resource type="Texture2D" uid="uid://7o3muws1gqo6" path="res://assets/ui/buttons/regular_button_pressed.png" id="5_cnqv1"]
+[ext_resource type="Texture2D" uid="uid://bsevcaoypxrrw" path="res://assets/ui/buttons/regular_button_hover.png" id="6_jro37"]
+[ext_resource type="Texture2D" uid="uid://bfgcr5ueque8m" path="res://assets/ui/buttons/regular_button_disabled.png" id="7_q8isr"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="8_vyv7x"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="9_itcf6"]
+
+[node name="WinScreen" type="CanvasLayer"]
+script = ExtResource("1_bc82o")
+
+[node name="WinScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rpno0")
+
+[node name="MenuTitle" type="RichTextLabel" parent="WinScreen"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 64.0
+offset_right = 960.0
+offset_bottom = 192.0
+grow_horizontal = 2
+theme = ExtResource("1_6t487")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[center][b]ONE JOURNEY FINISHED"
+
+[node name="MenuSubtitle" type="RichTextLabel" parent="WinScreen"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -286.5
+offset_top = 192.0
+offset_right = 286.5
+offset_bottom = 240.0
+grow_horizontal = 2
+theme = ExtResource("1_6t487")
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]where will the next one take you?"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -142.0
+offset_right = 219.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="RetryButton" type="TextureButton" parent="WinScreen/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_ghria")
+texture_pressed = ExtResource("5_cnqv1")
+texture_hover = ExtResource("6_jro37")
+texture_disabled = ExtResource("7_q8isr")
+
+[node name="Label" type="Label" parent="WinScreen/HBoxContainer/RetryButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = -50.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_vyv7x")
+theme_override_font_sizes/font_size = 26
+text = "Begin anew"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="WinScreen/HBoxContainer/RetryButton" instance=ExtResource("9_itcf6")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="WinScreen/HBoxContainer/RetryButton" instance=ExtResource("9_itcf6")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="MainMenuButton" type="TextureButton" parent="WinScreen/HBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_ghria")
+texture_pressed = ExtResource("5_cnqv1")
+texture_hover = ExtResource("6_jro37")
+texture_disabled = ExtResource("7_q8isr")
+
+[node name="Label" type="Label" parent="WinScreen/HBoxContainer/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = -50.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_vyv7x")
+theme_override_font_sizes/font_size = 32
+text = "Take a rest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="WinScreen/HBoxContainer/MainMenuButton" instance=ExtResource("9_itcf6")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="WinScreen/HBoxContainer/MainMenuButton" instance=ExtResource("9_itcf6")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[connection signal="button_up" from="WinScreen/HBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
+[connection signal="button_up" from="WinScreen/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_button_up"]

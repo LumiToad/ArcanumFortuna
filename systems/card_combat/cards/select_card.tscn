@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxphpuocbhbrg"]
+
+[ext_resource type="Script" path="res://systems/card_combat/cards/select_card.gd" id="1_gup87"]
+[ext_resource type="PackedScene" uid="uid://dl86q0oq58j6q" path="res://systems/card_combat/cards/card_base.tscn" id="1_xraf4"]
+[ext_resource type="Shader" path="res://shaders/noise_walk.gdshader" id="3_1n1oj"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="4_0aol1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vw3vf"]
+noise_type = 0
+frequency = 0.0161
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_68116"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_vw3vf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cg4fh"]
+shader = ExtResource("3_1n1oj")
+shader_parameter/strength = 109.095
+shader_parameter/noise_speed = 0.05
+shader_parameter/noise_threshold = -0.155
+shader_parameter/noise_falloff = 0.06
+shader_parameter/bleed_strength = 1.375
+shader_parameter/noise = SubResource("NoiseTexture2D_68116")
+
+[node name="SelectCard" node_paths=PackedStringArray("selected_shader") instance=ExtResource("1_xraf4")]
+script = ExtResource("1_gup87")
+selected_shader = NodePath("selected")
+
+[node name="selected" type="ColorRect" parent="." index="0"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_cg4fh")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.968627, 0.509804, 0, 1)
+
+[node name="SingletonInteractor2" parent="." index="9" instance=ExtResource("4_0aol1")]
+singleton = 1
+method_to_call = "_SFX_HandCardHover"
+
+[connection signal="mouse_entered" from="." to="SingletonInteractor" method="execute"]
+
+[editable path="KeyWordSlots/KeywordSlot1/KeywordIcon"]

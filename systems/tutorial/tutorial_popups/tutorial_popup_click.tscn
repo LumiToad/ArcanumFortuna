@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bynt7oo0yt06q"]
+
+[ext_resource type="PackedScene" uid="uid://b45r81lj73pdb" path="res://systems/tutorial/tutorial_popups/tutorial_popup.tscn" id="1_1jvbl"]
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_popups/tutorial_popup_click.gd" id="2_ehqj2"]
+[ext_resource type="Theme" uid="uid://c2as6vbqpnrve" path="res://assets/ui/themes/tutorial_and_tooltips_theme.tres" id="3_8123x"]
+
+[node name="TutorialPopupClick" instance=ExtResource("1_1jvbl")]
+script = ExtResource("2_ehqj2")
+
+[node name="MarginContainer" parent="MarginContainer" index="1"]
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 21
+
+[node name="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer" index="0"]
+theme_override_constants/margin_bottom = 40
+
+[node name="NextButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme = ExtResource("3_8123x")
+text = "Next"
+
+[connection signal="button_up" from="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="." method="_on_next_button_button_up"]

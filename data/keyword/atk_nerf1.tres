@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DebuffKeyword" load_steps=3 format=3 uid="uid://cla7wpd2pd8cb"]
+
+[ext_resource type="Texture2D" uid="uid://debls002onral" path="res://assets/sprites/keywords/kw_surveillance.png" id="1_c1d2m"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/debuff_keyword.gd" id="2_etpu1"]
+
+[resource]
+script = ExtResource("2_etpu1")
+target_options = 2
+attack_debuff = 1
+health_debuff = 0
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = false
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Surveillance"
+description = "While this card is alive the opposing card with the highest attack loses %d attack."
+icon = ExtResource("1_c1d2m")
+highlight_duration = 0.5

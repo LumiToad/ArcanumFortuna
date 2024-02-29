@@ -1,0 +1,5 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dwqpq14caf8hu"]
+
+[resource]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Track" load_steps=6 format=3 uid="uid://cdl5hua6pbkwy"]
+
+[ext_resource type="Script" path="res://addons/dynasic/resources/track.gd" id="1_7pbfb"]
+[ext_resource type="AudioStream" uid="uid://rfv1bqvq8t4h" path="res://assets/sounds/adaptive_music/the_gentleman/track_day_layer_1.ogg" id="1_21trh"]
+[ext_resource type="AudioStream" uid="uid://bigvhm82lcoci" path="res://assets/sounds/adaptive_music/the_gentleman/track_day_layer_2.ogg" id="2_lkwoa"]
+[ext_resource type="AudioStream" uid="uid://cdurocsjf17ns" path="res://assets/sounds/adaptive_music/the_gentleman/track_day_layer_3.ogg" id="3_jtle8"]
+[ext_resource type="AudioStream" uid="uid://dcsi6baflbp6" path="res://assets/sounds/adaptive_music/the_gentleman/track_day_layer_4.ogg" id="4_obspf"]
+
+[resource]
+script = ExtResource("1_7pbfb")
+layers = Array[AudioStream]([ExtResource("1_21trh"), ExtResource("2_lkwoa"), ExtResource("3_jtle8"), ExtResource("4_obspf")])

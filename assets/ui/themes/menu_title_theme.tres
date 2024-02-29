@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://by7y30d2dbxb2"]
+
+[ext_resource type="FontFile" uid="uid://ds6fkaks0twky" path="res://assets/ui/fonts/RomanAntique.ttf" id="1_jex4y"]
+
+[resource]
+RichTextLabel/font_sizes/bold_font_size = 130
+RichTextLabel/font_sizes/normal_font_size = 45
+RichTextLabel/fonts/bold_font = ExtResource("1_jex4y")
+RichTextLabel/fonts/normal_font = ExtResource("1_jex4y")

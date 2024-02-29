@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://d388ib31p5qsn"]
+
+[ext_resource type="Texture2D" uid="uid://2k427t62yypc" path="res://assets/sprites/cards/emperor.png" id="1_02swp"]
+[ext_resource type="Resource" uid="uid://l23udqkfbm1c" path="res://data/keyword/slow.tres" id="2_4meaj"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_ruegd"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_u4j5u"]
+[ext_resource type="Resource" uid="uid://uik4l46sy6qd" path="res://data/keyword/kill2_switch.tres" id="4_inm4n"]
+[ext_resource type="AudioStream" uid="uid://3f4ak71boesh" path="res://Audio/Signatures/SignatureEmperor.ogg" id="6_uim2b"]
+
+[resource]
+script = ExtResource("2_u4j5u")
+name = "The Emperor"
+description = "\"May you take control over your live.\""
+artwork = ExtResource("1_02swp")
+cost = -2
+attack = 5
+health = 6
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_4meaj"), ExtResource("4_inm4n")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_uim2b")
+keyword_slot_texture = ExtResource("2_ruegd")

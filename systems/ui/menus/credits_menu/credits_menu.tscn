@@ -1,0 +1,213 @@
+[gd_scene load_steps=9 format=3 uid="uid://d101m5rvvp1kq"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/credits_menu/credits_menu.gd" id="1_a05ra"]
+[ext_resource type="Theme" uid="uid://l2whpxkwhcdn" path="res://assets/ui/themes/menu_ui_theme.tres" id="2_3l6i4"]
+[ext_resource type="Theme" uid="uid://by7y30d2dbxb2" path="res://assets/ui/themes/menu_title_theme.tres" id="2_vjscp"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="4_y3lcj"]
+[ext_resource type="Texture2D" uid="uid://cdrck7c31mi66" path="res://assets/ui/underlays/logo_large.png" id="5_c4ns7"]
+
+[sub_resource type="Animation" id="Animation_f6rfj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 1080)]
+}
+
+[sub_resource type="Animation" id="Animation_vt6pb"]
+resource_name = "credits_rolling"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 1080), Vector2(960, -1400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bulqn"]
+_data = {
+"RESET": SubResource("Animation_f6rfj"),
+"credits_rolling": SubResource("Animation_vt6pb")
+}
+
+[node name="CreditsScreen" type="CanvasLayer"]
+script = ExtResource("1_a05ra")
+
+[node name="CreditsMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuTitle" type="RichTextLabel" parent="CreditsMenu"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 994.0
+offset_bottom = 192.0
+theme = ExtResource("2_vjscp")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[b]CREDITS"
+
+[node name="MenuSubtitle" type="RichTextLabel" parent="CreditsMenu"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 575.0
+offset_bottom = 240.0
+theme = ExtResource("2_vjscp")
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "to those who sought and found"
+
+[node name="ReturnButton" type="Button" parent="CreditsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -144.0
+offset_right = 384.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme = ExtResource("2_3l6i4")
+text = "RETURN"
+alignment = 0
+
+[node name="HoverSound" parent="CreditsMenu/ReturnButton" instance=ExtResource("4_y3lcj")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="CreditsMenu/ReturnButton" instance=ExtResource("4_y3lcj")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="Credits" type="Control" parent="CreditsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = 1080.0
+offset_right = 960.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Logo" type="TextureRect" parent="CreditsMenu/Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.5
+offset_right = 248.5
+offset_bottom = 314.0
+grow_horizontal = 2
+texture = ExtResource("5_c4ns7")
+expand_mode = 1
+
+[node name="Credits" type="RichTextLabel" parent="CreditsMenu/Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -454.0
+offset_top = 314.0
+offset_right = 454.0
+offset_bottom = 1440.0
+grow_horizontal = 2
+theme = ExtResource("2_3l6i4")
+theme_override_constants/line_separation = 20
+bbcode_enabled = true
+text = "[center][b]Art[/b]
+Merit Faske
+Nina Grußendorf
+
+[center][b]Design[/b]
+Till Braunwald
+Matthias Streicher
+
+[center][b]Engineering[/b]
+Benedikt Mertes
+Karl Nehring
+Lukas Schmidt
+
+[center][b]Production[/b]
+Justin Löbel
+
+[center][b]SFX and Music[/b]
+Nico Chera
+
+[center][b]Special Thanks[/b]
+Anni Kostrzewa
+Lucie Scieux"
+
+[node name="Credits2" type="RichTextLabel" parent="CreditsMenu/Credits"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -454.0
+offset_top = 314.0
+offset_right = 454.0
+offset_bottom = 1192.99
+grow_horizontal = 2
+theme = ExtResource("2_3l6i4")
+bbcode_enabled = true
+text = "[center][b]Art[/b]
+Merit Faske
+Nina Grußendorf
+
+[center][b]Design[/b]
+Till Braunwald
+Matthias Streicher
+
+[center][b]Engineering[/b]
+Benedikt Mertes
+Karl Nehring
+Lukas Schmidt
+
+[center][b]Production[/b]
+Justin Löbel
+
+[center][b]SFX and Music[/b]
+Nico Chera
+
+[center][b]Special Thanks[/b]
+Anni Kostrzewa
+Lucie Scieux"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_bulqn")
+}
+autoplay = "credits_rolling"
+
+[connection signal="button_up" from="CreditsMenu/ReturnButton" to="." method="_on_return_button_button_up"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=33 format=3 uid="uid://bml43x2miuf00"]
+
+[ext_resource type="Script" path="res://systems/dungeon_events/battle_event.gd" id="1_wmokr"]
+[ext_resource type="Resource" uid="uid://cfo1qaoei72s6" path="res://data/enemy/enemy_basic.tres" id="2_bgqnu"]
+[ext_resource type="PackedScene" uid="uid://cbqvu0uo5eaku" path="res://systems/card_combat/card_battle.tscn" id="2_lypsq"]
+[ext_resource type="Resource" uid="uid://dsnuml0koyymo" path="res://data/enemy/enemy_basic2.tres" id="3_5cs1e"]
+[ext_resource type="PackedScene" uid="uid://cn0otoe0nvpis" path="res://systems/dungeon_events/battle_over_reward.tscn" id="3_ukc1v"]
+[ext_resource type="Resource" uid="uid://dxl1hxrirkmwg" path="res://data/enemy/enemy_basic3.tres" id="4_whs7y"]
+[ext_resource type="Resource" uid="uid://bofquw5kvq26v" path="res://data/enemy/enemy_basic4.tres" id="5_7xyn1"]
+[ext_resource type="Resource" uid="uid://csg83e4kph6xm" path="res://data/enemy/enemy_basic5.tres" id="6_58mr7"]
+[ext_resource type="Resource" uid="uid://donbjfyb40dw5" path="res://data/enemy/enemy_basic6.tres" id="7_upvdn"]
+[ext_resource type="Resource" uid="uid://danbe0wd215aa" path="res://data/enemy/enemy_basic7.tres" id="8_3yu1a"]
+[ext_resource type="Resource" uid="uid://t8cac64e8aue" path="res://data/enemy/enemy_basic8.tres" id="9_uf5en"]
+[ext_resource type="Resource" uid="uid://dbynrh10ya0dh" path="res://data/enemy/enemy_basic9.tres" id="10_df1te"]
+[ext_resource type="Resource" uid="uid://bhp75rnfhbrui" path="res://data/enemy/enemy_basic10.tres" id="11_v8mgd"]
+[ext_resource type="Resource" uid="uid://brkk8rbfw5dql" path="res://data/enemy/enemy_basic11.tres" id="12_5yi36"]
+[ext_resource type="Resource" uid="uid://cf1mgtqfymft2" path="res://data/enemy/enemy_basic12.tres" id="13_s1ooy"]
+[ext_resource type="Resource" uid="uid://bnshppy0fgec5" path="res://data/enemy/enemy_basic13.tres" id="14_q2iah"]
+[ext_resource type="Resource" uid="uid://b63u4n31yca2o" path="res://data/enemy/enemy_basic14.tres" id="15_c8i8r"]
+[ext_resource type="Resource" uid="uid://qexa77lny20" path="res://data/enemy/enemy_basic15.tres" id="16_55xh6"]
+[ext_resource type="Resource" uid="uid://dsvaqw7c25jo4" path="res://data/enemy/enemy_basic16.tres" id="17_hueaj"]
+[ext_resource type="Resource" uid="uid://ctayhqdvjyqrn" path="res://data/enemy/enemy_basic17.tres" id="18_7uv2u"]
+[ext_resource type="Resource" uid="uid://b3kys8588hlks" path="res://data/enemy/enemy_basic18.tres" id="19_chddk"]
+[ext_resource type="Resource" uid="uid://dc8xtpumujplc" path="res://data/enemy/enemy_basic19.tres" id="20_cenyt"]
+[ext_resource type="Resource" uid="uid://drc4280hscrew" path="res://data/enemy/enemy_basic20.tres" id="21_g4xe4"]
+[ext_resource type="Resource" uid="uid://db4k8x8pus6u4" path="res://data/enemy/enemy_basic21.tres" id="22_ermwf"]
+[ext_resource type="Resource" uid="uid://dlypnl4ydeyrb" path="res://data/enemy/enemy_basic22.tres" id="23_4q0nn"]
+[ext_resource type="Resource" uid="uid://dv4f3167ps3e6" path="res://data/enemy/enemy_basic23.tres" id="24_lrx7b"]
+[ext_resource type="Resource" uid="uid://b84f1ucaea1lf" path="res://data/enemy/enemy_basic24.tres" id="25_23kwy"]
+[ext_resource type="Resource" uid="uid://3qj7kxovmli2" path="res://data/enemy/enemy_basic25.tres" id="26_coetm"]
+[ext_resource type="Resource" uid="uid://bvelq3soeqsv" path="res://data/enemy/enemy_basic26.tres" id="27_pj5cv"]
+[ext_resource type="Resource" uid="uid://dmak0e3q6e0tq" path="res://data/enemy/enemy_basic27.tres" id="28_ucvvr"]
+[ext_resource type="Resource" uid="uid://cll4ed72cl8ws" path="res://data/enemy/enemy_basic28.tres" id="29_6txn8"]
+[ext_resource type="PackedScene" uid="uid://ddpmd4cji8uva" path="res://systems/ui/menus/end_screens/lose_screen.tscn" id="32_61t8p"]
+
+[node name="BattleEvent" type="Node"]
+process_mode = 1
+script = ExtResource("1_wmokr")
+potential_enemies = Array[Resource("res://data/scripts/enemy_data.gd")]([ExtResource("2_bgqnu"), ExtResource("3_5cs1e"), ExtResource("4_whs7y"), ExtResource("5_7xyn1"), ExtResource("6_58mr7"), ExtResource("7_upvdn"), ExtResource("8_3yu1a"), ExtResource("9_uf5en"), ExtResource("10_df1te"), ExtResource("11_v8mgd"), ExtResource("12_5yi36"), ExtResource("13_s1ooy"), ExtResource("14_q2iah"), ExtResource("15_c8i8r"), ExtResource("16_55xh6"), ExtResource("17_hueaj"), ExtResource("18_7uv2u"), ExtResource("19_chddk"), ExtResource("20_cenyt"), ExtResource("21_g4xe4"), ExtResource("22_ermwf"), ExtResource("23_4q0nn"), ExtResource("24_lrx7b"), ExtResource("25_23kwy"), ExtResource("26_coetm"), ExtResource("27_pj5cv"), ExtResource("28_ucvvr"), ExtResource("29_6txn8")])
+battleField = ExtResource("2_lypsq")
+winEvent = ExtResource("3_ukc1v")
+loseEvent = ExtResource("32_61t8p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true

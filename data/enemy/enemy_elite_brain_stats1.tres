@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyBrainStats" load_steps=5 format=3 uid="uid://dpqmx8llrht71"]
+
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain_stats.gd" id="1_y1hvt"]
+
+[sub_resource type="Curve" id="Curve_ih327"]
+max_value = 0.05
+_data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fwd35"]
+max_value = 0.05
+_data = [Vector2(0, 0.05), 0.0, -0.1, 0, 0, Vector2(1, 0), 0.0, -0.105229, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_b5cjf"]
+min_value = 0.02
+max_value = 0.05
+_data = [Vector2(0, 0.02), 0.0, 0.0, 0, 0, Vector2(1, 0.05), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_y1hvt")
+spawn_chance_by_turn = SubResource("Curve_b5cjf")
+max_turn = 5
+spawn_chance_by_front_row_fill = SubResource("Curve_fwd35")
+spawn_chance_by_back_row_fill = SubResource("Curve_ih327")
+min_back_row_enemies = 1
+max_back_row_enemies = 2
+min_health = 20
+max_health = 22

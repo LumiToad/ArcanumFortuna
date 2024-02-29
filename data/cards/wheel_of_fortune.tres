@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://bk8j8nba8r18d"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_nop2x"]
+[ext_resource type="Texture2D" uid="uid://kmb5fym80vkf" path="res://assets/sprites/cards/wheel_of_fortune.png" id="1_qotfe"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_nkhx5"]
+[ext_resource type="Resource" uid="uid://coxsc57oek8x3" path="res://data/keyword/body_guard.tres" id="3_px2be"]
+[ext_resource type="AudioStream" uid="uid://c0062ljdlyp8u" path="res://assets/sounds/cards/voices/wheel_of_fortune.ogg" id="4_m2lxr"]
+[ext_resource type="Resource" uid="uid://chpr5uue01ill" path="res://data/keyword/shield.tres" id="4_wfhd4"]
+[ext_resource type="Resource" uid="uid://cin65k68yhrdq" path="res://data/keyword/switch_cards_played3.1.tres" id="5_jucek"]
+
+[resource]
+script = ExtResource("1_nop2x")
+name = "Wheel of Fortune"
+description = "\"May your luck change.\""
+artwork = ExtResource("1_qotfe")
+cost = -4
+attack = 0
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_px2be"), ExtResource("4_wfhd4"), ExtResource("5_jucek")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("4_m2lxr")
+keyword_slot_texture = ExtResource("2_nkhx5")

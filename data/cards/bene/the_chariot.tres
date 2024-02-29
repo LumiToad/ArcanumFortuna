@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://3t5jry37we2f"]
+
+[ext_resource type="Texture2D" uid="uid://ck8w2wmtro7hn" path="res://assets/sprites/cards/chariot.png" id="1_p6ovo"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_h65kg"]
+[ext_resource type="AudioStream" uid="uid://b3olllqj20sqt" path="res://assets/sounds/cards/voices/the_chariot.ogg" id="3_vjyhb"]
+
+[resource]
+script = ExtResource("2_h65kg")
+name = "The Chariot"
+description = "\"May nothing stand before you.\""
+artwork = ExtResource("1_p6ovo")
+cost = 1
+attack = 1
+health = 4
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 100
+sound_effect = ExtResource("3_vjyhb")

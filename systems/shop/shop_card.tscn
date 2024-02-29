@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3n1r6lr76psq"]
+
+[ext_resource type="PackedScene" uid="uid://dl86q0oq58j6q" path="res://systems/card_combat/cards/card_base.tscn" id="1_quohb"]
+[ext_resource type="Script" path="res://systems/shop/shop_card.gd" id="2_xx82y"]
+[ext_resource type="Shader" path="res://shaders/noise_walk.gdshader" id="3_i50oa"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ibg53"]
+noise_type = 0
+frequency = 0.0161
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8fjes"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_ibg53")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6ol3"]
+shader = ExtResource("3_i50oa")
+shader_parameter/strength = 109.095
+shader_parameter/noise_speed = 0.05
+shader_parameter/noise_threshold = -0.155
+shader_parameter/noise_falloff = 0.06
+shader_parameter/bleed_strength = 1.375
+shader_parameter/noise = SubResource("NoiseTexture2D_8fjes")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny8ys"]
+bg_color = Color(0.745098, 0.662745, 0, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[node name="ShopCard" instance=ExtResource("1_quohb")]
+script = ExtResource("2_xx82y")
+discount = 0.3
+
+[node name="selected" type="ColorRect" parent="." index="0"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q6ol3")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.968627, 0.509804, 0, 1)
+
+[node name="CostBg" type="Panel" parent="." index="8"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+pivot_offset = Vector2(20, 20)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ny8ys")
+
+[node name="Costs" type="Label" parent="CostBg" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "24"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="KeyWordSlots/KeywordSlot1/KeywordIcon"]

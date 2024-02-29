@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DebuffKeyword" load_steps=3 format=3 uid="uid://dp4yierr26uox"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/debuff_keyword.gd" id="1_kuj4i"]
+[ext_resource type="Texture2D" uid="uid://disegs21pix2r" path="res://assets/sprites/keywords/kw_intimidation.png" id="1_vhx4d"]
+
+[resource]
+script = ExtResource("1_kuj4i")
+target_options = 1
+attack_debuff = 1
+health_debuff = 0
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = false
+scale_speed = 0.6
+title = "Intimidation"
+description = "While this card is alive the opposing card in front of it loses %d attack."
+icon = ExtResource("1_vhx4d")
+highlight_duration = 0.5

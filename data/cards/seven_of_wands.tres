@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://bu1018b8di2t3"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_3nhxn"]
+[ext_resource type="Texture2D" uid="uid://cjab7mi22dfsc" path="res://assets/sprites/cards/card_wands_7.png" id="1_nv3aq"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_nkb71"]
+
+[resource]
+script = ExtResource("1_3nhxn")
+name = "Seven of Wands"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_nv3aq")
+cost = 1
+attack = 4
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_nkb71")

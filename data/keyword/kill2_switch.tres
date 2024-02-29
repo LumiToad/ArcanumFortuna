@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="TriggerSwitch" load_steps=8 format=3 uid="uid://uik4l46sy6qd"]
+
+[ext_resource type="PackedScene" uid="uid://p7soawcmcth1" path="res://systems/card_combat/effects/chromatic_aberration.tscn" id="1_0q3pu"]
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="1_gxs32"]
+[ext_resource type="Resource" uid="uid://l23udqkfbm1c" path="res://data/keyword/slow.tres" id="2_mp3ju"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/switch/trigger_switch.gd" id="3_nqs1n"]
+[ext_resource type="Material" uid="uid://bi84ni64yadvs" path="res://shaders/gradient_shader.tres" id="5_xvyqn"]
+[ext_resource type="Texture2D" uid="uid://d3gn7cjww2f6i" path="res://assets/ui/icons/keyword_slots_reversed.png" id="6_jj3w7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuji6"]
+atlas = ExtResource("1_gxs32")
+region = Rect2(0, 264, 66, 66)
+
+[resource]
+script = ExtResource("3_nqs1n")
+required_trigger_count = 2
+dynamic_tooltip_unit_name = "kills"
+attack_difference = -2
+health_difference = 0
+keywords_to_gain = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+keywords_to_remove = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_mp3ju")])
+tranform_delay = 1.0
+transformed_artwork_shader = ExtResource("5_xvyqn")
+transformed_keyword_slot_atlas = ExtResource("6_jj3w7")
+chromatic_scene = ExtResource("1_0q3pu")
+rotation_duration = 0.8
+icon_rotation = 1.0
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 1
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Awaken: Victory"
+description = "This card will awaken once it has killed %d enemy cards."
+icon = SubResource("AtlasTexture_xuji6")
+highlight_duration = 0.5

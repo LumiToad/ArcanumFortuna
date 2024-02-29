@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://bdbn32r8x8g4v"]
+
+[ext_resource type="Texture2D" uid="uid://b14l0m0wd4e7" path="res://assets/sprites/cards/high_priestess.png" id="1_b4wyt"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_ako5p"]
+[ext_resource type="Resource" uid="uid://dvt6vrtfufa0t" path="res://data/keyword/TripleAttack.tres" id="2_pd0by"]
+[ext_resource type="AudioStream" uid="uid://bqbc1gd2th44n" path="res://assets/sounds/cards/voices/the_high_priestess.ogg" id="4_es0g3"]
+
+[resource]
+script = ExtResource("2_ako5p")
+name = "The High Priestess"
+description = "\"May your spirit be free.\""
+artwork = ExtResource("1_b4wyt")
+cost = -6
+attack = 3
+health = 6
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_pd0by")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("4_es0g3")

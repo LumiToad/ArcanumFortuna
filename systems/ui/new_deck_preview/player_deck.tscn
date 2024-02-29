@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://cecd2obec3kr0"]
+
+[ext_resource type="Script" path="res://systems/ui/new_deck_preview/player_deck.gd" id="1_0yqjm"]
+[ext_resource type="PackedScene" uid="uid://is7ekdegt3ga" path="res://systems/ui/new_deck_preview/deck_preview_h_box.tscn" id="2_ucu2q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wth3e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybcdm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvux1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1nyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqoir"]
+
+[sub_resource type="Theme" id="Theme_rd8i4"]
+VScrollBar/colors/ScrollBar = Color(0, 0, 0, 1)
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_wth3e")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ybcdm")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_xvux1")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_a1nyv")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_hqoir")
+
+[node name="PlayerDeck" type="ScrollContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -489.0
+offset_top = 170.0
+offset_right = 505.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+theme = SubResource("Theme_rd8i4")
+script = ExtResource("1_0yqjm")
+hbox_template = ExtResource("2_ucu2q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="DO_NOT_REMOVE" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2

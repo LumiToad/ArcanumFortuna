@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6ehqillsumt"]
+
+[ext_resource type="Script" path="res://addons/dynasic/autoload/dynasic.gd" id="1_hnhx5"]
+[ext_resource type="Resource" uid="uid://cdl5hua6pbkwy" path="res://data/adaptive_music/wanderer_day.tres" id="2_n5nj7"]
+
+[node name="Dynasic" type="Node"]
+script = ExtResource("1_hnhx5")
+start_track = ExtResource("2_n5nj7")

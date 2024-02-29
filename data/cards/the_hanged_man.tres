@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://cjas1prwh50gk"]
+
+[ext_resource type="Texture2D" uid="uid://dupt72ornov5p" path="res://assets/sprites/cards/hanged_man.png" id="1_8mjix"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_caw47"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_2bxhi"]
+[ext_resource type="Resource" uid="uid://brc0cecmp05sp" path="res://data/keyword/position_summon.tres" id="3_kg17a"]
+[ext_resource type="Resource" uid="uid://coxsc57oek8x3" path="res://data/keyword/body_guard.tres" id="4_pkq84"]
+[ext_resource type="Resource" uid="uid://cin65k68yhrdq" path="res://data/keyword/switch_cards_played3.1.tres" id="5_b17fu"]
+[ext_resource type="AudioStream" uid="uid://bl5tjfoo7lk2l" path="res://Audio/Signatures/SignatureHangedMan.ogg" id="7_xplyn"]
+
+[resource]
+script = ExtResource("1_caw47")
+name = "The Hanged Man"
+description = "\"May you see things from another perspective.\""
+artwork = ExtResource("1_8mjix")
+cost = -3
+attack = 0
+health = 4
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_kg17a"), ExtResource("4_pkq84"), ExtResource("5_b17fu")])
+spawn_frequency = 20
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("7_xplyn")
+keyword_slot_texture = ExtResource("2_2bxhi")

@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=3 uid="uid://bdkhck4lxvdx5"]
+
+[ext_resource type="Script" path="res://systems/dungeon_exploration/map_generator.gd" id="1_03jr0"]
+[ext_resource type="PackedScene" uid="uid://rd4s1jnxga1w" path="res://systems/dungeon_exploration/nodes/final_node.tscn" id="2_5yni0"]
+[ext_resource type="PackedScene" uid="uid://b5mnw025kyefa" path="res://systems/dungeon_exploration/nodes/combat_node.tscn" id="2_caw07"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/nodes/node_generation_options.gd" id="3_0jkw7"]
+[ext_resource type="PackedScene" uid="uid://cigk4jsderg20" path="res://systems/dungeon_exploration/nodes/card_loot_node.tscn" id="4_vvja6"]
+[ext_resource type="PackedScene" uid="uid://bbwr6rvspwq1j" path="res://systems/dungeon_exploration/nodes/challenging_combat_node.tscn" id="5_2by4m"]
+[ext_resource type="PackedScene" uid="uid://clkhyvbwxf5pd" path="res://systems/dungeon_exploration/nodes/regeneration_node.tscn" id="5_r8702"]
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="6_p7mao"]
+[ext_resource type="PackedScene" uid="uid://b2vx0edf3t6u3" path="res://systems/dungeon_exploration/player/player.tscn" id="7_uemsd"]
+[ext_resource type="PackedScene" uid="uid://cehj7gi3tdwb4" path="res://systems/dungeon_exploration/nodes/shop_node.tscn" id="8_gwbkc"]
+[ext_resource type="Resource" uid="uid://22opo18s7wkj" path="res://data/player/basic_player.tres" id="10_2rstt"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/seed_text.gd" id="11_jsff7"]
+[ext_resource type="PackedScene" uid="uid://etc28xe2dqhi" path="res://systems/ui/menus/deck_in_menu.tscn" id="14_sf86w"]
+
+[sub_resource type="Resource" id="Resource_2c5hw"]
+script = ExtResource("3_0jkw7")
+chance = 0.199
+node_reference = ExtResource("2_caw07")
+reward_modifier = 1.1
+level_modifier = 0.34
+max_repeat = 3
+min_challenging_nodes = 0
+min_distance_between = 0
+min_nodes_from_start = 0
+
+[sub_resource type="Resource" id="Resource_6qm4k"]
+script = ExtResource("3_0jkw7")
+chance = 0.08
+node_reference = ExtResource("5_2by4m")
+reward_modifier = 1.8
+level_modifier = 0.5
+max_repeat = 0
+min_challenging_nodes = 0
+min_distance_between = 0
+min_nodes_from_start = 3
+
+[sub_resource type="Resource" id="Resource_xyl3x"]
+script = ExtResource("3_0jkw7")
+chance = 0.513
+node_reference = ExtResource("4_vvja6")
+reward_modifier = -0.1
+level_modifier = 0.0
+max_repeat = 1
+min_challenging_nodes = 2
+min_distance_between = 0
+min_nodes_from_start = 0
+
+[sub_resource type="Resource" id="Resource_pfq5u"]
+script = ExtResource("3_0jkw7")
+chance = 0.494
+node_reference = ExtResource("5_r8702")
+reward_modifier = -0.9
+level_modifier = 0.0
+max_repeat = 0
+min_challenging_nodes = 3
+min_distance_between = 0
+min_nodes_from_start = 0
+
+[sub_resource type="Resource" id="Resource_s31l4"]
+script = ExtResource("3_0jkw7")
+chance = 0.3
+node_reference = ExtResource("8_gwbkc")
+reward_modifier = 0.0
+level_modifier = 0.0
+max_repeat = 1
+min_challenging_nodes = 0
+min_distance_between = 0
+min_nodes_from_start = 0
+
+[sub_resource type="GDScript" id="GDScript_e8sv1"]
+script/source = "extends Node
+
+@export var random_seed := false
+@export var nodes_to_generate := 30
+
+func _ready():
+	var generator = get_parent()
+	if random_seed:
+		randomize()
+		generator.rng_seed = randi()
+		generator.rng_seed_text = str(generator.rng_seed)
+		print(\"Using seed \" + str(generator.rng_seed))
+	generator.setup()
+	generator.generate(nodes_to_generate)
+"
+
+[node name="node-map" type="Control" node_paths=PackedStringArray("start_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_03jr0")
+start_node = NodePath("StartNode")
+final_node = ExtResource("2_5yni0")
+possible_nodes = Array[ExtResource("3_0jkw7")]([SubResource("Resource_2c5hw"), SubResource("Resource_6qm4k"), SubResource("Resource_xyl3x"), SubResource("Resource_pfq5u"), SubResource("Resource_s31l4")])
+rng_seed = 2807
+max_lane_length = 3
+max_x = 128
+min_x = -128
+max_distance_between_nodes_x = 300
+
+[node name="StartNode" parent="." instance=ExtResource("6_p7mao")]
+layout_mode = 1
+offset_left = -864.0
+offset_top = -486.0
+offset_right = -864.0
+offset_bottom = -486.0
+
+[node name="Player" parent="." node_paths=PackedStringArray("startNode") instance=ExtResource("7_uemsd")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -31.0
+offset_top = -31.0
+offset_right = 33.0
+offset_bottom = 33.0
+grow_horizontal = 1
+grow_vertical = 1
+startNode = NodePath("../StartNode")
+startData = ExtResource("10_2rstt")
+
+[node name="Generator" type="Node" parent="."]
+script = SubResource("GDScript_e8sv1")
+random_seed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+visible = false
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -430.0
+offset_top = 2.0
+offset_right = -10.0
+offset_bottom = 36.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Seed: 1337"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("11_jsff7")
+
+[node name="Deck" parent="." instance=ExtResource("14_sf86w")]
+
+[connection signal="mouse_entered" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_exited"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://bv3cnrhc3av4j"]
+
+[ext_resource type="Resource" uid="uid://wyb2qp5gbdd7" path="res://data/enemy/enemy_test_brain.tres" id="1_fiq72"]
+[ext_resource type="Script" path="res://data/scripts/enemy_data.gd" id="1_tgjr2"]
+[ext_resource type="Resource" uid="uid://be4kjkbrjmn38" path="res://data/enemy/enemy_test_brain_stats.tres" id="3_hfpak"]
+
+[resource]
+script = ExtResource("1_tgjr2")
+brain = ExtResource("1_fiq72")
+stats_per_level = Array[Resource("res://systems/card_combat/enemy/enemy_brain_stats.gd")]([ExtResource("3_hfpak")])
+gold_reward = 4
+level = 0

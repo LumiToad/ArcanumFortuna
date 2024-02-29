@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://rgtj6i5oq08l"]
+
+[sub_resource type="Curve2D" id="Curve2D_a17ra"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 100, 61, -94.3934, -1.49831, 94.3934, 1.49831, 193, 161, -130.353, 1.49831, 130.353, -1.49831, 370, 165, -2.24746, 65.9255, 2.24746, -65.9255, 498, 87, 0, 0, 0, 0, 554, 31)
+}
+point_count = 5
+
+[node name="NodeConnector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_a17ra")

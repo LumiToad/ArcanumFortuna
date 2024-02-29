@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://hm7tbjvnxjnu"]
+
+[ext_resource type="Script" path="res://data/scripts/enemy_stats.gd" id="1_wt3xi"]
+
+[sub_resource type="Curve" id="Curve_b36kp"]
+min_value = 0.25
+max_value = 0.4
+_data = [Vector2(0, 0.25), 0.0, 0.369967, 0, 0, Vector2(1, 0.4), 0.498258, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_wt3xi")
+card_level_1_frequency = 1.0
+card_level_2_frequency = 0.0
+card_level_3_frequency = 0.0
+max_row = 4
+spawn_chance_by_row = SubResource("Curve_b36kp")
+min_enemies_per_row = 0
+max_enemies_per_row = 3
+min_total_enemies = 4
+max_total_enemies = 8
+min_health = 15
+max_health = 30

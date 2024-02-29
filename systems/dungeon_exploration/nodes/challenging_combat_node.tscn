@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbwr6rvspwq1j"]
+
+[ext_resource type="PackedScene" uid="uid://b5mnw025kyefa" path="res://systems/dungeon_exploration/nodes/combat_node.tscn" id="1_bjf1o"]
+[ext_resource type="Texture2D" uid="uid://c4txvwxxbco0f" path="res://assets/sprites/nodemap/combat_challenging.png" id="5_icbpd"]
+
+[node name="ChallengingCombatNode" instance=ExtResource("1_bjf1o")]
+level_gain = 0.5
+
+[node name="icon" parent="background" index="0"]
+texture = ExtResource("5_icbpd")

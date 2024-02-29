@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://3t5jry37we2f"]
+
+[ext_resource type="Texture2D" uid="uid://ck8w2wmtro7hn" path="res://assets/sprites/cards/chariot.png" id="1_p6ovo"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_h65kg"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_hwcbd"]
+[ext_resource type="Resource" uid="uid://dvt6vrtfufa0t" path="res://data/keyword/TripleAttack.tres" id="2_tbtlt"]
+[ext_resource type="Resource" uid="uid://wkcaq5b37xro" path="res://data/keyword/switch_karma_count10.1.tres" id="4_siau2"]
+[ext_resource type="AudioStream" uid="uid://booehr8b62ukj" path="res://Audio/Signatures/SignatureChariot.ogg" id="6_844g1"]
+
+[resource]
+script = ExtResource("2_h65kg")
+name = "The Chariot"
+description = "\"May nothing stand before you.\""
+artwork = ExtResource("1_p6ovo")
+cost = -5
+attack = 2
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_tbtlt"), ExtResource("4_siau2")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_844g1")
+keyword_slot_texture = ExtResource("2_hwcbd")

@@ -1,0 +1,167 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddpmd4cji8uva"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/end_screens/run_end_screen.gd" id="1_6ec74"]
+[ext_resource type="Theme" uid="uid://by7y30d2dbxb2" path="res://assets/ui/themes/menu_title_theme.tres" id="1_b05bo"]
+[ext_resource type="Texture2D" uid="uid://uf36g406dvlv" path="res://assets/ui/underlays/tooltip_underlay.png" id="1_dyhkt"]
+[ext_resource type="Texture2D" uid="uid://dwer7hq8eur8w" path="res://assets/ui/buttons/regular_button_normal.png" id="4_ffbp6"]
+[ext_resource type="Texture2D" uid="uid://7o3muws1gqo6" path="res://assets/ui/buttons/regular_button_pressed.png" id="5_xxg2v"]
+[ext_resource type="Texture2D" uid="uid://bsevcaoypxrrw" path="res://assets/ui/buttons/regular_button_hover.png" id="6_s521c"]
+[ext_resource type="Texture2D" uid="uid://bfgcr5ueque8m" path="res://assets/ui/buttons/regular_button_disabled.png" id="7_y5fok"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="8_v65tb"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="9_ogowf"]
+
+[node name="LoseScreen" type="CanvasLayer"]
+script = ExtResource("1_6ec74")
+
+[node name="LoseScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dyhkt")
+
+[node name="MenuTitle" type="RichTextLabel" parent="LoseScreen"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1015.5
+offset_top = 64.0
+offset_right = 1015.5
+offset_bottom = 192.0
+grow_horizontal = 2
+theme = ExtResource("1_b05bo")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[center][b]SIMPLY A DETOUR"
+
+[node name="MenuSubtitle" type="RichTextLabel" parent="LoseScreen"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.5
+offset_top = 192.0
+offset_right = 175.5
+offset_bottom = 240.0
+grow_horizontal = 2
+theme = ExtResource("1_b05bo")
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]will you persist?"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -142.0
+offset_right = 219.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="RetryButton" type="TextureButton" parent="LoseScreen/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_ffbp6")
+texture_pressed = ExtResource("5_xxg2v")
+texture_hover = ExtResource("6_s521c")
+texture_disabled = ExtResource("7_y5fok")
+
+[node name="Label" type="Label" parent="LoseScreen/HBoxContainer/RetryButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -44.0
+offset_right = 169.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_v65tb")
+theme_override_font_sizes/font_size = 26
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="LoseScreen/HBoxContainer/RetryButton" instance=ExtResource("9_ogowf")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="LoseScreen/HBoxContainer/RetryButton" instance=ExtResource("9_ogowf")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="MainMenuButton" type="TextureButton" parent="LoseScreen/HBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_ffbp6")
+texture_pressed = ExtResource("5_xxg2v")
+texture_hover = ExtResource("6_s521c")
+texture_disabled = ExtResource("7_y5fok")
+
+[node name="Label" type="Label" parent="LoseScreen/HBoxContainer/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -44.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_v65tb")
+theme_override_font_sizes/font_size = 32
+text = "Take a rest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="LoseScreen/HBoxContainer/MainMenuButton" instance=ExtResource("9_ogowf")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="LoseScreen/HBoxContainer/MainMenuButton" instance=ExtResource("9_ogowf")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="HoverSound" parent="LoseScreen/HBoxContainer" instance=ExtResource("9_ogowf")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+
+[node name="PressSound" parent="LoseScreen/HBoxContainer" instance=ExtResource("9_ogowf")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+
+[connection signal="button_up" from="LoseScreen/HBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
+[connection signal="button_up" from="LoseScreen/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_button_up"]

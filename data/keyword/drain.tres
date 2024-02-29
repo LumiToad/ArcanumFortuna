@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Drain" load_steps=4 format=3 uid="uid://cdie0qb10eba1"]
+
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="1_0vvdu"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/drain.gd" id="1_tgv33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6owf"]
+atlas = ExtResource("1_0vvdu")
+region = Rect2(66, 66, 66, 66)
+
+[resource]
+script = ExtResource("1_tgv33")
+health_gain = 0
+attack_gain = 1
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 2
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Drain %d/%d"
+description = "Whenever your karma gets decreased, a card with this sigils will gains %d Attack and %d Health."
+icon = SubResource("AtlasTexture_a6owf")
+highlight_duration = 1.0

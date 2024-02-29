@@ -1,0 +1,297 @@
+[gd_scene load_steps=56 format=3 uid="uid://vmliqn78631u"]
+
+[ext_resource type="Script" path="res://Audio/GD_SFXOther.gd" id="1_wsfow"]
+[ext_resource type="AudioStream" uid="uid://h78ugsvxhc76" path="res://Audio/Card/CardCardHover1.ogg" id="2_cdbka"]
+[ext_resource type="AudioStream" uid="uid://wvtddy3fu7qj" path="res://Audio/Card/CardCardHover2.ogg" id="3_7itb0"]
+[ext_resource type="AudioStream" uid="uid://bqawarpgb23xp" path="res://Audio/Card/CardCardHover3.ogg" id="4_yolpd"]
+[ext_resource type="AudioStream" uid="uid://d2wcdlsb1fbw5" path="res://Audio/Card/CardCardHover4.ogg" id="5_rrrwr"]
+[ext_resource type="AudioStream" uid="uid://cvq0t1pgduquv" path="res://Audio/Card/CardCardHover5.ogg" id="6_p4alm"]
+[ext_resource type="AudioStream" uid="uid://hgg4x371e3t5" path="res://Audio/Card/CardCardHover6.ogg" id="7_aiuho"]
+[ext_resource type="AudioStream" uid="uid://bhr38mo8v1ag8" path="res://Audio/Card/CardCardHover7.ogg" id="8_lptow"]
+[ext_resource type="AudioStream" uid="uid://ci0lanuagp10t" path="res://Audio/Card/CardCardHover8.ogg" id="9_5qtf4"]
+[ext_resource type="AudioStream" uid="uid://c3124wagi6dy1" path="res://Audio/Card/CardCardHover9.ogg" id="10_coggh"]
+[ext_resource type="AudioStream" uid="uid://b838rmfbtq2ml" path="res://Audio/Card/CardCardHover10.ogg" id="11_jjxko"]
+[ext_resource type="AudioStream" uid="uid://d3cm4nhjguf70" path="res://Audio/Karma/VFXKarmaBlipMid.ogg" id="12_lk3b0"]
+[ext_resource type="AudioStream" uid="uid://bie8ktf2o0l7x" path="res://Audio/Karma/VFXKarmaBlipDroplet1.ogg" id="13_lrouo"]
+[ext_resource type="AudioStream" uid="uid://bhkh3rtovmwqt" path="res://Audio/Karma/VFXKarmaBlipDroplet2.ogg" id="14_54u87"]
+[ext_resource type="AudioStream" uid="uid://c0ajpj4a2820h" path="res://Audio/Karma/VFXKarmaBlipDroplet3.ogg" id="15_1g0f6"]
+[ext_resource type="AudioStream" uid="uid://d25daj52x2b40" path="res://Audio/Karma/VFXKarmaBlipDroplet4.ogg" id="16_eba8r"]
+[ext_resource type="AudioStream" uid="uid://cbdxeb70xwryl" path="res://Audio/Karma/KarmaResult.ogg" id="17_tnpd6"]
+[ext_resource type="AudioStream" uid="uid://cf5sr17251g43" path="res://Audio/UI/UIButtonHover1.ogg" id="17_wqur1"]
+[ext_resource type="AudioStream" uid="uid://40lty7jni8fj" path="res://Audio/UI/UIButtonHover2.ogg" id="18_y42my"]
+[ext_resource type="AudioStream" uid="uid://cyy18xxoji4la" path="res://Audio/UI/UIButtonHover3.ogg" id="19_gonrv"]
+[ext_resource type="AudioStream" uid="uid://cymksahy13knc" path="res://Audio/UI/UIButtonPress.ogg" id="20_eet8d"]
+[ext_resource type="AudioStream" uid="uid://cxxg00ium5xfl" path="res://Audio/Card/CardHoverLoop3.ogg" id="21_36cxs"]
+[ext_resource type="AudioStream" uid="uid://b6l7socdfl0tx" path="res://Audio/Card/PlayerDamage.ogg" id="22_6gxm1"]
+[ext_resource type="AudioStream" uid="uid://dpqdg18j2fake" path="res://Audio/Knocks/Knock1.ogg" id="23_xlm4k"]
+[ext_resource type="AudioStream" uid="uid://0scmw4jyjqpp" path="res://Audio/Knocks/Knock2.ogg" id="24_fdx31"]
+[ext_resource type="AudioStream" uid="uid://dwqdnid3b871y" path="res://Audio/Knocks/Knock3.ogg" id="25_qb18f"]
+[ext_resource type="AudioStream" uid="uid://dot8hnqs3mdy7" path="res://Audio/Knocks/Knock4.ogg" id="26_rx62o"]
+[ext_resource type="AudioStream" uid="uid://cy0va7sj2ji6n" path="res://Audio/Knocks/Knock5.ogg" id="27_xhstc"]
+[ext_resource type="AudioStream" uid="uid://drgu6vq7bfqp2" path="res://Audio/Knocks/Knock6.ogg" id="28_jo8gd"]
+[ext_resource type="AudioStream" uid="uid://ce4us5deup3gs" path="res://Audio/LevelStuff/LevelEnter.ogg" id="29_p53re"]
+[ext_resource type="AudioStream" uid="uid://c8fqtpgfkofub" path="res://Audio/UI/DestroyCard1.ogg" id="30_0hyeq"]
+[ext_resource type="AudioStream" uid="uid://bngb3hm60v3vd" path="res://Audio/UI/DestroyCard2.ogg" id="31_i03t3"]
+[ext_resource type="AudioStream" uid="uid://5m68ioyctp7i" path="res://Audio/UI/DestroyCard3.ogg" id="32_wmq4o"]
+[ext_resource type="AudioStream" uid="uid://ifjp0wj7afpr" path="res://Audio/Card/Effect1.ogg" id="34_xuuen"]
+[ext_resource type="AudioStream" uid="uid://c7kkojjquc75y" path="res://Audio/UI/CoinDing1.ogg" id="35_ks7dr"]
+[ext_resource type="AudioStream" uid="uid://haue4jlcbmaf" path="res://Audio/UI/CoinLand1.ogg" id="36_w1lxe"]
+[ext_resource type="AudioStream" uid="uid://da5ilmrnwmeod" path="res://Audio/UI/CoinLand2.ogg" id="37_4cbh1"]
+[ext_resource type="AudioStream" uid="uid://binp0r3adqcuh" path="res://Audio/UI/CoinLand3.ogg" id="38_6jvth"]
+[ext_resource type="AudioStream" uid="uid://24x4qfoes20u" path="res://Audio/UI/CoinLand4.ogg" id="39_1sj7q"]
+[ext_resource type="AudioStream" uid="uid://bamt6qb0qmpb2" path="res://Audio/UI/CoinLand5.ogg" id="40_7761o"]
+[ext_resource type="AudioStream" uid="uid://dp6qj1wrc3xcf" path="res://Audio/Money1.ogg" id="41_84m4w"]
+[ext_resource type="AudioStream" uid="uid://co3jmyshyars5" path="res://Audio/Money2.ogg" id="42_cmuwg"]
+[ext_resource type="AudioStream" uid="uid://cd3y07ronjkgg" path="res://Audio/Money3.ogg" id="43_yc1xh"]
+[ext_resource type="AudioStream" uid="uid://cci6n316fqa5m" path="res://Audio/Money4.ogg" id="44_mk5kh"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sqnrc"]
+random_pitch = 1.25
+random_volume_offset_db = 2.0
+streams_count = 10
+stream_0/stream = ExtResource("2_cdbka")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_7itb0")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_yolpd")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_rrrwr")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_p4alm")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("7_aiuho")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("8_lptow")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("9_5qtf4")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("10_coggh")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("11_jjxko")
+stream_9/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sphk5"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("12_lk3b0")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f3wda"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("13_lrouo")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("14_54u87")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("15_1g0f6")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("16_eba8r")
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ga3n"]
+streams_count = 3
+stream_0/stream = ExtResource("17_wqur1")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("18_y42my")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("19_gonrv")
+stream_2/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_7hayh"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-64.0, 6.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnftf"]
+_data = {
+"Fade": SubResource("Animation_7hayh")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ul6u8"]
+random_pitch = 1.6
+random_volume_offset_db = 1.0
+streams_count = 6
+stream_0/stream = ExtResource("23_xlm4k")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("24_fdx31")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("25_qb18f")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("26_rx62o")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("27_xhstc")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("28_jo8gd")
+stream_5/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xckbx"]
+random_pitch = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("30_0hyeq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("31_i03t3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("32_wmq4o")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m4ekr"]
+random_pitch = 1.4
+streams_count = 1
+stream_0/stream = ExtResource("35_ks7dr")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_byy0p"]
+random_pitch = 1.2
+streams_count = 5
+stream_0/stream = ExtResource("36_w1lxe")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("37_4cbh1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("38_6jvth")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("39_1sj7q")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("40_7761o")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3rl3s"]
+random_pitch = 1.3
+streams_count = 4
+stream_0/stream = ExtResource("41_84m4w")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("42_cmuwg")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("43_yc1xh")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("44_mk5kh")
+stream_3/weight = 1.0
+
+[node name="SFXOther" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wsfow")
+
+[node name="Draw" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sqnrc")
+volume_db = -3.0
+pitch_scale = 1.25
+max_polyphony = 4
+bus = &"SFXOther"
+
+[node name="HandOpen" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sqnrc")
+volume_db = -3.0
+pitch_scale = 1.25
+max_polyphony = 4
+bus = &"SFXOther"
+
+[node name="HandClose" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sqnrc")
+volume_db = -3.0
+pitch_scale = 1.25
+max_polyphony = 4
+bus = &"SFXOther"
+
+[node name="HandCardHover" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sqnrc")
+volume_db = -3.0
+pitch_scale = 1.25
+max_polyphony = 4
+bus = &"SFXOther"
+
+[node name="KarmaPlayerBlip" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sphk5")
+volume_db = -6.0
+max_polyphony = 8
+bus = &"SFXOther"
+
+[node name="KarmaPlayerDroplet" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_f3wda")
+volume_db = 3.0
+pitch_scale = 0.75
+max_polyphony = 8
+bus = &"SFXOther"
+
+[node name="KarmaResult" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_tnpd6")
+
+[node name="UiButtonHover" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6ga3n")
+max_polyphony = 4
+bus = &"UI"
+
+[node name="UiButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_eet8d")
+bus = &"UI"
+
+[node name="PlacableHover" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6ga3n")
+max_polyphony = 3
+bus = &"UI"
+
+[node name="PlacableHoverLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_36cxs")
+volume_db = -64.0
+bus = &"UI"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlacableHoverLoop"]
+libraries = {
+"": SubResource("AnimationLibrary_tnftf")
+}
+
+[node name="Damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_6gxm1")
+volume_db = -3.0
+max_polyphony = 4
+bus = &"SFXOther"
+
+[node name="Knocks" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ul6u8")
+bus = &"SFXOther"
+
+[node name="TestKnockTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="LevelDenoter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_p53re")
+volume_db = -3.0
+bus = &"SFXOther"
+
+[node name="DestroyCard" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xckbx")
+bus = &"SFXOther"
+
+[node name="Effect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_xuuen")
+volume_db = -3.0
+bus = &"UI"
+
+[node name="WinLoss" type="AudioStreamPlayer" parent="."]
+bus = &"UI"
+
+[node name="CoinDing" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_m4ekr")
+bus = &"UI"
+
+[node name="CoinLand" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_byy0p")
+bus = &"UI"
+
+[node name="Money" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3rl3s")
+
+[connection signal="timeout" from="TestKnockTimer" to="." method="_on_test_knock_timer_timeout"]

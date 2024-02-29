@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkb1v1b7fpmp"]
+
+[ext_resource type="Material" uid="uid://7sj2hjrf2mv4" path="res://assets/vfx/materials/keyword_icon.tres" id="1_vchgw"]
+[ext_resource type="Texture2D" uid="uid://bawbyueie70c3" path="res://assets/sprites/keywords/kw_duality.png" id="2_tvppm"]
+
+[node name="KeywordParticles" type="GPUParticles2D"]
+scale = Vector2(6, 6)
+emitting = false
+amount = 1
+process_material = ExtResource("1_vchgw")
+texture = ExtResource("2_tvppm")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.15
+local_coords = true

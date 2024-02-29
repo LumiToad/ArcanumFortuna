@@ -1,0 +1,980 @@
+[gd_scene load_steps=95 format=3 uid="uid://c8wrkx1o0ism"]
+
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/node_map.gd" id="1_lar4p"]
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="2_jx6qu"]
+[ext_resource type="PackedScene" uid="uid://b2vx0edf3t6u3" path="res://systems/dungeon_exploration/player/player.tscn" id="3_hynlr"]
+[ext_resource type="Resource" uid="uid://22opo18s7wkj" path="res://data/player/basic_player.tres" id="4_fy82u"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="5_psswj"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/seed_text.gd" id="6_wk5c6"]
+[ext_resource type="PackedScene" uid="uid://y05vxgjpeday" path="res://systems/dungeon_exploration/maps/random_event_node.tscn" id="7_7t6tu"]
+[ext_resource type="Texture2D" uid="uid://b5i3gdceaywkm" path="res://assets/ui/nodemap/encounter_elite.png" id="8_6mxc1"]
+[ext_resource type="PackedScene" uid="uid://4el45oxnhsuo" path="res://systems/dungeon_events/shop_event.tscn" id="9_agycr"]
+[ext_resource type="PackedScene" uid="uid://bggcv7yipjcm7" path="res://systems/dungeon_events/loot_event.tscn" id="9_iwnjr"]
+[ext_resource type="Script" path="res://utils/random_scene.gd" id="10_ttikx"]
+[ext_resource type="Texture2D" uid="uid://cj8fhe2r2vwy8" path="res://assets/ui/nodemap/encounter_standard.png" id="11_jtmpe"]
+[ext_resource type="PackedScene" uid="uid://bml43x2miuf00" path="res://systems/dungeon_events/battle_event.tscn" id="11_oxxj3"]
+[ext_resource type="PackedScene" uid="uid://cdmbv5kshgi6w" path="res://systems/dungeon_events/challenge_battle_event.tscn" id="12_vamcr"]
+[ext_resource type="Texture2D" uid="uid://cttyhls7u4jgr" path="res://assets/ui/nodemap/encounter_card.png" id="13_bvmhs"]
+[ext_resource type="PackedScene" uid="uid://rd4s1jnxga1w" path="res://systems/dungeon_exploration/nodes/final_node.tscn" id="15_ocwq0"]
+[ext_resource type="Texture2D" uid="uid://cc6matgv77q51" path="res://assets/ui/nodemap/encounter_shop.png" id="15_xwpki"]
+[ext_resource type="Texture2D" uid="uid://clda7gnqq52gc" path="res://assets/ui/placeholders/nodemap_1_decoration.png" id="19_o8yvs"]
+
+[sub_resource type="Resource" id="Resource_i25gk"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_tos7p"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_drgec"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_rn516"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_br2uv"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_c4cr7"]
+script = ExtResource("10_ttikx")
+chance_weight = 9
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_42c3e"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_fhjay"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_r04nl"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_6e7l6"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_wv2us"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_vhi8f"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_qm0sk"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_irt6a"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_871ui"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_2ditg"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_a0kmo"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_djjmm"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_8q8wj"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_6dcrm"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_f7nmc"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_0iaxx"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_nlre3"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_kldf1"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_7mwwd"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_0iv1d"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_wobso"]
+script = ExtResource("10_ttikx")
+chance_weight = 6
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_rqujr"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_j807h"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_l0ym3"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_4n1dk"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_ysmkk"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_oq3ij"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_3vuwi"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_he4wl"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_3soxm"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_5cpnx"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_427fk"]
+script = ExtResource("10_ttikx")
+chance_weight = 5
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_ut80a"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_jw64k"]
+script = ExtResource("10_ttikx")
+chance_weight = 6
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_bcoy3"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_to17i"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_5exgf"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_y0tgd"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_k0yxp"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_hy5wc"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_bl0ya"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_qo8mr"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_s5hg2"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_eld8i"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_83vas"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_61wsx"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_hh0qo"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_83ac1"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_nqeek"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_jobro"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_0q82i"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_owam0"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_1wms6"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_fc5wt"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_m3fbc"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_6fcts"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_htfq0"]
+script = ExtResource("10_ttikx")
+chance_weight = 5
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_utxjs"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_g8qmu"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_crdp0"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_x1iye"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("9_iwnjr")
+placeholder_icon_texture = ExtResource("13_bvmhs")
+
+[sub_resource type="Resource" id="Resource_cxyye"]
+script = ExtResource("10_ttikx")
+chance_weight = 4
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_t2pyu"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_pmybb"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_aj6j2"]
+script = ExtResource("10_ttikx")
+chance_weight = 3
+scene = ExtResource("11_oxxj3")
+placeholder_icon_texture = ExtResource("11_jtmpe")
+
+[sub_resource type="Resource" id="Resource_mpt0l"]
+script = ExtResource("10_ttikx")
+chance_weight = 2
+scene = ExtResource("9_agycr")
+placeholder_icon_texture = ExtResource("15_xwpki")
+
+[sub_resource type="Resource" id="Resource_3x68j"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="Resource" id="Resource_iid5s"]
+script = ExtResource("10_ttikx")
+chance_weight = 1
+scene = ExtResource("12_vamcr")
+placeholder_icon_texture = ExtResource("8_6mxc1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjdya"]
+resource_name = "help"
+texture = ExtResource("19_o8yvs")
+1:6/size_in_atlas = Vector2i(5, 2)
+1:6/0 = 0
+9:6/size_in_atlas = Vector2i(5, 2)
+9:6/0 = 0
+17:5/size_in_atlas = Vector2i(5, 3)
+17:5/0 = 0
+26:6/size_in_atlas = Vector2i(3, 2)
+26:6/0 = 0
+33:6/size_in_atlas = Vector2i(5, 2)
+33:6/0 = 0
+41:4/size_in_atlas = Vector2i(4, 4)
+41:4/0 = 0
+48:4/size_in_atlas = Vector2i(5, 4)
+48:4/0 = 0
+0:11/size_in_atlas = Vector2i(16, 5)
+0:11/0 = 0
+16:11/size_in_atlas = Vector2i(14, 5)
+16:11/0 = 0
+33:11/size_in_atlas = Vector2i(4, 5)
+33:11/0 = 0
+40:9/size_in_atlas = Vector2i(6, 7)
+40:9/0 = 0
+1:22/size_in_atlas = Vector2i(13, 9)
+1:22/0 = 0
+17:20/size_in_atlas = Vector2i(14, 11)
+17:20/0 = 0
+33:18/size_in_atlas = Vector2i(11, 13)
+33:18/0 = 0
+49:19/size_in_atlas = Vector2i(10, 12)
+49:19/0 = 0
+2:40/size_in_atlas = Vector2i(18, 6)
+2:40/0 = 0
+26:39/size_in_atlas = Vector2i(18, 7)
+26:39/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_35j8v"]
+sources/2 = SubResource("TileSetAtlasSource_fjdya")
+
+[node name="NodeMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lar4p")
+
+[node name="Player" parent="." node_paths=PackedStringArray("startNode") instance=ExtResource("3_hynlr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+startNode = NodePath("../StartNode")
+startData = ExtResource("4_fy82u")
+
+[node name="StartNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("2_jx6qu")]
+layout_mode = 1
+offset_left = -807.0
+offset_top = -128.0
+offset_right = -807.0
+offset_bottom = -128.0
+connectsTo = [NodePath("../RandomNode")]
+offset = 45.0
+
+[node name="RandomNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = -449.0
+offset_top = -151.0
+offset_right = -449.0
+offset_bottom = -151.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_i25gk")])
+connectsTo = [NodePath("../RandomEventNode"), NodePath("../RandomEventNode2")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = -80.0
+offset_top = -324.0
+offset_right = -80.0
+offset_bottom = -324.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_tos7p"), SubResource("Resource_drgec")])
+connectsTo = [NodePath("../RandomEventNode3")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode2" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = -207.0
+offset_top = -3.0
+offset_right = -207.0
+offset_bottom = -3.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_rn516"), SubResource("Resource_br2uv")])
+connectsTo = [NodePath("../RandomEventNode3")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode3" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 190.0
+offset_top = -153.0
+offset_right = 190.0
+offset_bottom = -153.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_c4cr7"), SubResource("Resource_42c3e")])
+connectsTo = [NodePath("../RandomEventNode4"), NodePath("../RandomEventNode5"), NodePath("../RandomEventNode6")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode4" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 438.0
+offset_top = -479.0
+offset_right = 438.0
+offset_bottom = -479.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_fhjay"), SubResource("Resource_r04nl")])
+connectsTo = [NodePath("../RandomEventNode7")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode5" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 566.0
+offset_top = -236.0
+offset_right = 566.0
+offset_bottom = -236.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_6e7l6"), SubResource("Resource_wv2us"), SubResource("Resource_vhi8f")])
+connectsTo = [NodePath("../RandomEventNode7")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode6" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 415.0
+offset_top = 108.0
+offset_right = 415.0
+offset_bottom = 108.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_qm0sk"), SubResource("Resource_irt6a"), SubResource("Resource_871ui")])
+connectsTo = [NodePath("../RandomEventNode8")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode7" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 858.0
+offset_top = -359.0
+offset_right = 858.0
+offset_bottom = -359.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_2ditg"), SubResource("Resource_a0kmo")])
+connectsTo = [NodePath("../RandomEventNode10")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode8" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 796.0
+offset_top = 41.0
+offset_right = 796.0
+offset_bottom = 41.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_djjmm"), SubResource("Resource_8q8wj")])
+connectsTo = [NodePath("../RandomEventNode9")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode9" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 1064.0
+offset_top = 85.0
+offset_right = 1064.0
+offset_bottom = 85.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_6dcrm"), SubResource("Resource_f7nmc")])
+connectsTo = [NodePath("../RandomEventNode11")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode10" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 1184.0
+offset_top = -493.0
+offset_right = 1184.0
+offset_bottom = -493.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_0iaxx"), SubResource("Resource_nlre3")])
+connectsTo = [NodePath("../RandomEventNode11")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode11" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 1480.0
+offset_top = -151.0
+offset_right = 1480.0
+offset_bottom = -151.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_kldf1"), SubResource("Resource_7mwwd"), SubResource("Resource_0iv1d"), SubResource("Resource_wobso")])
+connectsTo = [NodePath("../RandomEventNode12"), NodePath("../RandomEventNode13")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode12" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 1702.0
+offset_top = -323.0
+offset_right = 1702.0
+offset_bottom = -323.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_rqujr"), SubResource("Resource_j807h")])
+connectsTo = [NodePath("../RandomEventNode15"), NodePath("../RandomEventNode16")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode13" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 1820.0
+offset_top = -17.0
+offset_right = 1820.0
+offset_bottom = -17.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_l0ym3"), SubResource("Resource_4n1dk")])
+connectsTo = [NodePath("../RandomEventNode14")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode14" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 2084.0
+offset_top = 27.0
+offset_right = 2084.0
+offset_bottom = 27.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_ysmkk"), SubResource("Resource_oq3ij"), SubResource("Resource_3vuwi")])
+connectsTo = [NodePath("../RandomEventNode17")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode15" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 2132.0
+offset_top = -475.0
+offset_right = 2132.0
+offset_bottom = -475.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_he4wl"), SubResource("Resource_3soxm")])
+connectsTo = [NodePath("../RandomEventNode17")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode16" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 2048.0
+offset_top = -261.0
+offset_right = 2048.0
+offset_bottom = -261.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_5cpnx"), SubResource("Resource_427fk")])
+connectsTo = [NodePath("../RandomEventNode17")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode17" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 2445.0
+offset_top = -318.0
+offset_right = 2445.0
+offset_bottom = -318.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_ut80a"), SubResource("Resource_jw64k")])
+connectsTo = [NodePath("../RandomEventNode18"), NodePath("../RandomEventNode19")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode18" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 2790.0
+offset_top = -366.0
+offset_right = 2790.0
+offset_bottom = -366.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_bcoy3")])
+connectsTo = [NodePath("../RandomEventNode22")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode19" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 2656.0
+offset_top = -43.0
+offset_right = 2656.0
+offset_bottom = -43.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_to17i")])
+connectsTo = [NodePath("../RandomEventNode20"), NodePath("../RandomEventNode21")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode20" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3097.0
+offset_top = 55.0
+offset_right = 3097.0
+offset_bottom = 55.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_5exgf"), SubResource("Resource_y0tgd")])
+connectsTo = [NodePath("../RandomEventNode23"), NodePath("../RandomEventNode24")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode21" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3016.0
+offset_top = -227.0
+offset_right = 3016.0
+offset_bottom = -227.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_k0yxp"), SubResource("Resource_hy5wc")])
+connectsTo = [NodePath("../RandomEventNode24")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode22" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3129.0
+offset_top = -519.0
+offset_right = 3129.0
+offset_bottom = -519.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_bl0ya"), SubResource("Resource_qo8mr"), SubResource("Resource_s5hg2")])
+connectsTo = [NodePath("../RandomEventNode25")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode23" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3400.0
+offset_top = 42.0
+offset_right = 3400.0
+offset_bottom = 42.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_eld8i")])
+connectsTo = [NodePath("../RandomEventNode26")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode24" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3454.0
+offset_top = -189.0
+offset_right = 3454.0
+offset_bottom = -189.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_83vas"), SubResource("Resource_61wsx")])
+connectsTo = [NodePath("../RandomEventNode27")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode25" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3368.0
+offset_top = -438.0
+offset_right = 3368.0
+offset_bottom = -438.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_hh0qo"), SubResource("Resource_83ac1")])
+connectsTo = [NodePath("../RandomEventNode27")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode26" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3711.0
+offset_top = -15.0
+offset_right = 3711.0
+offset_bottom = -15.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_nqeek"), SubResource("Resource_jobro")])
+connectsTo = [NodePath("../RandomEventNode29")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode27" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3719.0
+offset_top = -486.0
+offset_right = 3719.0
+offset_bottom = -486.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_0q82i"), SubResource("Resource_owam0")])
+connectsTo = [NodePath("../RandomEventNode28")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode28" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 4062.0
+offset_top = -385.0
+offset_right = 4062.0
+offset_bottom = -385.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_1wms6"), SubResource("Resource_fc5wt")])
+connectsTo = [NodePath("../RandomEventNode30"), NodePath("../RandomEventNode31")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode29" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 3956.0
+offset_top = -133.0
+offset_right = 3956.0
+offset_bottom = -133.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_m3fbc"), SubResource("Resource_6fcts")])
+connectsTo = [NodePath("../RandomEventNode30")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode30" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 4324.0
+offset_top = 37.0
+offset_right = 4324.0
+offset_bottom = 37.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_htfq0"), SubResource("Resource_utxjs")])
+connectsTo = [NodePath("../RandomEventNode34")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode31" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 4362.0
+offset_top = -414.0
+offset_right = 4362.0
+offset_bottom = -414.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_g8qmu"), SubResource("Resource_crdp0")])
+connectsTo = [NodePath("../RandomEventNode32"), NodePath("../RandomEventNode33")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode32" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 4660.0
+offset_top = -488.0
+offset_right = 4660.0
+offset_bottom = -488.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_x1iye"), SubResource("Resource_cxyye"), SubResource("Resource_t2pyu")])
+connectsTo = [NodePath("../RandomEventNode35")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode33" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 4728.0
+offset_top = -198.0
+offset_right = 4728.0
+offset_bottom = -198.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_pmybb"), SubResource("Resource_aj6j2"), SubResource("Resource_mpt0l")])
+connectsTo = [NodePath("../RandomEventNode35")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode34" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 4567.0
+offset_top = -17.0
+offset_right = 4567.0
+offset_bottom = -17.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_3x68j")])
+connectsTo = [NodePath("../RandomEventNode35")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="RandomEventNode35" parent="." node_paths=PackedStringArray("connectsTo") instance=ExtResource("7_7t6tu")]
+layout_mode = 1
+offset_left = 5031.0
+offset_top = -128.0
+offset_right = 5031.0
+offset_bottom = -128.0
+potential_events = Array[ExtResource("10_ttikx")]([SubResource("Resource_iid5s")])
+connectsTo = [NodePath("../FinalNode")]
+dashed_width = 12.0
+offset = 45.0
+
+[node name="FinalNode" parent="." instance=ExtResource("15_ocwq0")]
+layout_mode = 1
+offset_left = 5241.0
+offset_top = -170.0
+offset_right = 5241.0
+offset_bottom = -170.0
+
+[node name="LevelDecorations" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -947.0
+offset_top = -546.0
+offset_right = -907.0
+offset_bottom = -506.0
+
+[node name="TileMap" type="TileMap" parent="LevelDecorations"]
+tile_set = SubResource("TileSet_35j8v")
+format = 2
+layer_0/name = "layer 1"
+layer_0/tile_data = PackedInt32Array(655397, 1114114, 5, 2031717, 1114114, 5, 2490521, 1114114, 5, 721095, 1114114, 5, 2359534, 1114114, 5, 65813, 1114114, 5, 2294126, 1114114, 5, 1638813, 1703938, 6, 1442119, 1703938, 6, 1966359, 1703938, 6, 1966298, 1703938, 6, 131252, 1703938, 6, 262247, 1703938, 6, 2031636, 1703938, 6, 2555959, 2162690, 6, 1704099, 2162690, 6, 393467, 2162690, 6, 2228535, 2162690, 6, 1311096, 2162690, 6, 524715, 2162690, 6, 2359710, 2686978, 4, 1311066, 2686978, 4, 786721, 2686978, 4, 1835211, 2686978, 4, 1638540, 2686978, 4, 1441853, 2686978, 4, 655368, 3145730, 4, 1048663, 3145730, 4, 2424968, 3145730, 4, 262363, 3145730, 4, 1507594, 3145730, 4, 983376, 3145730, 4, 393623, 3145730, 4, 721282, 2162690, 11, 1835265, 2162690, 11, 393385, 2162690, 11, 2097155, 2162690, 11, 1638507, 2621442, 9, 2293777, 2621442, 9, 655549, 2621442, 9, 2162990, 2621442, 9, 721313, 2621442, 9, 1376686, 65538, 22, 1048877, 65538, 22, 1572989, 65538, 22, 589847, 1114114, 20, 1638586, 1114114, 20, 2294162, 2162690, 18, 721156, 2162690, 18, 786561, 2162690, 18, 852097, 2162690, 18, 393262, 3211266, 19, 1376427, 3211266, 19, 1507665, 3211266, 19, 1769471, 2162690, 6, 589817, 65538, 6, 1179638, 3145730, 4, 2097137, 65538, 22, 720876, 2162690, 18, 1703913, 2686978, 4, 1179881, 1703938, 39, 1311130, 131074, 40, 2621434, 131074, 40)
+layer_1/name = "layer 2 (snow"
+layer_1/tile_data = PackedInt32Array(851990, 2, 11, 2293826, 2, 11, 1835133, 2, 11, 2293969, 2, 11, -65224, 2, 11, 2556286, 2, 11, 1573153, 1048578, 11, 393440, 1048578, 11, 524659, 1048578, 11, 589975, 1048578, 11, 2097244, 1048578, 11, 720963, 1048578, 11, 2424847, 1048578, 11, 2359326, 65538, 6, 1769515, 65538, 6, 1245265, 65538, 6, 2621544, 65538, 6, 786569, 65538, 6, 2424994, 65538, 6, 1310899, 65538, 6, 1310941, 65538, 6, 2097419, 65538, 6, 2294080, 65538, 6, 131408, 65538, 6, 1835406, 65538, 6, 1179652, 589826, 6, 1179755, 589826, 6, 2621582, 589826, 6, 171, 589826, 6, 327887, 589826, 6, 2097398, 589826, 6, 721170, 589826, 6, 721202, 589826, 6, 2228582, 589826, 6, 786832, 589826, 6, 1966506, 1048578, 11)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme = ExtResource("5_psswj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "Seed: 1337"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_wk5c6")
+
+[connection signal="mouse_entered" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SeedLabel" to="CanvasLayer/SeedLabel" method="_on_mouse_exited"]

@@ -1,0 +1,150 @@
+[gd_scene load_steps=22 format=3 uid="uid://cubcyrlc6vmhw"]
+
+[ext_resource type="Texture2D" uid="uid://dk8yqb3in1e4g" path="res://assets/sprites/cards/card_back.png" id="1_8xr7q"]
+[ext_resource type="Texture2D" uid="uid://dkqjfttreclq5" path="res://assets/sprites/cards/magician.png" id="2_q71qx"]
+[ext_resource type="Texture2D" uid="uid://dix6q87wh3fsk" path="res://assets/sprites/cards/high_priestess.png" id="3_b3gkq"]
+[ext_resource type="Texture2D" uid="uid://dsvokssfcwugn" path="res://assets/sprites/cards/empress.png" id="4_xodkr"]
+[ext_resource type="Texture2D" uid="uid://2k427t62yypc" path="res://assets/sprites/cards/emperor.png" id="5_h5wu6"]
+[ext_resource type="Texture2D" uid="uid://vy0ulm2qucxw" path="res://assets/sprites/cards/hierophant.png" id="6_aid1k"]
+[ext_resource type="Texture2D" uid="uid://bwnsccdkrqrhh" path="res://assets/sprites/cards/lovers.png" id="7_ngda0"]
+[ext_resource type="Texture2D" uid="uid://ck8w2wmtro7hn" path="res://assets/sprites/cards/chariot.png" id="8_susj5"]
+[ext_resource type="Texture2D" uid="uid://vhp6qhyxxw2w" path="res://assets/sprites/cards/strength.png" id="9_yw1ov"]
+[ext_resource type="Texture2D" uid="uid://du2kmsbouqe0a" path="res://assets/sprites/cards/hermit.png" id="10_38ae2"]
+[ext_resource type="Texture2D" uid="uid://dupt72ornov5p" path="res://assets/sprites/cards/hanged_man.png" id="11_kus4j"]
+[ext_resource type="Texture2D" uid="uid://h0448sn65e2l" path="res://assets/sprites/cards/death.png" id="12_1c3lt"]
+[ext_resource type="Texture2D" uid="uid://clotsnwomvrm8" path="res://assets/sprites/cards/star.png" id="13_sot4n"]
+[ext_resource type="Texture2D" uid="uid://dp4o7wrdsgven" path="res://assets/sprites/cards/moon.png" id="14_hrcpm"]
+[ext_resource type="Texture2D" uid="uid://cwd3iw37x3k8w" path="res://assets/sprites/cards/sun.png" id="15_8mhyj"]
+[ext_resource type="Texture2D" uid="uid://deqxg805404yn" path="res://assets/sprites/cards/world.png" id="16_83vg1"]
+[ext_resource type="PackedScene" uid="uid://dl86q0oq58j6q" path="res://systems/card_combat/cards/card_base.tscn" id="17_ilv4a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37ltj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q71qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b3gkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xodkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h5wu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_aid1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ngda0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_susj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yw1ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_38ae2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kus4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1c3lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sot4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hrcpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8mhyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_83vg1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ehoeo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cardback:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cardback/Cards:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_y4ctp"]
+resource_name = "card_flip"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cardback:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0582186, 0.2, 0.375868, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.705045, 1), Vector2(0.05, 1), Vector2(0.974365, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cardback/Cards:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.226556),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2wd"]
+_data = {
+"RESET": SubResource("Animation_ehoeo"),
+"card_flip": SubResource("Animation_y4ctp")
+}
+
+[node name="card_flip" type="Node2D"]
+
+[node name="Cardback" type="Sprite2D" parent="."]
+texture = ExtResource("1_8xr7q")
+
+[node name="Cards" type="AnimatedSprite2D" parent="Cardback"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_37ltj")
+frame = 1
+
+[node name="Card" parent="Cardback" instance=ExtResource("17_ilv4a")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3v2wd")
+}

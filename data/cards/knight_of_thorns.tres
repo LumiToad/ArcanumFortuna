@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://vtxg3gn2kpbu"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_8hrvx"]
+[ext_resource type="Texture2D" uid="uid://cp7762e2ryu5g" path="res://assets/sprites/cards/knight_of_thorns.png" id="1_71cev"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_6ry13"]
+[ext_resource type="Resource" uid="uid://dgrlss1x1wbu1" path="res://data/keyword/counter_damage.tres" id="3_tm4vg"]
+
+[resource]
+script = ExtResource("1_8hrvx")
+name = "Knight of Thorns"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_71cev")
+cost = 4
+attack = 0
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_tm4vg")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_6ry13")

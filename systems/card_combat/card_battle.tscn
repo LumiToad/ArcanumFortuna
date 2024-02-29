@@ -1,0 +1,454 @@
+[gd_scene load_steps=46 format=3 uid="uid://cbqvu0uo5eaku"]
+
+[ext_resource type="Script" path="res://systems/card_combat/card_battle.gd" id="1_7dv5d"]
+[ext_resource type="Script" path="res://systems/card_combat/game_board.gd" id="2_2jjg6"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/start_phase.gd" id="2_2m38c"]
+[ext_resource type="Resource" uid="uid://bey7oy462yo2s" path="res://data/player/debug_player.tres" id="2_42xvr"]
+[ext_resource type="PackedScene" uid="uid://dgdblxt0g8doq" path="res://systems/card_combat/cards/combat_card.tscn" id="3_1hhbj"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/friendly_placement_phase.gd" id="3_mws33"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/friendly_attack_phase.gd" id="4_qhqtv"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/friendly_karma_phase.gd" id="5_0huhq"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/enemy_attack_phase.gd" id="5_7hc2v"]
+[ext_resource type="PackedScene" uid="uid://d04yhti50qih4" path="res://assets/vfx/big_blob.tscn" id="5_11qft"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/enemy_movement_phase.gd" id="5_lslbq"]
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_tooltip.gd" id="6_o6asy"]
+[ext_resource type="PackedScene" uid="uid://b84sklippd45m" path="res://assets/vfx/karma_particle.tscn" id="7_vptnu"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/end_phase.gd" id="8_qbqvo"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/enemy_placement_phase.gd" id="9_j03le"]
+[ext_resource type="Script" path="res://systems/card_combat/combat_phases/enemy_karma_phase.gd" id="10_5pdmy"]
+[ext_resource type="Texture2D" uid="uid://delvygdf16ya4" path="res://assets/ui/gameboard/background_placeholder.png" id="14_dvcfv"]
+[ext_resource type="Script" path="res://systems/card_combat/background.gd" id="15_7ge46"]
+[ext_resource type="PackedScene" uid="uid://ced2ynscdgy5e" path="res://systems/card_combat/copy_of_card_player.tscn" id="17_we7n7"]
+[ext_resource type="Texture2D" uid="uid://4hupbd7iry1x" path="res://assets/ui/gameboard/card_burner.png" id="18_i7pqs"]
+[ext_resource type="Script" path="res://systems/card_combat/CardDeletion.gd" id="19_xq5yv"]
+[ext_resource type="PackedScene" uid="uid://cbbtdvgdt63fh" path="res://systems/ui/tooltips/show_tooltip.tscn" id="20_7e8s5"]
+[ext_resource type="SpriteFrames" uid="uid://c1n1fu0qqediq" path="res://assets/ui/gameboard/coin_sprite_sheet.tres" id="22_8s5et"]
+[ext_resource type="Shader" path="res://assets/sprites/vfx/coin_shine.gdshader" id="22_wv27h"]
+[ext_resource type="PackedScene" uid="uid://ew0hxbsaa2qn" path="res://systems/card_combat/copy_of_enemy_player.tscn" id="25_q4n6c"]
+[ext_resource type="Material" uid="uid://ygwq26b11i74" path="res://assets/sprites/vfx/overlays/dust_particles.tres" id="26_o5euh"]
+[ext_resource type="Texture2D" uid="uid://bhbdcokx6wolh" path="res://assets/sprites/vfx/dust_particle_2.png" id="27_mwe0t"]
+[ext_resource type="Material" uid="uid://bwq3k1eyt803b" path="res://assets/sprites/vfx/overlays/sparkle_1.tres" id="28_ntl47"]
+[ext_resource type="Material" uid="uid://bdmbj4ep0jmu2" path="res://shaders/light_rays.tres" id="29_10hk0"]
+[ext_resource type="Texture2D" uid="uid://bjug7af7np3ak" path="res://assets/sprites/vfx/sparkle_particle_1.png" id="29_f8a8p"]
+
+[sub_resource type="Resource" id="Resource_26qbp"]
+script = ExtResource("2_2m38c")
+place_enemy_cards_before_first_turn = true
+
+[sub_resource type="Resource" id="Resource_7owng"]
+script = ExtResource("3_mws33")
+
+[sub_resource type="Resource" id="Resource_4waph"]
+script = ExtResource("4_qhqtv")
+
+[sub_resource type="Resource" id="Resource_611yk"]
+script = ExtResource("5_0huhq")
+karma_blob = ExtResource("5_11qft")
+small_blob = ExtResource("7_vptnu")
+karma_duration = 2.3
+karma_delay = 0.6
+blob_move = 20
+
+[sub_resource type="Resource" id="Resource_d62ed"]
+script = ExtResource("5_lslbq")
+
+[sub_resource type="Resource" id="Resource_4sdqi"]
+script = ExtResource("5_7hc2v")
+
+[sub_resource type="Resource" id="Resource_5dgv3"]
+script = ExtResource("10_5pdmy")
+karma_blob = ExtResource("5_11qft")
+small_blob = ExtResource("7_vptnu")
+karma_duration = 2.3
+karma_delay = 0.6
+blob_move = 20
+
+[sub_resource type="Resource" id="Resource_n6smt"]
+script = ExtResource("9_j03le")
+
+[sub_resource type="Resource" id="Resource_3vjfy"]
+script = ExtResource("8_qbqvo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rikmg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_bp16a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-138, 680)]
+}
+
+[sub_resource type="Animation" id="Animation_06del"]
+resource_name = "anim_close_card_delete"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 680), Vector2(-138, 680)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q6p43"]
+resource_name = "anim_open_card_delete"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-138, 680), Vector2(0, 680)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7vi5a"]
+_data = {
+"RESET": SubResource("Animation_bp16a"),
+"anim_close_card_delete": SubResource("Animation_06del"),
+"anim_open_card_delete": SubResource("Animation_q6p43")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8oys1"]
+shader = ExtResource("22_wv27h")
+shader_parameter/shine_color = Color(1, 0.67451, 0.329412, 0.0509804)
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_size = 0.01
+
+[node name="CardBattle" type="Control"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7dv5d")
+phases = Array[Resource("res://systems/card_combat/combat_phases/combat_phase.gd")]([SubResource("Resource_26qbp"), SubResource("Resource_7owng"), SubResource("Resource_4waph"), SubResource("Resource_611yk"), SubResource("Resource_d62ed"), SubResource("Resource_4sdqi"), SubResource("Resource_5dgv3"), SubResource("Resource_n6smt"), SubResource("Resource_3vjfy")])
+phase_end_delay = 0.2
+debug_player_data = ExtResource("2_42xvr")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_dvcfv")
+script = ExtResource("15_7ge46")
+
+[node name="GameBoard" type="VBoxContainer" parent="." node_paths=PackedStringArray("enemy_player", "player")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -521.0
+offset_top = 36.0
+offset_right = 521.0
+offset_bottom = 946.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 64
+script = ExtResource("2_2jjg6")
+combat_card_prefab = ExtResource("3_1hhbj")
+enemy_player = NodePath("../EnemyPlayer")
+player = NodePath("../CardPlayer")
+tile_disabled_color = Color(0.231373, 0.196078, 0.184314, 0)
+tile_interactible_color = Color(0.341176, 0.294118, 0.278431, 1)
+tile_hovered_color = Color(0.537255, 0.47451, 0.454902, 1)
+
+[node name="EnemyTiles" type="VBoxContainer" parent="GameBoard"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Backrow" type="HBoxContainer" parent="GameBoard/EnemyTiles"]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Panel" type="TextureRect" parent="GameBoard/EnemyTiles/Backrow"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+
+[node name="Panel2" type="TextureRect" parent="GameBoard/EnemyTiles/Backrow"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+
+[node name="Panel3" type="TextureRect" parent="GameBoard/EnemyTiles/Backrow"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+
+[node name="Panel4" type="TextureRect" parent="GameBoard/EnemyTiles/Backrow"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+
+[node name="Panel5" type="TextureRect" parent="GameBoard/EnemyTiles/Backrow"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+
+[node name="Frontrow" type="HBoxContainer" parent="GameBoard/EnemyTiles"]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Panel" type="Panel" parent="GameBoard/EnemyTiles/Frontrow"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel2" type="Panel" parent="GameBoard/EnemyTiles/Frontrow"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel3" type="Panel" parent="GameBoard/EnemyTiles/Frontrow"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel4" type="Panel" parent="GameBoard/EnemyTiles/Frontrow"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel5" type="Panel" parent="GameBoard/EnemyTiles/Frontrow"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="PlayerTiles" type="HBoxContainer" parent="GameBoard"]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Panel" type="Panel" parent="GameBoard/PlayerTiles"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel2" type="Panel" parent="GameBoard/PlayerTiles"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel3" type="Panel" parent="GameBoard/PlayerTiles"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel4" type="Panel" parent="GameBoard/PlayerTiles"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="Panel5" type="Panel" parent="GameBoard/PlayerTiles"]
+self_modulate = Color(0.341176, 0.294118, 0.278431, 0)
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rikmg")
+
+[node name="CardPlayer" parent="." instance=ExtResource("17_we7n7")]
+layout_mode = 1
+
+[node name="CardDeletion" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -138.0
+offset_top = 680.0
+offset_right = 110.0
+offset_bottom = 1000.0
+texture = ExtResource("18_i7pqs")
+script = ExtResource("19_xq5yv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardDeletion"]
+libraries = {
+"": SubResource("AnimationLibrary_7vi5a")
+}
+
+[node name="ShowTooltip" parent="CardDeletion" instance=ExtResource("20_7e8s5")]
+layout_mode = 1
+title = "Card Deletion"
+text = "Drag your previously placed cards here to
+get rid of them once and for all. 
+
+Doing this will grant you their karma value once."
+hover_min_duration = 0.2
+
+[node name="EndTurnButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = -292.0
+offset_top = -72.0
+offset_right = -148.0
+offset_bottom = 72.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ShowTooltip" type="Control" parent="EndTurnButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("6_o6asy")
+title = "End Turn Button"
+text = "Once you press this the following will happen:
+1. Your cards attack from left to right.
+2. The combined karma value of your cards is added to your karma.
+3. Enemy cards move down if possible.
+4. Enemy cards attack from left to rigtht.
+5. The next turn starts and you'll draw a card."
+
+[node name="EndTurnAnimation" type="AnimatedSprite2D" parent="EndTurnButton"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8oys1")
+position = Vector2(72, 72)
+sprite_frames = ExtResource("22_8s5et")
+animation = &"coin_flip"
+speed_scale = 0.65
+
+[node name="EnemyPlayer" parent="." instance=ExtResource("25_q4n6c")]
+z_index = 2
+layout_mode = 0
+
+[node name="CurrentPhaseLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 982.0
+offset_right = 331.0
+offset_bottom = 1060.0
+theme_override_font_sizes/font_size = 19
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+position = Vector2(1000, 150)
+amount = 10
+process_material = ExtResource("26_o5euh")
+texture = ExtResource("27_mwe0t")
+lifetime = 3.5
+speed_scale = 0.5
+randomness = 1.0
+
+[node name="HP sparkle" type="Node" parent="."]
+
+[node name="Sparkle2" type="GPUParticles2D" parent="HP sparkle"]
+position = Vector2(1570.06, 1008.77)
+scale = Vector2(0.345, 0.345)
+amount = 1
+process_material = ExtResource("28_ntl47")
+texture = ExtResource("29_f8a8p")
+
+[node name="Sparkle4" type="GPUParticles2D" parent="HP sparkle"]
+position = Vector2(373.985, 69.85)
+scale = Vector2(0.345, 0.345)
+amount = 1
+process_material = ExtResource("28_ntl47")
+texture = ExtResource("29_f8a8p")
+
+[node name="Karma sparkle" type="Node" parent="."]
+
+[node name="Sparkle2" type="GPUParticles2D" parent="Karma sparkle"]
+position = Vector2(1814.88, 997.85)
+scale = Vector2(0.345, 0.345)
+amount = 1
+process_material = ExtResource("28_ntl47")
+texture = ExtResource("29_f8a8p")
+
+[node name="Sparkle4" type="GPUParticles2D" parent="Karma sparkle"]
+position = Vector2(105.165, 77)
+scale = Vector2(0.345, 0.345)
+amount = 1
+process_material = ExtResource("28_ntl47")
+texture = ExtResource("29_f8a8p")
+
+[node name="LightRays2" type="ColorRect" parent="."]
+material = ExtResource("29_10hk0")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(962, 507)
+
+[connection signal="mouse_entered" from="Background" to="Background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Background" to="Background" method="_on_mouse_exited"]
+[connection signal="card_drag_ended" from="CardPlayer" to="GameBoard" method="_on_card_relased"]
+[connection signal="card_drag_started" from="CardPlayer" to="GameBoard" method="_on_card_dragged"]
+[connection signal="mouse_entered" from="CardDeletion" to="CardDeletion" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CardDeletion" to="CardDeletion" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CardDeletion/ShowTooltip" to="CardDeletion/ShowTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CardDeletion/ShowTooltip" to="CardDeletion/ShowTooltip" method="_on_mouse_exited"]
+[connection signal="button_down" from="EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="mouse_entered" from="EndTurnButton" to="." method="_on_end_turn_button_mouse_entered"]
+[connection signal="mouse_entered" from="EndTurnButton/ShowTooltip" to="EndTurnButton/ShowTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="EndTurnButton/ShowTooltip" to="EndTurnButton/ShowTooltip" method="_on_mouse_exited"]

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=16 format=3 uid="uid://yefbfj5dqoh6"]
+
+[ext_resource type="Resource" uid="uid://d4guw6tm3pttg" path="res://data/cards/king_of_daggers.tres" id="1_fly3p"]
+[ext_resource type="Resource" uid="uid://nr5du58leen5" path="res://data/cards/king_of_thorns.tres" id="2_3ulpm"]
+[ext_resource type="Resource" uid="uid://csr1pvebvy0ae" path="res://data/cards/king_of_herbs.tres" id="3_m44ep"]
+[ext_resource type="Resource" uid="uid://q3wogyvkudaf" path="res://data/cards/king_of_flags.tres" id="4_slxal"]
+[ext_resource type="Resource" uid="uid://c0p160e6m2l0t" path="res://data/cards/the_magician.tres" id="5_lm0ee"]
+[ext_resource type="Resource" uid="uid://bdbn32r8x8g4v" path="res://data/cards/the_high_priestess.tres" id="6_5c1i6"]
+[ext_resource type="Resource" uid="uid://cyiqtt8grlnlq" path="res://data/cards/the_lovers.tres" id="7_1kjp3"]
+[ext_resource type="Resource" uid="uid://b4tc66w5jk5ii" path="res://data/cards/the_star.tres" id="8_vh5hv"]
+[ext_resource type="Resource" uid="uid://bitn4lw4darn4" path="res://data/cards/the_moon.tres" id="9_nj1lo"]
+[ext_resource type="Resource" uid="uid://ccymn0mj5bdvy" path="res://data/cards/the_sun.tres" id="10_ku4of"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="11_luh33"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="11_msmmc"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="12_7gynj"]
+[ext_resource type="Resource" uid="uid://1udixxkqvcyb" path="res://data/enemy/StrategyModules/enemy_basic_karma_module.tres" id="12_oc6ko"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="13_pkpn7"]
+
+[resource]
+script = ExtResource("11_luh33")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_fly3p"), ExtResource("2_3ulpm"), ExtResource("3_m44ep"), ExtResource("4_slxal"), ExtResource("5_lm0ee"), ExtResource("6_5c1i6"), ExtResource("7_1kjp3"), ExtResource("8_vh5hv"), ExtResource("9_nj1lo"), ExtResource("10_ku4of"), ExtResource("11_msmmc"), ExtResource("12_7gynj"), ExtResource("13_pkpn7")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("12_oc6ko")])

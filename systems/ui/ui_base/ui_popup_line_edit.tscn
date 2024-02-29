@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://cegqty5ihavkg"]
+
+[ext_resource type="PackedScene" uid="uid://dq1c3cgx11dk8" path="res://systems/ui/ui_base/ui_popup.tscn" id="1_705p1"]
+[ext_resource type="Script" path="res://systems/ui/ui_base/ui_popup_line_edit.gd" id="2_gf1vo"]
+[ext_resource type="Texture2D" uid="uid://bf8f2tk4yfxxr" path="res://assets/ui/underlays/line_edit.png" id="3_dnmrs"]
+[ext_resource type="Theme" uid="uid://db7d7nr3s1th5" path="res://assets/ui/themes/font_theme.tres" id="3_jyxc0"]
+[ext_resource type="Texture2D" uid="uid://brdl4q77p0yxs" path="res://assets/ui/underlays/line_edit_focus.png" id="4_4rad5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25d1g"]
+texture = ExtResource("3_dnmrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bq6d"]
+texture = ExtResource("4_4rad5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4rei"]
+
+[node name="UIPopupLineEdit" instance=ExtResource("1_705p1")]
+script = ExtResource("2_gf1vo")
+
+[node name="Content" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "[center]Which route did you plan?"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme = ExtResource("3_jyxc0")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_25d1g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0bq6d")
+alignment = 1
+
+[node name="HSeparatorButton2" type="HSeparator" parent="CardTooltip/MarginContainer/MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w4rei")

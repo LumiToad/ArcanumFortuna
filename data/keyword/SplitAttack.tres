@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SplitAttack" load_steps=3 format=3 uid="uid://ues1kduox2nf"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/split_attack.gd" id="1_qg2bb"]
+[ext_resource type="Texture2D" uid="uid://bawbyueie70c3" path="res://assets/sprites/keywords/kw_duality.png" id="1_s5iob"]
+
+[resource]
+script = ExtResource("1_qg2bb")
+title = "Duality"
+description = "This card attacks diagonally instead of straight."
+icon = ExtResource("1_s5iob")
+highlight_duration = 1.0

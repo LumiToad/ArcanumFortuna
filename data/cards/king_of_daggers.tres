@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://d4guw6tm3pttg"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_nvp6e"]
+[ext_resource type="Texture2D" uid="uid://cj012pap0dc6w" path="res://assets/sprites/cards/king_of_daggers.png" id="1_yivmj"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_djhpl"]
+[ext_resource type="Resource" uid="uid://c0jp8yp2mu58y" path="res://data/keyword/deathrattle_ATK1.tres" id="3_ishmn"]
+
+[resource]
+script = ExtResource("1_nvp6e")
+name = "King of Daggers"
+description = "Unwieldy and treacherous - revered nonetheless."
+artwork = ExtResource("1_yivmj")
+cost = 3
+attack = 1
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_ishmn")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_djhpl")

@@ -1,0 +1,200 @@
+[gd_scene load_steps=16 format=3 uid="uid://fa4xb26tm6iu"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/shop/shop_burn_section.gd" id="1_21rt2"]
+[ext_resource type="PackedScene" uid="uid://ba7hqrlkxau6b" path="res://systems/ui/menus/shop/shop_card.tscn" id="2_5tl8o"]
+[ext_resource type="Texture2D" uid="uid://dmdpoee7un5qv" path="res://assets/ui/underlays/shop_tray.png" id="2_8dnxu"]
+[ext_resource type="Resource" uid="uid://du4544pn8giog" path="res://utils/all_cards_resource.tres" id="2_22o7m"]
+[ext_resource type="PackedScene" uid="uid://cbsn1r2h288lq" path="res://systems/ui/new_deck_preview/deck_preview_overlay.tscn" id="3_6sr1i"]
+[ext_resource type="Texture2D" uid="uid://dars7yhkvi48j" path="res://assets/ui/underlays/shop_burn.png" id="4_s18qy"]
+[ext_resource type="Script" path="res://systems/ui/ui_base/ui_popup_data.gd" id="4_w3bxg"]
+[ext_resource type="Texture2D" uid="uid://mg2c1qenfgr0" path="res://assets/ui/underlays/shop_burn_hover.png" id="5_bikae"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="6_1we2u"]
+[ext_resource type="Texture2D" uid="uid://dwer7hq8eur8w" path="res://assets/ui/buttons/regular_button_normal.png" id="6_7o87m"]
+[ext_resource type="Texture2D" uid="uid://7o3muws1gqo6" path="res://assets/ui/buttons/regular_button_pressed.png" id="7_rcu5e"]
+[ext_resource type="Texture2D" uid="uid://bsevcaoypxrrw" path="res://assets/ui/buttons/regular_button_hover.png" id="8_yxhup"]
+[ext_resource type="Texture2D" uid="uid://bfgcr5ueque8m" path="res://assets/ui/buttons/regular_button_disabled.png" id="9_oaws2"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="10_u4f1k"]
+
+[sub_resource type="Resource" id="Resource_1w848"]
+script = ExtResource("4_w3bxg")
+title_text = "Burn Cards?"
+content_text = "[center]Do you really want to [b]burn[/b] these cards, [b]permanently[/b] removing them from your deck?"
+confirm_label_text = "Confirm"
+decline_label_text = "Cancel"
+
+[node name="ShopBurnSection" type="Control" node_paths=PackedStringArray("cost_label", "burn_card")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_21rt2")
+all_cards_resource = ExtResource("2_22o7m")
+cost_label = NodePath("BurnButton/Label")
+burn_card = NodePath("AvailableOffer/ShopCard")
+deck_preview_overlay = ExtResource("3_6sr1i")
+popup = SubResource("Resource_1w848")
+
+[node name="SectionExplanation" type="Control" parent="."]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = -928.0
+offset_right = 800.0
+offset_bottom = -808.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="SectionExplanation"]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 0
+offset_left = -14.5
+offset_top = -21.0
+offset_right = 479.5
+offset_bottom = 146.0
+texture = ExtResource("2_8dnxu")
+
+[node name="SectionTitle" type="Label" parent="SectionExplanation"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = -87.0
+offset_right = 394.0
+offset_bottom = 7.0
+theme = ExtResource("6_1we2u")
+theme_override_font_sizes/font_size = 55
+text = "Burn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SectionExplanation"]
+custom_minimum_size = Vector2(475, 115)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -53.0
+offset_right = 230.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_1we2u")
+theme_override_font_sizes/font_size = 35
+text = "Pay 4 Gold to remove a card
+from your deck"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AvailableOffer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.65, 1.65)
+
+[node name="ShopCard" parent="AvailableOffer" instance=ExtResource("2_5tl8o")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -452.0
+offset_right = 85.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 0
+delete_material = null
+
+[node name="TextureButton" type="TextureButton" parent="AvailableOffer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.5
+offset_top = -482.0
+offset_right = 313.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.62, 0.6)
+texture_normal = ExtResource("4_s18qy")
+texture_hover = ExtResource("5_bikae")
+
+[node name="HoverSound" parent="AvailableOffer/TextureButton" instance=ExtResource("10_u4f1k")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="AvailableOffer/TextureButton" instance=ExtResource("10_u4f1k")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[node name="BurnButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_top = -260.0
+offset_right = 219.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_7o87m")
+texture_pressed = ExtResource("7_rcu5e")
+texture_hover = ExtResource("8_yxhup")
+texture_disabled = ExtResource("9_oaws2")
+
+[node name="Label" type="Label" parent="BurnButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -45.0
+offset_right = 200.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_1we2u")
+theme_override_font_sizes/font_size = 26
+text = "Burn for [amount] Gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" parent="BurnButton" instance=ExtResource("10_u4f1k")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+connect_signal = "mouse_entered"
+
+[node name="PressSound" parent="BurnButton" instance=ExtResource("10_u4f1k")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+connect_signal = "button_up"
+
+[connection signal="button_up" from="AvailableOffer/TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="button_up" from="BurnButton" to="." method="_on_burn_button_button_up"]

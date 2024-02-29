@@ -1,2 +1,10 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+*.tscn text eol=lf
+*.import text eol=lf
+*.tres text eol=lf
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.svg text eol=lf
+*.cfg text eol=lf
+*.dtl text eol=lf
+project.godot text eol=lf
+*.json text eol=lf

@@ -1,0 +1,24 @@
+As you continue on along your journey, the air in front of you starts to warp, so subtle you almost pass it off as a trick of the eye, or merely the cold biting at your bones.
+.
+- Step back
+	You cautiously retreat, eyes never leaving the odd phenomenon.
+- Try to investigate
+	You boldly inch closer in hopes of identifying the fluctuating anomaly. You swear you can hear a giggle.
+\[wave]It begins to shimmer and sparkle, growing in intensity...[/wave]
+\[shake rate=10.0]Until it bursts in a furious flash of light that leaves you seeing stars.[/shake]
+join the_star 4
+the_star: [wave]Well met![/wave]
+join the_fool 1
+the_fool: Ack! You startled me.
+the_star: I did? So you can see me.
+the_fool: For the most part. I think you nearly blinded me, you're that bright.
+the_star: You'd be surprised how often people still overlook me, twinkle.
+the_star: Are you lost?
+the_fool: I don't think so. I mean, I'm not sure where exactly it is I am going, anyways.
+the_star: Don't fret! You seem well on your way, regardless. No plans, no destination - is this not the most wonderful opportunity?
+the_star: Oh, just think of the things you may see, sparkle! All the creatures and sights that may reveal themselves to you. I think all you really need is a bit of faith in yourself. You have got the rest covered.
+the_fool: Hm, I suppose I was heading towards the city.
+the_star: Rejoice! Just let your heart lead and your feet follow, and you can't go wrong.
+leave the_star
+the_fool: Before you can respond, the figure vanishes, all light absorbing itself again. You swear that the day has grown darker, but you are left with a lightness in your chest that was not there before.
+The city awaits.

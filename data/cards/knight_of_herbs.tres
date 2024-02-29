@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://b05drmja6ckug"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_86tmm"]
+[ext_resource type="Texture2D" uid="uid://b5y1g7dcngito" path="res://assets/sprites/cards/knight_of_herbs.png" id="1_rfcxd"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_pp3y1"]
+[ext_resource type="Resource" uid="uid://48wwq8uiodfc" path="res://data/keyword/play_heal.tres" id="3_cfbav"]
+
+[resource]
+script = ExtResource("1_86tmm")
+name = "Knight of Herbs"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_rfcxd")
+cost = 3
+attack = 1
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_cfbav")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_pp3y1")

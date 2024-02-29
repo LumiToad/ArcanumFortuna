@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BodyguardKeyword" load_steps=3 format=3 uid="uid://coxsc57oek8x3"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/bodyguard_keyword.gd" id="1_2t14f"]
+[ext_resource type="Texture2D" uid="uid://cxndohorvfi3b" path="res://assets/sprites/keywords/kw_bodyguard.png" id="1_5wgcr"]
+
+[resource]
+script = ExtResource("1_2t14f")
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 128
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Bodyguard"
+description = "Whenever an oppsing card attacks an empty tile, this card will move to that tile and take the hit."
+icon = ExtResource("1_5wgcr")
+highlight_duration = 0.5

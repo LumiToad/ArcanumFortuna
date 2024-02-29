@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=10 format=3 uid="uid://bemqbj4hwugoi"]
+
+[ext_resource type="Resource" uid="uid://cdyp516wjxron" path="res://data/cards/page_of_thorns.tres" id="1_ux1ca"]
+[ext_resource type="Resource" uid="uid://ciai4bipoidj6" path="res://data/cards/queen_of_thorns.tres" id="2_h23u7"]
+[ext_resource type="Resource" uid="uid://nr5du58leen5" path="res://data/cards/king_of_thorns.tres" id="2_ujqrq"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="4_jw6fa"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="5_o1sfm"]
+[ext_resource type="Resource" uid="uid://cyu186axhjfax" path="res://data/cards/justice.tres" id="6_xmuqx"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="8_3j8hn"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="11_gq7ip"]
+[ext_resource type="Resource" uid="uid://1udixxkqvcyb" path="res://data/enemy/StrategyModules/enemy_basic_karma_module.tres" id="12_3fx0k"]
+
+[resource]
+script = ExtResource("11_gq7ip")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_ux1ca"), ExtResource("2_ujqrq"), ExtResource("2_h23u7"), ExtResource("4_jw6fa"), ExtResource("5_o1sfm"), ExtResource("6_xmuqx"), ExtResource("8_3j8hn")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("12_3fx0k")])

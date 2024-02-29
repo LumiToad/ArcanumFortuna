@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsd1p31nygox4"]
+
+[ext_resource type="Script" path="res://systems/card_combat/enemy_player.gd" id="1_bcv1h"]
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_tooltip.gd" id="2_w6n5h"]
+
+[node name="EnemyPlayer" type="VBoxContainer"]
+offset_right = 250.0
+offset_bottom = 81.0
+size_flags_horizontal = 0
+script = ExtResource("1_bcv1h")
+attacked_color = Color(0.486275, 0.145098, 0.0784314, 1)
+positive_effect_color = Color(0.372549, 0.560784, 0.247059, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "- The Bad Guy -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+color = Color(0.486275, 0.145098, 0.0784314, 1)
+
+[node name="Label" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Health: 20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTooltip" type="Control" parent="Health"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_w6n5h")
+title = "Enemy Health"
+text = "Let your cards attack empty tiles to lower it.
+Once it reaches zero you'll win!"
+
+[node name="Karma" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.47451, 0.207843, 0.592157, 1)
+
+[node name="Label" type="Label" parent="Karma"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Karma: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTooltip" type="Control" parent="Karma"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_w6n5h")
+title = "Your Karma"
+text = "Cards on your side of the boards will add their
+combined cost to your karma total each turn.
+Whenever your karma would go below zero the excess
+amount is substracted from your health instead."

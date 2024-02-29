@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CompanionshipATK" load_steps=3 format=3 uid="uid://cjeonb4yns74j"]
+
+[ext_resource type="Texture2D" uid="uid://3q81eo2f4j31" path="res://assets/sprites/keywords/kw_comp_strength.png" id="1_cswlp"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/companionship_atk.gd" id="2_o3lqs"]
+
+[resource]
+script = ExtResource("2_o3lqs")
+attack_gain = 1
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = false
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Companionship: Strength"
+description = "While this card is alive, the next cards to its left and right gain +%d attack."
+icon = ExtResource("1_cswlp")
+highlight_duration = 0.5

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://n6x1mb4dktgr"]
+
+[ext_resource type="PackedScene" uid="uid://dgbod0er521or" path="res://systems/dungeon_exploration/maps/node_map.tscn" id="1_7lipq"]
+[ext_resource type="PackedScene" uid="uid://rd4s1jnxga1w" path="res://systems/dungeon_exploration/nodes/final_node.tscn" id="2_5n5yr"]
+[ext_resource type="PackedScene" uid="uid://b5mnw025kyefa" path="res://systems/dungeon_exploration/nodes/combat_node.tscn" id="3_oxeie"]
+[ext_resource type="PackedScene" uid="uid://bbwr6rvspwq1j" path="res://systems/dungeon_exploration/nodes/challenging_combat_node.tscn" id="4_a2k4f"]
+[ext_resource type="PackedScene" uid="uid://cehj7gi3tdwb4" path="res://systems/dungeon_exploration/nodes/shop_node.tscn" id="5_jdl4b"]
+
+[node name="node_map_test1" instance=ExtResource("1_7lipq")]
+
+[node name="StartNode" parent="." index="0" node_paths=PackedStringArray("connectsTo")]
+offset_left = -1.0
+offset_top = 7.0
+offset_right = -1.0
+offset_bottom = 7.0
+connectsTo = [NodePath("../CombatNode"), NodePath("../ChallengingCombatNode"), NodePath("../ShopNode")]
+
+[node name="FinalNode" parent="." index="3" instance=ExtResource("2_5n5yr")]
+layout_mode = 1
+offset_left = 685.0
+offset_top = 6.0
+offset_right = 685.0
+offset_bottom = 6.0
+
+[node name="CombatNode" parent="." index="4" node_paths=PackedStringArray("connectsTo") instance=ExtResource("3_oxeie")]
+layout_mode = 1
+offset_left = 326.0
+offset_top = -203.0
+offset_right = 326.0
+offset_bottom = -203.0
+connectsTo = [NodePath("../FinalNode")]
+
+[node name="ChallengingCombatNode" parent="." index="5" node_paths=PackedStringArray("connectsTo") instance=ExtResource("4_a2k4f")]
+layout_mode = 1
+offset_left = 342.0
+offset_top = 10.0
+offset_right = 342.0
+offset_bottom = 10.0
+connectsTo = [NodePath("../FinalNode")]
+
+[node name="ShopNode" parent="." index="6" node_paths=PackedStringArray("connectsTo") instance=ExtResource("5_jdl4b")]
+layout_mode = 1
+offset_left = 366.0
+offset_top = 360.0
+offset_right = 366.0
+offset_bottom = 360.0
+connectsTo = [NodePath("../FinalNode")]

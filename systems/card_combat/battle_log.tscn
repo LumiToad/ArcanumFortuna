@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://d4mlm5draiaf7"]
+
+[ext_resource type="Script" path="res://systems/card_combat/battle_log.gd" id="1_fy4e0"]
+[ext_resource type="Texture2D" uid="uid://cmco4s8rf26d5" path="res://assets/ui/icons/expand_more.svg" id="2_l0pje"]
+[ext_resource type="Texture2D" uid="uid://6y7whf4ocr3d" path="res://assets/ui/icons/expand_less.svg" id="3_x1b6r"]
+[ext_resource type="Script" path="res://systems/card_combat/battle_log_scroll.gd" id="4_rikhf"]
+[ext_resource type="Script" path="res://systems/ui/visible_for_feature.gd" id="5_d7ko6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f4so"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01vos"]
+bg_color = Color(0.67451, 0.67451, 0.67451, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr86l"]
+bg_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2l1w"]
+bg_color = Color(0.372549, 0.372549, 0.372549, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwoga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0ro4"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="BattleLog" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_fy4e0")
+more_icon = ExtResource("2_l0pje")
+less_icon = ExtResource("3_x1b6r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 1080)
+layout_mode = 1
+offset_right = 336.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 0
+
+[node name="BattleLog" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8f4so")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BattleLog"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/BattleLog/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_font_sizes/font_size = 25
+text = "Battle Log"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpandButton" type="Button" parent="VBoxContainer/BattleLog/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_01vos")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yr86l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d2l1w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mwoga")
+toggle_mode = true
+icon = ExtResource("2_l0pje")
+
+[node name="ScrollView" type="ScrollContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 2
+script = ExtResource("4_rikhf")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScrollView"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_h0ro4")
+
+[node name="Log" type="Label" parent="VBoxContainer/ScrollView/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="ShowInDebug" type="Node" parent="."]
+script = ExtResource("5_d7ko6")
+feature = "debug"
+
+[connection signal="toggled" from="VBoxContainer/BattleLog/HBoxContainer/ExpandButton" to="." method="_on_expand_button_toggled"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbhypmndv2m7q"]
+
+[ext_resource type="Script" path="res://node_map_loader.gd" id="1_uaq3d"]
+[ext_resource type="Script" path="res://utils/random_scene.gd" id="2_xvwrh"]
+
+[sub_resource type="Resource" id="Resource_hl2hh"]
+script = ExtResource("2_xvwrh")
+chance_weight = 1
+
+[sub_resource type="Resource" id="Resource_8nku4"]
+script = ExtResource("2_xvwrh")
+chance_weight = 1
+
+[node name="NodeMapLoader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uaq3d")
+potential_node_maps = Array[ExtResource("2_xvwrh")]([SubResource("Resource_hl2hh"), SubResource("Resource_8nku4")])

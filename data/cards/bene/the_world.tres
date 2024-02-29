@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://dpspidmqwqebx"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_aspms"]
+[ext_resource type="Texture2D" uid="uid://deqxg805404yn" path="res://assets/sprites/cards/world.png" id="1_j3v4b"]
+[ext_resource type="Resource" uid="uid://cdie0qb10eba1" path="res://data/keyword/drain.tres" id="2_pq7ue"]
+[ext_resource type="Resource" uid="uid://drtnl4dtcqfpq" path="res://data/keyword/consume.tres" id="3_24dhg"]
+[ext_resource type="Resource" uid="uid://b7si7oceraga6" path="res://data/keyword/flip.tres" id="4_nxyx0"]
+[ext_resource type="AudioStream" uid="uid://y6quqim1o1qc" path="res://assets/sounds/cards/voices/the_world.ogg" id="6_5ud5c"]
+
+[resource]
+script = ExtResource("1_aspms")
+name = "The World"
+description = "\"May time complete you.\""
+artwork = ExtResource("1_j3v4b")
+cost = 0
+attack = 0
+health = 0
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_pq7ue"), ExtResource("3_24dhg"), ExtResource("4_nxyx0")])
+spawn_frequency = 50
+sound_effect = ExtResource("6_5ud5c")

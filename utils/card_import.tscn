@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu0v8dblvpyig"]
+
+[ext_resource type="Script" path="res://utils/card_import.gd" id="1_awpu8"]
+
+[node name="CardImport" type="Node2D"]
+script = ExtResource("1_awpu8")
+table = "res://assets/csv/card.csv"

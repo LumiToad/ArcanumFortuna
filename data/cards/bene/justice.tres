@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://cyu186axhjfax"]
+
+[ext_resource type="Texture2D" uid="uid://bgqy2ut5amxhf" path="res://assets/sprites/cards/justice.png" id="1_aecmw"]
+[ext_resource type="Resource" uid="uid://ues1kduox2nf" path="res://data/keyword/SplitAttack.tres" id="2_7vyyo"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_fwtl7"]
+[ext_resource type="Resource" uid="uid://drtnl4dtcqfpq" path="res://data/keyword/consume.tres" id="3_rpu7v"]
+[ext_resource type="AudioStream" uid="uid://j2hqp74k7iil" path="res://assets/sounds/cards/voices/justice.ogg" id="5_t8y6f"]
+
+[resource]
+script = ExtResource("2_fwtl7")
+name = "Justice"
+description = "\"May your future become balanced.\""
+artwork = ExtResource("1_aecmw")
+cost = -4
+attack = 2
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_7vyyo"), ExtResource("3_rpu7v")])
+spawn_frequency = 10
+sound_effect = ExtResource("5_t8y6f")

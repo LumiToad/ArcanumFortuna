@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="shield" load_steps=3 format=3 uid="uid://chpr5uue01ill"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/shield.gd" id="1_11ua2"]
+[ext_resource type="Texture2D" uid="uid://dufupdinbqp3l" path="res://assets/sprites/keywords/kw_protection.png" id="1_nadmq"]
+
+[resource]
+script = ExtResource("1_11ua2")
+damage_reduction = 1.0
+fixed_damage_reduction = 0
+uses = 1
+title = "Protection"
+description = "The first time this card would take damage, it doesn't."
+icon = ExtResource("1_nadmq")
+highlight_duration = 0.5

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2vx0edf3t6u3"]
+
+[ext_resource type="Texture2D" uid="uid://c16ubw3dckjhv" path="res://systems/dungeon_exploration/player/player.png" id="1_7fbrh"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/player/player_script.gd" id="2_olm7h"]
+[ext_resource type="Resource" uid="uid://bey7oy462yo2s" path="res://data/player/debug_player.tres" id="3_lu76x"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/player/player_camera.gd" id="4_mq2ua"]
+
+[node name="Player" type="TextureRect"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("1_7fbrh")
+script = ExtResource("2_olm7h")
+startData = ExtResource("3_lu76x")
+position_offset = Vector2(10, -65)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(32, -132)
+script = ExtResource("4_mq2ua")

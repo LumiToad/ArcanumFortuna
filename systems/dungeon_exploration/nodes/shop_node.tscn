@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cehj7gi3tdwb4"]
+
+[ext_resource type="Script" path="res://systems/dungeon_exploration/nodes/shop_node.gd" id="1_77k18"]
+[ext_resource type="PackedScene" uid="uid://buogrgbwrud4m" path="res://systems/dungeon_exploration/nodes/empty_node.tscn" id="3_5pa53tt1"]
+[ext_resource type="PackedScene" uid="uid://jqc67rl1fpl3" path="res://systems/dungeon_events/shop_keeper.tscn" id="3_10enx"]
+[ext_resource type="Texture2D" uid="uid://c5uyxabahx82i" path="res://assets/sprites/nodemap/shop.png" id="4_om52u"]
+
+[node name="ShopNode" instance=ExtResource("3_5pa53tt1")]
+script = ExtResource("1_77k18")
+event = ExtResource("3_10enx")
+
+[node name="icon" parent="background" index="0"]
+visible = true
+texture = ExtResource("4_om52u")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4el45oxnhsuo"]
+
+[ext_resource type="Script" path="res://systems/dungeon_events/shop_event.gd" id="1_258db"]
+
+[node name="shop_event" type="Node"]
+script = ExtResource("1_258db")

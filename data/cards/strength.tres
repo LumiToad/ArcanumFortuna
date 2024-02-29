@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://lvxtgh2yl8"]
+
+[ext_resource type="Texture2D" uid="uid://vhp6qhyxxw2w" path="res://assets/sprites/cards/strength.png" id="1_0dpls"]
+[ext_resource type="Texture2D" uid="uid://ck5apkflkodr0" path="res://assets/ui/icons/keyword_slots.png" id="2_30lw3"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_xl1hd"]
+[ext_resource type="Resource" uid="uid://bneo2sdj1f03o" path="res://data/keyword/self_buff1.tres" id="3_3xu5q"]
+[ext_resource type="Resource" uid="uid://bkyx7bk3ntp2k" path="res://data/keyword/attack_damage_switch7.1.tres" id="4_r5ksk"]
+[ext_resource type="AudioStream" uid="uid://db8m4w2ewe4nq" path="res://Audio/Signatures/SignatureStrength.ogg" id="6_gf17d"]
+
+[resource]
+script = ExtResource("2_xl1hd")
+name = "Strength"
+description = "\"May you ignite your inner power.\""
+artwork = ExtResource("1_0dpls")
+cost = -5
+attack = 1
+health = 4
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_3xu5q"), ExtResource("4_r5ksk")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_gf17d")
+keyword_slot_texture = ExtResource("2_30lw3")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbsiuee0xcnqp"]
+
+[ext_resource type="Texture2D" uid="uid://cche4b42pk5fs" path="res://assets/sprites/keywords/unknown_emission.tres" id="1_7udp0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cgni5"]
+particle_flag_disable_z = true
+emission_shape = 4
+emission_point_texture = ExtResource("1_7udp0")
+emission_point_count = 348
+gravity = Vector3(0, 98, 0)
+
+[node name="KeywordIconGenerator" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_cgni5")

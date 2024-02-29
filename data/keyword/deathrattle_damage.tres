@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DeathrattleDamage" load_steps=3 format=3 uid="uid://b24slhlmlwgwl"]
+
+[ext_resource type="Texture2D" uid="uid://dc0oh7l5p5vvc" path="res://assets/sprites/keywords/kw_vengeance_dr.png" id="1_q2o4q"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/deathrattle_damage.gd" id="2_4p6qb"]
+
+[resource]
+script = ExtResource("2_4p6qb")
+damage_amount = 3
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 64
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Deathrattle: Vengeance"
+description = "When this card dies, it deals %d damage to its attacker."
+icon = ExtResource("1_q2o4q")
+highlight_duration = 0.5

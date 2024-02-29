@@ -1,0 +1,328 @@
+[gd_scene load_steps=23 format=3 uid="uid://bncdhusoiqqcj"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/card_inspection.gd" id="1_373cu"]
+[ext_resource type="Texture2D" uid="uid://cof5lb3kf7g0w" path="res://assets/sprites/keywords/kw_switch_2.png" id="2_unu64"]
+[ext_resource type="PackedScene" uid="uid://pe6tqla32quk" path="res://systems/ui/menus/menu_elements/stat_change.tscn" id="3_d8e8f"]
+[ext_resource type="Material" uid="uid://bi84ni64yadvs" path="res://shaders/gradient_shader.tres" id="3_rc3s5"]
+[ext_resource type="Texture2D" uid="uid://d3gn7cjww2f6i" path="res://assets/ui/icons/keyword_slots_reversed.png" id="4_pj6c4"]
+[ext_resource type="Theme" uid="uid://c2as6vbqpnrve" path="res://assets/ui/themes/tutorial_and_tooltips_theme.tres" id="7_11nlv"]
+[ext_resource type="Texture2D" uid="uid://duu0kqe7ybgs1" path="res://assets/ui/underlays/overlay_darken.png" id="7_vmtqk"]
+[ext_resource type="Texture2D" uid="uid://b16p52hwm0lh1" path="res://assets/ui/underlays/banner.png" id="8_61u2l"]
+[ext_resource type="Texture2D" uid="uid://8sv1i5fu41gv" path="res://assets/ui/underlays/keyword_underlay.png" id="8_tt6j0"]
+[ext_resource type="FontFile" uid="uid://c8tjrdvbc5hnb" path="res://assets/ui/fonts/Old_Englished_Boots.ttf" id="9_1xmqd"]
+[ext_resource type="PackedScene" uid="uid://dw6nap050sofb" path="res://systems/card_combat/cards/preview_card.tscn" id="9_rm3wo"]
+[ext_resource type="Texture2D" uid="uid://bn208w4go5iai" path="res://assets/ui/underlays/stat_change_underlay.png" id="9_vlt6i"]
+[ext_resource type="Shader" path="res://shaders/sway.gdshader" id="10_a8mqj"]
+[ext_resource type="Texture2D" uid="uid://b16jfdfiacscf" path="res://assets/ui/icons/close_window.png" id="11_6uiwl"]
+[ext_resource type="Texture2D" uid="uid://dfr4uqw6jr3sn" path="res://assets/ui/underlays/stat_change_underlay_2.png" id="11_u5ssy"]
+[ext_resource type="Texture2D" uid="uid://p772nvy8b7b4" path="res://assets/ui/icons/close_window_hover.png" id="12_tp7it"]
+[ext_resource type="Texture2D" uid="uid://bbayxaoe15g4b" path="res://assets/ui/icons/close_window_pressed.png" id="13_6mpdr"]
+[ext_resource type="Texture2D" uid="uid://brmabqhg6pwau" path="res://assets/ui/underlays/awaken_overlay.png" id="13_oiaxd"]
+[ext_resource type="Texture2D" uid="uid://bc2u3mwwf3ibl" path="res://assets/ui/underlays/awaken_overlay_2.png" id="16_r327o"]
+[ext_resource type="Texture2D" uid="uid://clmmgf2fayjpw" path="res://assets/sprites/keywords/kw_switch_1.png" id="18_4f2ee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_muo8s"]
+shader = ExtResource("10_a8mqj")
+shader_parameter/speed = 0.5
+shader_parameter/minStrength = 0.4
+shader_parameter/maxStrength = 1.0
+shader_parameter/strengthScale = 15.0
+shader_parameter/interval = 0.0
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1gww"]
+shader = ExtResource("10_a8mqj")
+shader_parameter/speed = 0.5
+shader_parameter/minStrength = 0.4
+shader_parameter/maxStrength = 1.0
+shader_parameter/strengthScale = 50.0
+shader_parameter/interval = 0.0
+shader_parameter/detail = 1.0
+shader_parameter/distortion = null
+shader_parameter/heightOffset = 1.5
+
+[node name="CardInspection" type="CanvasLayer"]
+script = ExtResource("1_373cu")
+stat_change_scene = ExtResource("3_d8e8f")
+switch_artwork_shader = ExtResource("3_rc3s5")
+switch_keyword_slots = ExtResource("4_pj6c4")
+
+[node name="CardInspection" type="Control" parent="."]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="CardInspection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_vmtqk")
+
+[node name="KeywordDescriptions" type="Control" parent="CardInspection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -298.0
+offset_right = 695.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeywordDescriptionUnderlay" type="TextureRect" parent="CardInspection/KeywordDescriptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -247.0
+offset_right = 389.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_tt6j0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardInspection/KeywordDescriptions"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 23.0
+offset_right = 729.0
+offset_bottom = 391.0
+theme_override_constants/separation = 0
+
+[node name="Label1" type="RichTextLabel" parent="CardInspection/KeywordDescriptions/VBoxContainer"]
+custom_minimum_size = Vector2(640, 92)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_11nlv")
+bbcode_enabled = true
+text = "[b]%s -[/b] %s"
+
+[node name="Label2" type="RichTextLabel" parent="CardInspection/KeywordDescriptions/VBoxContainer"]
+custom_minimum_size = Vector2(640, 92)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_11nlv")
+bbcode_enabled = true
+text = "[b]%s -[/b] %s"
+
+[node name="Label3" type="RichTextLabel" parent="CardInspection/KeywordDescriptions/VBoxContainer"]
+custom_minimum_size = Vector2(640, 92)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_11nlv")
+bbcode_enabled = true
+text = "[b]%s -[/b] %s"
+
+[node name="Label4" type="RichTextLabel" parent="CardInspection/KeywordDescriptions/VBoxContainer"]
+custom_minimum_size = Vector2(640, 92)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_11nlv")
+bbcode_enabled = true
+text = "[b]%s -[/b] %s"
+
+[node name="StatChangeUnderlay" type="TextureRect" parent="CardInspection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -774.0
+offset_top = -330.0
+offset_right = -435.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_vlt6i")
+
+[node name="StatChangeUnderlay2" type="TextureRect" parent="CardInspection"]
+material = SubResource("ShaderMaterial_muo8s")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -774.0
+offset_top = -330.0
+offset_right = -435.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_u5ssy")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CardInspection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -740.0
+offset_top = -298.0
+offset_right = -460.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="CurrentStatChanges" type="VBoxContainer" parent="CardInspection/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="StatChange" parent="CardInspection/ScrollContainer/CurrentStatChanges" instance=ExtResource("3_d8e8f")]
+layout_mode = 2
+
+[node name="StatChange2" parent="CardInspection/ScrollContainer/CurrentStatChanges" instance=ExtResource("3_d8e8f")]
+layout_mode = 2
+
+[node name="StatChange3" parent="CardInspection/ScrollContainer/CurrentStatChanges" instance=ExtResource("3_d8e8f")]
+layout_mode = 2
+
+[node name="StatChange4" parent="CardInspection/ScrollContainer/CurrentStatChanges" instance=ExtResource("3_d8e8f")]
+layout_mode = 2
+
+[node name="StatChange5" parent="CardInspection/ScrollContainer/CurrentStatChanges" instance=ExtResource("3_d8e8f")]
+layout_mode = 2
+
+[node name="PreviewCard" parent="CardInspection" instance=ExtResource("9_rm3wo")]
+unique_name_in_owner = true
+offset_left = 628.0
+offset_top = 362.0
+offset_right = 798.0
+offset_bottom = 628.0
+
+[node name="CardFlavour" type="Control" parent="CardInspection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -70.0
+offset_right = 20.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardFlavourUnderlay" type="TextureRect" parent="CardInspection/CardFlavour"]
+layout_mode = 0
+offset_left = -716.0
+offset_top = 280.0
+offset_right = 289.0
+offset_bottom = 541.0
+texture = ExtResource("8_61u2l")
+
+[node name="CardFlavourText" type="Label" parent="CardInspection/CardFlavour"]
+layout_mode = 0
+offset_left = -478.0
+offset_top = 386.0
+offset_right = 33.0
+offset_bottom = 499.0
+theme_override_colors/font_color = Color(0.117647, 0.0196078, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.858824, 0.643137, 0.572549)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("9_1xmqd")
+theme_override_font_sizes/font_size = 55
+text = "Card Flavour
+Card Flavour"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SwitchCondition" type="Control" parent="CardInspection"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -70.0
+offset_right = 35.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SwitchConditionUnderlay" type="TextureRect" parent="CardInspection/SwitchCondition"]
+layout_mode = 0
+offset_left = -82.0
+offset_top = 142.0
+offset_right = 706.0
+offset_bottom = 546.0
+texture = ExtResource("13_oiaxd")
+
+[node name="SwitchConditionUnderlay2" type="TextureRect" parent="CardInspection/SwitchCondition"]
+material = SubResource("ShaderMaterial_n1gww")
+layout_mode = 0
+offset_left = -80.0
+offset_top = 142.0
+offset_right = 699.0
+offset_bottom = 546.0
+texture = ExtResource("16_r327o")
+
+[node name="SwitchButton" type="TextureButton" parent="CardInspection/SwitchCondition"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -62.0
+offset_top = 190.0
+offset_right = 18.0
+offset_bottom = 270.0
+toggle_mode = true
+texture_normal = ExtResource("2_unu64")
+texture_pressed = ExtResource("18_4f2ee")
+
+[node name="Label" type="RichTextLabel" parent="CardInspection/SwitchCondition"]
+custom_minimum_size = Vector2(640, 92)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 210.0
+offset_right = 676.0
+offset_bottom = 302.0
+size_flags_horizontal = 4
+theme = ExtResource("7_11nlv")
+bbcode_enabled = true
+text = "[b]%s -[/b] %s"
+
+[node name="CloseWindowButton" type="TextureButton" parent="CardInspection"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 96.0
+grow_horizontal = 0
+texture_normal = ExtResource("11_6uiwl")
+texture_pressed = ExtResource("13_6mpdr")
+texture_hover = ExtResource("12_tp7it")
+
+[connection signal="gui_input" from="CardInspection/ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="button_up" from="CardInspection/SwitchCondition/SwitchButton" to="." method="_on_switch_button_button_up"]
+[connection signal="mouse_entered" from="CardInspection/SwitchCondition/SwitchButton" to="CardInspection" method="_on_switch_button_mouse_entered"]
+[connection signal="mouse_exited" from="CardInspection/SwitchCondition/SwitchButton" to="CardInspection" method="_on_switch_button_mouse_exited"]
+[connection signal="button_up" from="CardInspection/CloseWindowButton" to="." method="_on_close_window_button_button_up"]

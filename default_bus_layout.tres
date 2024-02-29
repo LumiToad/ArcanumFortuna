@@ -1,0 +1,105 @@
+[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://1laieejjj0t2"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_hifeu"]
+resource_name = "LowPassFilter"
+cutoff_hz = 20500.0
+db = 2
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_88bds"]
+resource_name = "HighPassFilter"
+cutoff_hz = 1.0
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_b8uor"]
+resource_name = "Compressor"
+threshold = -6.0
+release_ms = 500.0
+sidechain = &"Diagetics"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_rv0i7"]
+resource_name = "Compressor"
+threshold = -28.0
+ratio = 48.0
+release_ms = 100.0
+sidechain = &"Signature"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_o7dfd"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_xrelh"]
+resource_name = "Compressor"
+threshold = -6.0
+release_ms = 500.0
+sidechain = &"Diagetics"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_mdv80"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_xav8c"]
+resource_name = "Limiter"
+ceiling_db = -5.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_q8mc6"]
+resource_name = "Limiter"
+ceiling_db = -12.0
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -6.25101
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_hifeu")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectHighPassFilter_88bds")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectCompressor_b8uor")
+bus/1/effect/2/enabled = true
+bus/1/effect/3/effect = SubResource("AudioEffectCompressor_rv0i7")
+bus/1/effect/3/enabled = true
+bus/1/effect/4/effect = SubResource("AudioEffectAmplify_o7dfd")
+bus/1/effect/4/enabled = true
+bus/2/name = &"Ambience"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_xrelh")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectAmplify_mdv80")
+bus/2/effect/1/enabled = true
+bus/3/name = &"SFX"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/4/name = &"Diagetics"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"SFX"
+bus/4/effect/0/effect = SubResource("AudioEffectLimiter_xav8c")
+bus/4/effect/0/enabled = true
+bus/5/name = &"SFXOther"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"SFX"
+bus/6/name = &"Signature"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = -0.130497
+bus/6/send = &"SFX"
+bus/7/name = &"UI"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"Master"
+bus/7/effect/0/effect = SubResource("AudioEffectLimiter_q8mc6")
+bus/7/effect/0/enabled = true

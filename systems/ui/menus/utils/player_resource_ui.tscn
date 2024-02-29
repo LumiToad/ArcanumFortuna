@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://u50shm5kgno7"]
+
+[ext_resource type="Script" path="res://systems/ui/menus/utils/player_resource_ui.gd" id="1_58gwm"]
+[ext_resource type="Texture2D" uid="uid://bswn34v2pfccv" path="res://assets/ui/nodemap/nm_money.png" id="2_icgcd"]
+[ext_resource type="Theme" path="res://assets/ui/themes/font_theme.tres" id="2_n3v3x"]
+[ext_resource type="Texture2D" uid="uid://d8cj3cxcf8dk" path="res://assets/ui/nodemap/nm_health_empty.png" id="3_fdxgv"]
+[ext_resource type="Texture2D" uid="uid://cudwdilymp3id" path="res://assets/ui/nodemap/nm_health_fill.png" id="4_748aj"]
+
+[node name="PlayerResources" type="CanvasLayer"]
+script = ExtResource("1_58gwm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -99.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="GoldLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = ExtResource("2_n3v3x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_icgcd")
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = ExtResource("2_n3v3x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_fdxgv")
+texture_progress = ExtResource("4_748aj")

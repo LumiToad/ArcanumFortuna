@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://cirvtalv0xlyq"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_ftlvf"]
+[ext_resource type="Texture2D" uid="uid://cefqo4rrjtgsq" path="res://assets/sprites/cards/card_cups_9.png" id="1_oc17q"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_b6jnx"]
+
+[resource]
+script = ExtResource("1_ftlvf")
+name = "Nine of Cups"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_oc17q")
+cost = 3
+attack = 2
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_b6jnx")

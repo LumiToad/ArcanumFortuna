@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://2jbrg4k8rquv"]
+
+[ext_resource type="Script" path="res://Audio/GD_SFXBG.gd" id="1_h5q58"]
+[ext_resource type="AudioStream" uid="uid://dohuw0jci361o" path="res://Audio/Ambience/BackgroundAmbienceLoop1.ogg" id="2_rqkcx"]
+[ext_resource type="AudioStream" uid="uid://brcarklse3rna" path="res://Audio/Music/Music1.ogg" id="3_hof6i"]
+[ext_resource type="AudioStream" uid="uid://dtqovmvgm4rfx" path="res://Audio/UI/Heart1.ogg" id="4_b1r6n"]
+
+[sub_resource type="Animation" id="Animation_8vt74"]
+resource_name = "FadeAM1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ambience:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_6t3ye"]
+resource_name = "FadeAM2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ambience2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Music2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62kpw"]
+_data = {
+"FadeAM1": SubResource("Animation_8vt74"),
+"FadeAM2": SubResource("Animation_6t3ye")
+}
+
+[node name="SFXBG" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h5q58")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rqkcx")
+volume_db = -80.0
+bus = &"Ambience"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hof6i")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="Ambience2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rqkcx")
+volume_db = -80.0
+bus = &"Ambience"
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hof6i")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_62kpw")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_62kpw")
+}
+
+[node name="Heart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_b1r6n")
+volume_db = -80.0
+
+[node name="HeartTimer" type="Timer" parent="Heart"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Heart/HeartTimer" to="." method="_on_heart_timer_timeout"]

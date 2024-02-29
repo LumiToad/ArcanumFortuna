@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2hl78obwhmmt"]
+
+[ext_resource type="Script" path="res://systems/tutorial/tutorial_old/tutorial_box.gd" id="1_shq2j"]
+[ext_resource type="Texture2D" uid="uid://chn0s2w1mnhj0" path="res://assets/sprites/magician.png" id="2_46r3r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_71lga"]
+font_size = 24
+
+[node name="TutorialBox" type="PanelContainer"]
+z_index = 9
+z_as_relative = false
+custom_minimum_size = Vector2(0, 300)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_shq2j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_46r3r")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "The Magician"
+label_settings = SubResource("LabelSettings_71lga")
+
+[node name="Content" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "I'm here to explain to you how to play this game.
+To go through these prompts press the left mouse button."
+
+[node name="ContinueButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "   Continue   "

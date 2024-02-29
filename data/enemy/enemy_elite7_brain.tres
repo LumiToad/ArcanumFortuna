@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=13 format=3 uid="uid://bxkj6b5x60tpj"]
+
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="1_rgkii"]
+[ext_resource type="Resource" uid="uid://csr1pvebvy0ae" path="res://data/cards/king_of_herbs.tres" id="2_46ox6"]
+[ext_resource type="Resource" uid="uid://d2b7yscmtse2l" path="res://data/cards/queen_of_herbs.tres" id="2_j38fp"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="5_kmry5"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="6_40hmo"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="7_t6rht"]
+[ext_resource type="Resource" uid="uid://c0p160e6m2l0t" path="res://data/cards/the_magician.tres" id="8_27dyl"]
+[ext_resource type="Resource" uid="uid://bdbn32r8x8g4v" path="res://data/cards/the_high_priestess.tres" id="9_4rjad"]
+[ext_resource type="Resource" uid="uid://cjas1prwh50gk" path="res://data/cards/the_hanged_man.tres" id="10_p8mqp"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="11_gwcqb"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="11_jy8q5"]
+[ext_resource type="Resource" uid="uid://yh1e2xgkqn0b" path="res://data/enemy/StrategyModules/enemy_elite_karma_module.tres" id="12_cfn6e"]
+
+[resource]
+script = ExtResource("11_jy8q5")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_rgkii"), ExtResource("2_46ox6"), ExtResource("2_j38fp"), ExtResource("5_kmry5"), ExtResource("6_40hmo"), ExtResource("7_t6rht"), ExtResource("8_27dyl"), ExtResource("9_4rjad"), ExtResource("10_p8mqp"), ExtResource("11_gwcqb")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("12_cfn6e")])

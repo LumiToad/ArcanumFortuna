@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://ws4saswnfnxg"]
+
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="1_byhpx"]
+[ext_resource type="Script" path="res://systems/shop/healing_card.gd" id="1_rqc3o"]
+[ext_resource type="Shader" path="res://shaders/noise_walk.gdshader" id="3_te2xs"]
+[ext_resource type="Texture2D" uid="uid://dk8yqb3in1e4g" path="res://assets/sprites/cards/card_back.png" id="3_xqc64"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nvb4k"]
+noise_type = 0
+frequency = 0.0161
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xdu33"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_nvb4k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrs40"]
+shader = ExtResource("3_te2xs")
+shader_parameter/strength = 109.095
+shader_parameter/noise_speed = 0.05
+shader_parameter/noise_threshold = -0.155
+shader_parameter/noise_falloff = 0.06
+shader_parameter/bleed_strength = 1.375
+shader_parameter/noise = SubResource("NoiseTexture2D_xdu33")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vpum"]
+font_size = 72
+font_color = Color(0.439216, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylqot"]
+bg_color = Color(0.760784, 0.564706, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="HealingCard" type="Control"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 210.0
+offset_bottom = 330.0
+pivot_offset = Vector2(105, 165)
+theme = ExtResource("1_byhpx")
+script = ExtResource("1_rqc3o")
+
+[node name="selected" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_xrs40")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.968627, 0.509804, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xqc64")
+expand_mode = 1
+
+[node name="HealingAmount" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "30"
+label_settings = SubResource("LabelSettings_8vpum")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylqot")
+
+[node name="Cost" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://dsd3rsxn8vd4k"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_02sqc"]
+[ext_resource type="Texture2D" uid="uid://f0ggddgqfh20" path="res://assets/sprites/cards/card_wands_6.png" id="1_d2g7l"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_mh4qd"]
+
+[resource]
+script = ExtResource("1_02sqc")
+name = "Six of Wands"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_d2g7l")
+cost = 2
+attack = 3
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_mh4qd")

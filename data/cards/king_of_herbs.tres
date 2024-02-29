@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://csr1pvebvy0ae"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_008br"]
+[ext_resource type="Texture2D" uid="uid://27551peguirl" path="res://assets/sprites/cards/king_of_herbs.png" id="1_73w70"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_4rivi"]
+[ext_resource type="Resource" uid="uid://dv0ag3x7lmh2b" path="res://data/keyword/deathrattle_HP1.tres" id="3_f7y41"]
+
+[resource]
+script = ExtResource("1_008br")
+name = "King of Herbs"
+description = "As elusive as he is territorial. "
+artwork = ExtResource("1_73w70")
+cost = 4
+attack = 1
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_f7y41")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_4rivi")

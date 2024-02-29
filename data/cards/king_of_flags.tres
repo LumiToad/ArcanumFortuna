@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://q3wogyvkudaf"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_4rtwi"]
+[ext_resource type="Texture2D" uid="uid://cjjut2fgq4iha" path="res://assets/sprites/cards/king_of_flags.png" id="1_8jfg4"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_14at2"]
+[ext_resource type="Resource" uid="uid://d4iohlqflx6ik" path="res://data/keyword/companionship_HP1.tres" id="3_rf7u8"]
+
+[resource]
+script = ExtResource("1_4rtwi")
+name = "King of Flags"
+description = "Zealous to a fault, with an unmatched thirst for conquering. "
+artwork = ExtResource("1_8jfg4")
+cost = 4
+attack = 0
+health = 2
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_rf7u8")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_14at2")

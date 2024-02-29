@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bucg0txabpsyp"]
+
+[ext_resource type="Script" path="res://utils/sounds/singleton_interactor.gd" id="1_vusb5"]
+
+[node name="SingletonInteractor" type="Node"]
+script = ExtResource("1_vusb5")

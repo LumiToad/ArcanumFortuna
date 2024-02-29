@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://vnsgfexxjwpl"]
+
+[ext_resource type="Script" path="res://systems/card_combat/card_stack.gd" id="1_axc8c"]
+[ext_resource type="Texture2D" uid="uid://ddugqwyt5cfxl" path="res://assets/ui/gameboard/card_stack/card_stack_1.png" id="2_m4m3c"]
+[ext_resource type="Texture2D" uid="uid://b6ad0ibdr0h18" path="res://assets/ui/gameboard/card_stack/card_stack_full.png" id="2_ybovi"]
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_tooltip.gd" id="3_0vdgp"]
+[ext_resource type="Texture2D" uid="uid://mchff0pi2jiq" path="res://assets/ui/gameboard/card_stack/card_stack_2.png" id="3_c5wyr"]
+[ext_resource type="Texture2D" uid="uid://dv7ry2fvsl1r7" path="res://assets/ui/gameboard/drawpile_counter.png" id="3_rofdm"]
+[ext_resource type="Texture2D" uid="uid://bmg0ws38kg4sr" path="res://assets/ui/gameboard/card_stack/card_stack_3.png" id="4_50r54"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="4_iw4ky"]
+
+[node name="CardStack" type="Control"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_axc8c")
+fill_textures = Array[Texture]([ExtResource("2_m4m3c"), ExtResource("3_c5wyr"), ExtResource("4_50r54")])
+
+[node name="DeckTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -382.5
+offset_right = 282.0
+offset_bottom = 382.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(100, 150)
+texture = ExtResource("2_ybovi")
+
+[node name="CountTexture" type="TextureRect" parent="DeckTexture"]
+process_mode = 1
+layout_mode = 0
+offset_left = -1.52588e-05
+offset_top = -138.75
+offset_right = 121.0
+offset_bottom = -16.75
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_rofdm")
+
+[node name="CardCount" type="Label" parent="DeckTexture/CountTexture"]
+unique_name_in_owner = true
+process_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_iw4ky")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTooltip" type="Control" parent="DeckTexture/CountTexture"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 22.0
+offset_right = -23.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(37, 37)
+mouse_filter = 1
+script = ExtResource("3_0vdgp")
+title = "Your Deck"
+text = "Shows the amount of cards in your deck."
+
+[node name="ShowTooltip" type="Control" parent="DeckTexture"]
+process_mode = 1
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 56.0
+offset_right = 460.0
+offset_bottom = 649.0
+mouse_filter = 1
+script = ExtResource("3_0vdgp")
+title = "Your Deck"
+text = "Contains all cards you collected this run.
+You'll draw 4 cards on your first turn
+and 1 card at the start of every turn after that."
+
+[connection signal="mouse_entered" from="DeckTexture/CountTexture/ShowTooltip" to="DeckTexture/CountTexture/ShowTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DeckTexture/CountTexture/ShowTooltip" to="DeckTexture/CountTexture/ShowTooltip" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DeckTexture/ShowTooltip" to="DeckTexture/ShowTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DeckTexture/ShowTooltip" to="DeckTexture/ShowTooltip" method="_on_mouse_exited"]

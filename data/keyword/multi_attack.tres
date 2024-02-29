@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MultiAttack" load_steps=3 format=3 uid="uid://fvab8xjppdba"]
+
+[ext_resource type="Script" path="res://systems/card_combat/keywords/multi_attack.gd" id="1_68ao5"]
+[ext_resource type="Texture2D" uid="uid://bjepel2ajc36r" path="res://assets/sprites/keywords/kw_aggression.png" id="1_m60jc"]
+
+[resource]
+script = ExtResource("1_68ao5")
+extra_attacks = 1
+title = "Aggression"
+description = "This card attacks twice every turn."
+icon = ExtResource("1_m60jc")
+highlight_duration = 0.5

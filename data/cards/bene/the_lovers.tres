@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://dcefxg5jid6it"]
+
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_iyn7x"]
+[ext_resource type="Texture2D" uid="uid://bkgwwow2i6gbs" path="res://assets/sprites/cards/lovers.png" id="1_souf4"]
+[ext_resource type="Resource" uid="uid://ues1kduox2nf" path="res://data/keyword/SplitAttack.tres" id="2_gnr7v"]
+[ext_resource type="AudioStream" uid="uid://32ci8bnoy7qx" path="res://assets/sounds/cards/voices/the_lovers.ogg" id="4_g0nw0"]
+
+[resource]
+script = ExtResource("1_iyn7x")
+name = "The Lovers"
+description = "\"May you find solace in companionship.\""
+artwork = ExtResource("1_souf4")
+cost = -2
+attack = 2
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_gnr7v")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("4_g0nw0")

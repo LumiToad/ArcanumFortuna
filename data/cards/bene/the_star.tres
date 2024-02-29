@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://b4tc66w5jk5ii"]
+
+[ext_resource type="Texture2D" uid="uid://clotsnwomvrm8" path="res://assets/sprites/cards/star.png" id="1_owdc4"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_kmx3s"]
+[ext_resource type="AudioStream" uid="uid://cbhtvx4e1ar1" path="res://assets/sounds/cards/voices/the_star.ogg" id="3_hajlb"]
+
+[resource]
+script = ExtResource("2_kmx3s")
+name = "The Star"
+description = "\"May you find what you desire.\""
+artwork = ExtResource("1_owdc4")
+cost = -3
+attack = 4
+health = 4
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+spawn_frequency = 34
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("3_hajlb")

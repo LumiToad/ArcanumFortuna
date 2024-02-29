@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnw2n821p8qt8"]
+
+[ext_resource type="Script" path="res://systems/card_combat/card_stack.gd" id="1_fm0v2"]
+[ext_resource type="Texture2D" uid="uid://dk8yqb3in1e4g" path="res://assets/sprites/cards/card_back.png" id="2_5ud8m"]
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_tooltip.gd" id="3_dwfos"]
+
+[node name="CardStack" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fm0v2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 150)
+texture = ExtResource("2_5ud8m")
+
+[node name="CardCount" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 419.0
+offset_bottom = 659.0
+theme_override_font_sizes/font_size = 50
+text = "Cards Left: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTooltip" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 140.0
+offset_bottom = 190.0
+script = ExtResource("3_dwfos")
+title = "Your Deck"
+text = "Contains all cards you collected this run.
+You'll draw 4 cards on your first turn
+and 1 card at the start of every turn after that."

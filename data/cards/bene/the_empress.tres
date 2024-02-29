@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://bc84eohv660ch"]
+
+[ext_resource type="Texture2D" uid="uid://dsvokssfcwugn" path="res://assets/sprites/cards/empress.png" id="1_kqrjl"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_hwoqx"]
+[ext_resource type="Resource" uid="uid://dvt6vrtfufa0t" path="res://data/keyword/TripleAttack.tres" id="2_vyq58"]
+[ext_resource type="Resource" uid="uid://drtnl4dtcqfpq" path="res://data/keyword/consume.tres" id="3_ck8nd"]
+[ext_resource type="Resource" uid="uid://cdie0qb10eba1" path="res://data/keyword/drain.tres" id="4_w0g56"]
+[ext_resource type="AudioStream" uid="uid://cuhllynyw5t2u" path="res://assets/sounds/cards/voices/the_empress.ogg" id="6_lw6mj"]
+
+[resource]
+script = ExtResource("2_hwoqx")
+name = "The Empress"
+description = "\"May you grow in confidence.\""
+artwork = ExtResource("1_kqrjl")
+cost = -7
+attack = 1
+health = 5
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_vyq58"), ExtResource("3_ck8nd"), ExtResource("4_w0g56")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("6_lw6mj")

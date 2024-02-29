@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=3 uid="uid://eo8nyis4kslg"]
+
+[ext_resource type="PackedScene" uid="uid://d11sabcwtgmsp" path="res://systems/card_combat/hand.tscn" id="1_cbbcf"]
+[ext_resource type="Script" path="res://systems/card_combat/card_player.gd" id="1_ifl70"]
+[ext_resource type="PackedScene" uid="uid://blifmtx3ipelv" path="res://systems/card_combat/cards/hand_card.tscn" id="2_yo3i5"]
+[ext_resource type="Script" path="res://systems/ui/tooltips/show_tooltip.gd" id="5_bxaiy"]
+[ext_resource type="Texture2D" uid="uid://by4v5aq6yrqoh" path="res://assets/sprites/vfx/overlays/hurt_overlay.png" id="6_xofxq"]
+[ext_resource type="Script" path="res://systems/card_combat/hurt_overlay.gd" id="7_elpg2"]
+[ext_resource type="Script" path="res://systems/effects/screenshake_cam.gd" id="7_lms71"]
+[ext_resource type="PackedScene" uid="uid://cnw2n821p8qt8" path="res://systems/card_combat/card_stack.tscn" id="10_n68ae"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fq2da"]
+
+[node name="CardPlayer2" type="ReferenceRect"]
+custom_minimum_size = Vector2(300, 650)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_color = Color(0.486275, 0.145098, 0.0784314, 1)
+script = ExtResource("1_ifl70")
+attacked_color = Color(0.486275, 0.145098, 0.0784314, 1)
+positive_effect_color = Color(0.372549, 0.560784, 0.247059, 1)
+
+[node name="Hand" parent="." instance=ExtResource("1_cbbcf")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+mouse_filter = 2
+
+[node name="Deck" type="ReferenceRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -35.0
+offset_right = -50.0
+offset_bottom = 615.0
+grow_horizontal = 0
+grow_vertical = 2
+border_width = 0.0
+
+[node name="CardStack" parent="Deck" node_paths=PackedStringArray("target") instance=ExtResource("10_n68ae")]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 76.475
+offset_top = 115.29
+offset_right = 326.475
+offset_bottom = 765.29
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.272341
+scale = Vector2(0.6, 0.6)
+target = NodePath("../../Hand")
+deckCardTemplate = ExtResource("2_yo3i5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Deck"]
+layout_mode = 2
+offset_right = 250.0
+offset_bottom = 650.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Deck/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "- You -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Karma" type="ColorRect" parent="Deck/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.47451, 0.207843, 0.592157, 1)
+
+[node name="Label" type="Label" parent="Deck/VBoxContainer/Karma"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Karma: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTooltip" type="Control" parent="Deck/VBoxContainer/Karma"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bxaiy")
+title = "Your Karma"
+text = "Cards on your side of the boards will add their
+combined cost to your karma total each turn.
+Whenever your karma would go below zero the excess
+amount is substracted from your health instead."
+
+[node name="Health" type="ColorRect" parent="Deck/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.607843, 0.172549, 0.203922, 1)
+
+[node name="Label" type="Label" parent="Deck/VBoxContainer/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Health: 20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTooltip" type="Control" parent="Deck/VBoxContainer/Health"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bxaiy")
+title = "Your Health"
+text = "Is lowered whenever an enemy card attacks an empty tile.
+If it drops to zero you'll die!"
+
+[node name="BonusDrawButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 729.0
+offset_right = 266.0
+offset_bottom = 783.0
+theme_override_font_sizes/font_size = 18
+text = "Draw Extra Card (-2 Karma)"
+
+[node name="HurtOverlay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_xofxq")
+script = ExtResource("7_elpg2")
+
+[node name="ScreenshakeCamera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+script = ExtResource("7_lms71")
+noise = SubResource("FastNoiseLite_fq2da")
+intensity = 10.0
+
+[connection signal="button_down" from="BonusDrawButton" to="." method="_on_bonus_draw_button_button_down"]

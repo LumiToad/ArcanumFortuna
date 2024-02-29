@@ -1,0 +1,185 @@
+[gd_scene load_steps=13 format=3 uid="uid://xd6gb0dp1t4s"]
+
+[ext_resource type="Script" path="res://systems/ui/main_menu.gd" id="1_ap4ji"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="1_lt3o0"]
+[ext_resource type="Texture2D" uid="uid://c3q8ba7jcbwff" path="res://assets/sprites/cards/fool.png" id="2_g1vqn"]
+[ext_resource type="PackedScene" uid="uid://cy7r8u5ck052l" path="res://assets/ui/placeholders/nodemap_test.tscn" id="3_o36ij"]
+[ext_resource type="Texture2D" uid="uid://h0448sn65e2l" path="res://assets/sprites/cards/death.png" id="3_prrvv"]
+[ext_resource type="PackedScene" uid="uid://bookhsqnu44x5" path="res://systems/tutorial/tutorial_card_battle.tscn" id="4_e66lc"]
+[ext_resource type="PackedScene" uid="uid://biy5pjrvhi2le" path="res://systems/ui/menus/options_menu.tscn" id="4_g2abk"]
+[ext_resource type="Script" path="res://systems/ui/visible_for_feature.gd" id="6_kuo4c"]
+[ext_resource type="PackedScene" uid="uid://d101m5rvvp1kq" path="res://systems/ui/menus/credits_menu/credits_menu.tscn" id="6_m01nv"]
+[ext_resource type="Texture2D" uid="uid://cg3tvcqu5s5ai" path="res://assets/ui/placeholders/logo_wip.png" id="6_qsfvr"]
+[ext_resource type="PackedScene" uid="uid://bucg0txabpsyp" path="res://utils/sounds/singleton_interactor.tscn" id="7_mp5ns"]
+[ext_resource type="PackedScene" uid="uid://jn77ec80jhq5" path="res://utils/anti_pause_node.tscn" id="7_ynsi7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lt3o0")
+script = ExtResource("1_ap4ji")
+node_map_scene = ExtResource("3_o36ij")
+tutorial_scene = ExtResource("4_e66lc")
+options_scene = ExtResource("4_g2abk")
+credits_scene = ExtResource("6_m01nv")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.709804, 0.584314, 0.545098, 1)
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 740.0
+offset_top = 20.0
+offset_right = -791.0
+offset_bottom = 266.0
+grow_horizontal = 2
+texture = ExtResource("6_qsfvr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 131.0
+offset_top = -254.0
+offset_right = 328.0
+offset_bottom = -181.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Seed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SeedInput" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.5
+offset_top = -253.0
+offset_right = 762.5
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+
+[node name="Fool" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+grow_vertical = 2
+texture = ExtResource("2_g1vqn")
+
+[node name="Death" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -150.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_prrvv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+grow_horizontal = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Play"
+
+[node name="HoverSound" parent="VBoxContainer/StartButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+
+[node name="PressSound" parent="VBoxContainer/StartButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Tutorial"
+
+[node name="HoverSound" parent="VBoxContainer/TutorialButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+
+[node name="PressSound" parent="VBoxContainer/TutorialButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Options"
+
+[node name="HoverSound" parent="VBoxContainer/OptionsButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+
+[node name="PressSound" parent="VBoxContainer/OptionsButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Quit"
+
+[node name="HiddenInBrowser" type="Node" parent="VBoxContainer/QuitButton"]
+script = ExtResource("6_kuo4c")
+show_or_hide = 0
+
+[node name="HoverSound" parent="VBoxContainer/QuitButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonHover"
+
+[node name="PressSound" parent="VBoxContainer/QuitButton" instance=ExtResource("7_mp5ns")]
+singleton = 1
+method_to_call = "_SFX_UIButtonPress"
+
+[node name="AntiPauseNode" parent="." instance=ExtResource("7_ynsi7")]
+
+[connection signal="text_changed" from="SeedInput" to="." method="_on_seed_input_text_changed"]
+[connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="VBoxContainer/StartButton/HoverSound" method="execute"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="VBoxContainer/StartButton/PressSound" method="execute"]
+[connection signal="button_up" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/TutorialButton" to="VBoxContainer/TutorialButton/HoverSound" method="execute"]
+[connection signal="pressed" from="VBoxContainer/TutorialButton" to="VBoxContainer/TutorialButton/PressSound" method="execute"]
+[connection signal="button_up" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="VBoxContainer/OptionsButton/HoverSound" method="execute"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="VBoxContainer/OptionsButton/PressSound" method="execute"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton/HoverSound" method="execute"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton/PressSound" method="execute"]

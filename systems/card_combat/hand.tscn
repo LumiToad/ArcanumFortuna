@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d11sabcwtgmsp"]
+
+[ext_resource type="Script" path="res://systems/card_combat/card_foldout.gd" id="1_n4utx"]
+[ext_resource type="PackedScene" uid="uid://blifmtx3ipelv" path="res://systems/card_combat/cards/hand_card.tscn" id="2_jowjm"]
+
+[node name="Hand" type="Control"]
+z_index = 100
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(960, 0)
+mouse_filter = 1
+script = ExtResource("1_n4utx")
+card_spacing = 0.5
+show_rect = Rect2(0, 0.75, 1, 0.25)
+hide_rect = Rect2(0, 0, 1, 1)
+render_rects = true
+card = ExtResource("2_jowjm")

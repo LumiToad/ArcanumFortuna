@@ -1,0 +1,16 @@
+join the_fool (rose2) 0
+You approach a bustling market, the smell of fish and people permeating the chilled air all around you.
+A red spill on the dusty floor startles you, thinking it blood at first. You blink, and realize it to be hair instead. Attached to it is a creature, suspended by chains.
+join the_hanged_man 4
+the_fool: I've not seen anyone like you before.
+the_hanged_man: Huh?
+the_hanged_man: Oh, you should see our women. They are even brighter in coloration and have all these frills and fins. 
+the_hanged_man: Ostentatious, almost. Then again, I've always been more partial to substance, rather than style. Form over function, you know. 
+- No, I mean... you're a merman.
+	the_hanged_man: And you're a landwalker. Your point?
+- You can speak?
+	the_hanged_man: So can you. Your point?
+the_fool: But how can you breathe? Do you not feel lost?
+the_hanged_man: Do you?
+the_fool: Of course not, I am here by my own volition.
+the_hanged_man: And have you considered, that I may be as well?

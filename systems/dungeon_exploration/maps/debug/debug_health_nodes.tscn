@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://s6fc1htd2lbk"]
+
+[ext_resource type="PackedScene" uid="uid://dgbod0er521or" path="res://systems/dungeon_exploration/maps/node_map.tscn" id="1_pag6d"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/map_generator.gd" id="2_qjn10"]
+[ext_resource type="PackedScene" uid="uid://clkhyvbwxf5pd" path="res://systems/dungeon_exploration/nodes/regeneration_node.tscn" id="3_y3fj3"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/nodes/node_generation_options.gd" id="4_e7fum"]
+
+[sub_resource type="Resource" id="Resource_8sjg3"]
+script = ExtResource("4_e7fum")
+chance = 1.0
+node_reference = ExtResource("3_y3fj3")
+reward_modifier = 1.1
+level_modifier = 0.01
+max_repeat = 10
+min_challenging_nodes = 2
+min_distance_between = 0
+min_nodes_from_start = 0
+
+[sub_resource type="GDScript" id="GDScript_u3wik"]
+script/source = "extends Node
+
+@export var random_seed := false
+
+func _ready():
+	var generator = get_parent()
+	if random_seed:
+		randomize()
+		generator.rng_seed = randi()
+		print(\"Using seed \" + str(generator.rng_seed))
+	generator.setup()
+	generator.generate(30)
+"
+
+[node name="node-map" instance=ExtResource("1_pag6d")]
+script = ExtResource("2_qjn10")
+possible_nodes = Array[ExtResource("4_e7fum")]([SubResource("Resource_8sjg3")])
+rng_seed = 13772
+
+[node name="Generator" type="Node" parent="." index="2"]
+script = SubResource("GDScript_u3wik")

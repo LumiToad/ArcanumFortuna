@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="HealthDrain" load_steps=4 format=3 uid="uid://bs81iqn8h3y65"]
+
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="1_h0ixl"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/health_drain.gd" id="1_ud0cd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2kef"]
+atlas = ExtResource("1_h0ixl")
+region = Rect2(66, 66, 66, 66)
+
+[resource]
+script = ExtResource("1_ud0cd")
+health_gain = 1
+scale_from_same_side_only = false
+enable_debug_print = false
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = false
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Health Drain"
+description = "This gains %d health for each card on the board with a positve karma value."
+icon = SubResource("AtlasTexture_r2kef")
+highlight_duration = 0.5

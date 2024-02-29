@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://djimo5osb2i1s"]
+
+[ext_resource type="Script" path="res://systems/ui/new_deck_preview/deck_preview_card.gd" id="1_l58gw"]
+[ext_resource type="PackedScene" uid="uid://dxphpuocbhbrg" path="res://systems/card_combat/cards/select_card.tscn" id="2_yibxg"]
+[ext_resource type="Texture2D" uid="uid://c3li1klkehqcx" path="res://assets/ui/gameboard/copy_counter_underlay.png" id="3_bpivl"]
+[ext_resource type="Theme" uid="uid://db7d7nr3s1th5" path="res://assets/ui/themes/font_theme.tres" id="4_318k1"]
+
+[node name="DeckPreviewCard" type="Control"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 170.0
+offset_bottom = 266.0
+script = ExtResource("1_l58gw")
+
+[node name="SelectCard" parent="." instance=ExtResource("2_yibxg")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="CopyCounter" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="CopyCounterUnderlay" type="TextureRect" parent="CopyCounter"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bpivl")
+expand_mode = 1
+
+[node name="CopyCounterLabel" type="Label" parent="CopyCounter"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_318k1")
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1

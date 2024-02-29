@@ -1,0 +1,209 @@
+[gd_scene load_steps=11 format=3 uid="uid://dodfhimio8w5g"]
+
+[ext_resource type="Theme" uid="uid://by7y30d2dbxb2" path="res://assets/ui/themes/menu_title_theme.tres" id="1_5avjp"]
+[ext_resource type="Texture2D" uid="uid://uf36g406dvlv" path="res://assets/ui/underlays/tooltip_underlay.png" id="1_cpbro"]
+[ext_resource type="Texture2D" uid="uid://bmkljvdymeqv0" path="res://assets/ui/placeholders/major_arcana_choice_placeholder.png" id="1_e7a7s"]
+[ext_resource type="Texture2D" uid="uid://ctkenbleufikb" path="res://assets/ui/placeholders/continue_to_node_map_button_default_placeholder.png" id="2_57xyr"]
+[ext_resource type="Texture2D" uid="uid://d2jir55uumin5" path="res://assets/ui/placeholders/minor_arcana_choice_placeholder.png" id="2_fw1hn"]
+[ext_resource type="Texture2D" uid="uid://6y3f15t7pwy3" path="res://assets/ui/placeholders/continue_to_node_map_button_pressed_placeholder.png" id="3_avbn6"]
+[ext_resource type="PackedScene" uid="uid://4prwhv136psq" path="res://systems/ui/menus/card_pick_node/reward_card.tscn" id="3_gj2cx"]
+[ext_resource type="Texture2D" uid="uid://bvfqsylsr2x1u" path="res://assets/ui/placeholders/continue_to_node_map_button_hover_placeholder.png" id="4_vmg4l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd16b"]
+texture = ExtResource("1_e7a7s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywmop"]
+texture = ExtResource("2_fw1hn")
+
+[node name="CardPickNode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cpbro")
+
+[node name="PreChoice" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuTitlePreChoice" type="RichTextLabel" parent="PreChoice"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 97.0
+offset_top = 64.0
+offset_right = 1783.0
+offset_bottom = 192.0
+grow_horizontal = 2
+theme = ExtResource("1_5avjp")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[center][b]IS THERE A RIGHT CHOICE?"
+
+[node name="MenuSubtitlePreChoice" type="RichTextLabel" parent="PreChoice"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 764.5
+offset_top = 192.0
+offset_right = 1115.5
+offset_bottom = 240.0
+grow_horizontal = 2
+theme = ExtResource("1_5avjp")
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]and is it yours?"
+
+[node name="PostChoice" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuTitlePostChoice" type="RichTextLabel" parent="PostChoice"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 325.0
+offset_top = 64.0
+offset_right = 1554.0
+offset_bottom = 192.0
+grow_horizontal = 2
+theme = ExtResource("1_5avjp")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[center][b]YOU HAVE CHOSEN"
+
+[node name="MenuSubtitlePostChoice" type="RichTextLabel" parent="PostChoice"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 740.0
+offset_top = 192.0
+offset_right = 1138.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme = ExtResource("1_5avjp")
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]and you will do so again"
+
+[node name="CardChoices" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.65, 1.65)
+
+[node name="CardTypeChoice" type="HBoxContainer" parent="CardChoices"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.061
+offset_top = -431.499
+offset_right = 206.939
+offset_bottom = -165.499
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 73
+
+[node name="MajorArcanaChoiceButton" type="Button" parent="CardChoices/CardTypeChoice"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fd16b")
+
+[node name="MinorArcanaChoiceButton" type="Button" parent="CardChoices/CardTypeChoice"]
+custom_minimum_size = Vector2(170, 266)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ywmop")
+
+[node name="CardChoice" type="HBoxContainer" parent="CardChoices"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -327.273
+offset_top = -430.893
+offset_right = 327.207
+offset_bottom = -164.893
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 73
+
+[node name="RewardCard" parent="CardChoices/CardChoice" instance=ExtResource("3_gj2cx")]
+layout_mode = 2
+
+[node name="RewardCard2" parent="CardChoices/CardChoice" instance=ExtResource("3_gj2cx")]
+layout_mode = 2
+
+[node name="RewardCard3" parent="CardChoices/CardChoice" instance=ExtResource("3_gj2cx")]
+layout_mode = 2
+
+[node name="LeaveNodeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -208.0
+offset_right = -16.0
+offset_bottom = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_57xyr")
+texture_pressed = ExtResource("3_avbn6")
+texture_hover = ExtResource("4_vmg4l")
+
+[node name="Label" type="Label" parent="LeaveNodeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Journey on"
+horizontal_alignment = 1
+vertical_alignment = 1

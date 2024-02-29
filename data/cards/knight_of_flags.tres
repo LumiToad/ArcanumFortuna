@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://ncfdsv56qat7"]
+
+[ext_resource type="Texture2D" uid="uid://b3n1modi50l3w" path="res://assets/sprites/cards/knight_of_flags.png" id="1_4do24"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="1_jk337"]
+[ext_resource type="Texture2D" uid="uid://capdswqckmedk" path="res://assets/ui/icons/keyword_slots_minor.png" id="2_d8ble"]
+[ext_resource type="Resource" uid="uid://buyei5ntmvrx3" path="res://data/keyword/buff_next_card_hp.tres" id="3_kvr1w"]
+
+[resource]
+script = ExtResource("1_jk337")
+name = "Knight of Flags"
+description = "It doesn't do stuff."
+artwork = ExtResource("1_4do24")
+cost = 5
+attack = 0
+health = 1
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("3_kvr1w")])
+spawn_frequency = 0
+shop_cost = 5
+trade_override = 0
+keyword_slot_texture = ExtResource("2_d8ble")

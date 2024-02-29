@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://dxl1hxrirkmwg"]
+
+[ext_resource type="Resource" uid="uid://b2plj1honyqf4" path="res://data/enemy/enemy_basic3_brain.tres" id="1_wwk11"]
+[ext_resource type="Script" path="res://data/scripts/enemy_data.gd" id="2_i1r2v"]
+[ext_resource type="Resource" uid="uid://dqu25ohu65ud8" path="res://data/enemy/enemy_basic_brain_stats1.tres" id="3_m2bou"]
+[ext_resource type="Resource" uid="uid://cfiqtgldipt1n" path="res://data/enemy/enemy_basic_brain_stats2.tres" id="4_dkyok"]
+[ext_resource type="Resource" uid="uid://cwjcmx0yjc8yb" path="res://data/enemy/enemy_basic_brain_stats3.tres" id="5_2nbyu"]
+[ext_resource type="Resource" uid="uid://clikgbpfsryhc" path="res://data/enemy/enemy_basic_brain_stats4.tres" id="6_c52po"]
+[ext_resource type="Resource" uid="uid://cndjpbnxujjjl" path="res://data/enemy/enemy_basic_brain_stats5.tres" id="7_2a1hr"]
+
+[resource]
+script = ExtResource("2_i1r2v")
+title = "The bad guy"
+brain = ExtResource("1_wwk11")
+stats_per_level = Array[Resource("res://systems/card_combat/enemy/enemy_brain_stats.gd")]([ExtResource("3_m2bou"), ExtResource("4_dkyok"), ExtResource("5_2nbyu"), ExtResource("6_c52po"), ExtResource("7_2a1hr")])
+gold_reward = 4
+min_level = 0
+max_level = 2
+level = 0

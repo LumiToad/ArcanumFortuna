@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://dyt8xtym5pla4"]
+
+[ext_resource type="Texture2D" uid="uid://2k427t62yypc" path="res://assets/sprites/cards/emperor.png" id="1_02swp"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_u4j5u"]
+[ext_resource type="Resource" uid="uid://ues1kduox2nf" path="res://data/keyword/SplitAttack.tres" id="2_xo6m7"]
+[ext_resource type="AudioStream" uid="uid://vdtbxmilhgaf" path="res://assets/sounds/cards/voices/the_emperor.ogg" id="5_gfkah"]
+
+[resource]
+script = ExtResource("2_u4j5u")
+name = "The Emperor"
+description = "\"May you take control over your live.\""
+artwork = ExtResource("1_02swp")
+cost = -5
+attack = 3
+health = 5
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_xo6m7")])
+spawn_frequency = 100
+shop_cost = 5
+trade_override = 0
+sound_effect = ExtResource("5_gfkah")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyBrain" load_steps=11 format=3 uid="uid://c8xokb3lshxdu"]
+
+[ext_resource type="Resource" uid="uid://b5ytokrx5why5" path="res://data/cards/page_of_flags.tres" id="1_n55im"]
+[ext_resource type="Resource" uid="uid://q3wogyvkudaf" path="res://data/cards/king_of_flags.tres" id="2_qqtv7"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="4_hricl"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="5_x3o7b"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="6_etm01"]
+[ext_resource type="Resource" uid="uid://cyu186axhjfax" path="res://data/cards/justice.tres" id="7_0lgvo"]
+[ext_resource type="Resource" uid="uid://b4tc66w5jk5ii" path="res://data/cards/the_star.tres" id="9_fy65m"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="10_abujt"]
+[ext_resource type="Script" path="res://systems/card_combat/enemy/enemy_brain.gd" id="13_ps4l0"]
+[ext_resource type="Resource" uid="uid://yh1e2xgkqn0b" path="res://data/enemy/StrategyModules/enemy_elite_karma_module.tres" id="14_wybug"]
+
+[resource]
+script = ExtResource("13_ps4l0")
+available_cards = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("1_n55im"), ExtResource("2_qqtv7"), ExtResource("4_hricl"), ExtResource("5_x3o7b"), ExtResource("6_etm01"), ExtResource("7_0lgvo"), ExtResource("9_fy65m"), ExtResource("10_abujt")])
+strategy_modules = Array[Resource("res://systems/card_combat/enemy/enemy_brain_strategy_module.gd")]([ExtResource("14_wybug")])

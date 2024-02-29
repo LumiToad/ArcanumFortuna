@@ -1,0 +1,181 @@
+[gd_scene load_steps=29 format=3 uid="uid://cy7r8u5ck052l"]
+
+[ext_resource type="Texture2D" uid="uid://pi5ofdcm7ro1" path="res://assets/ui/placeholders/nodemap1.png" id="1_4wcvd"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/maps/level.gd" id="1_44yos"]
+[ext_resource type="Texture2D" uid="uid://2c184n3ld2p3" path="res://assets/ui/placeholders/nodemap_1_background.png" id="2_vkfl3"]
+[ext_resource type="Texture2D" uid="uid://g623lf2fjfvj" path="res://assets/ui/placeholders/nodemap_1_foreground.png" id="3_7jy3d"]
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="3_fnpom"]
+[ext_resource type="Shader" path="res://shaders/snow_rain.gdshader" id="5_f5b0f"]
+[ext_resource type="Shader" path="res://shaders/fog.gdshader" id="6_g3on7"]
+[ext_resource type="PackedScene" uid="uid://u6bv0sd2v3es" path="res://systems/dungeon_exploration/maps/layouts/node_map_test_1.tscn" id="10_3mqxt"]
+[ext_resource type="Texture2D" uid="uid://can862dqmhwwo" path="res://assets/ui/placeholders/snowflake_test.png" id="10_v8li0"]
+[ext_resource type="Script" path="res://utils/random_scene.gd" id="11_fvnbs"]
+[ext_resource type="Script" path="res://systems/dungeon_exploration/limited_camera.gd" id="12_3m17x"]
+[ext_resource type="PackedScene" uid="uid://bbhypmndv2m7q" path="res://systems/dungeon_exploration/maps/node_map_loader.tscn" id="12_c42ig"]
+[ext_resource type="PackedScene" uid="uid://n6x1mb4dktgr" path="res://systems/dungeon_exploration/maps/layouts/node_map_test_2.tscn" id="12_iuld8"]
+[ext_resource type="PackedScene" uid="uid://c8wrkx1o0ism" path="res://systems/dungeon_exploration/maps/node_maps_winter/node_map_winter_1.tscn" id="14_841d0"]
+[ext_resource type="PackedScene" uid="uid://coyiok3kl5ln7" path="res://systems/dungeon_exploration/maps/node_maps_winter/node_map_winter_2.tscn" id="16_hntli"]
+[ext_resource type="PackedScene" uid="uid://bttxeghweiv65" path="res://systems/dungeon_exploration/maps/node_maps_winter/node_map_winter_3.tscn" id="17_oknvn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ru5t"]
+shader = ExtResource("3_fnpom")
+shader_parameter/speed = 0.3
+shader_parameter/minStrength = 0.2
+shader_parameter/maxStrength = 0.3
+shader_parameter/strengthScale = 200.0
+shader_parameter/interval = 0.0
+shader_parameter/detail = 5.0
+shader_parameter/distortion = 1.0
+shader_parameter/heightOffset = 0.0
+
+[sub_resource type="TileSet" id="TileSet_mue5v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7s72"]
+shader = ExtResource("5_f5b0f")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.01
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 1.0
+shader_parameter/near_rain_transparency = 0.536
+shader_parameter/far_rain_transparency = 0.1
+shader_parameter/rain_color = Color(0.803922, 0.937255, 0.968627, 1)
+shader_parameter/base_rain_speed = 0.1
+shader_parameter/additional_rain_speed = 0.1
+shader_parameter/slant = -0.05
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rlm6j"]
+noise_type = 2
+seed = 411
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l1o83"]
+width = 500
+height = 500
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_rlm6j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8aog"]
+shader = ExtResource("6_g3on7")
+shader_parameter/density = 0.155
+shader_parameter/speed = Vector2(0.02, 0.01)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_l1o83")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_op1x3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 100.0
+initial_velocity_max = 175.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.8
+
+[sub_resource type="Resource" id="Resource_gijmu"]
+script = ExtResource("11_fvnbs")
+chance_weight = 0
+scene = ExtResource("10_3mqxt")
+
+[sub_resource type="Resource" id="Resource_ntgcp"]
+script = ExtResource("11_fvnbs")
+chance_weight = 0
+scene = ExtResource("12_iuld8")
+
+[sub_resource type="Resource" id="Resource_wlrje"]
+script = ExtResource("11_fvnbs")
+chance_weight = 1
+scene = ExtResource("14_841d0")
+
+[sub_resource type="Resource" id="Resource_35plh"]
+script = ExtResource("11_fvnbs")
+chance_weight = 0
+scene = ExtResource("16_hntli")
+
+[sub_resource type="Resource" id="Resource_dbbsm"]
+script = ExtResource("11_fvnbs")
+chance_weight = 0
+scene = ExtResource("17_oknvn")
+
+[node name="NodemapTest" type="Node2D"]
+script = ExtResource("1_44yos")
+node_map_path = NodePath("NodeMapLoader")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -180)
+transform = Transform2D(1, 0, 0, 1, 0, -180)
+scroll_offset = Vector2(-1029.74, -458.903)
+
+[node name="BaseLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BaseLayer"]
+position = Vector2(0, 720)
+texture = ExtResource("1_4wcvd")
+
+[node name="TopLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TopLayer"]
+position = Vector2(0, 720)
+texture = ExtResource("2_vkfl3")
+
+[node name="BottomLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BottomLayer"]
+material = SubResource("ShaderMaterial_6ru5t")
+position = Vector2(0, 720)
+texture = ExtResource("3_7jy3d")
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = SubResource("TileSet_mue5v")
+format = 2
+layer_0/tile_data = PackedInt32Array(3342366, 2, 11, 917589, 1048578, 11, 852048, 2621442, 9, 589911, 2162690, 18, 131092, 1114114, 20, 3932163, 589826, 6, 3538963, 589826, 6, 589855, 589826, 6, 1769475, 589826, 6, 1376365, 65538, 6, 655393, 65538, 6, 458755, 65538, 6, 1179646, 65538, 6, 3211331, 65538, 6, 2949202, 65538, 6, 3473446, 2162690, 6, 917570, 2162690, 6, 1703941, 2686978, 4, 3997736, 2686978, 4, 3997806, 2686978, 4, 4063320, 2162690, 11, 4194314, 2162690, 11, 2949148, 3211266, 19, 2490485, 65538, 22, 196718, 131074, 40, 2097211, 1703938, 39)
+
+[node name="Effects" type="Node" parent="."]
+
+[node name="Snow" type="ColorRect" parent="Effects"]
+visible = false
+material = SubResource("ShaderMaterial_v7s72")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="Fog" type="ColorRect" parent="Effects"]
+material = SubResource("ShaderMaterial_n8aog")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="LimitedCamera" type="Camera2D" parent="."]
+position = Vector2(19, 534)
+offset = Vector2(480, 0)
+script = ExtResource("12_3m17x")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="LimitedCamera"]
+offset_left = -2901.0
+offset_top = -537.0
+offset_right = 5620.0
+offset_bottom = 545.0
+mouse_filter = 2
+
+[node name="SnowParticles" type="GPUParticles2D" parent="LimitedCamera"]
+z_index = 2
+position = Vector2(472, -496)
+amount = 160
+process_material = SubResource("ParticleProcessMaterial_op1x3")
+texture = ExtResource("10_v8li0")
+lifetime = 12.0
+preprocess = 10.0
+interpolate = false
+
+[node name="NodeMapLoader" parent="." instance=ExtResource("12_c42ig")]
+offset_left = 153.0
+offset_top = 696.0
+offset_right = 153.0
+offset_bottom = 696.0
+mouse_filter = 1
+potential_node_maps = Array[ExtResource("11_fvnbs")]([SubResource("Resource_gijmu"), SubResource("Resource_ntgcp"), SubResource("Resource_wlrje"), SubResource("Resource_35plh"), SubResource("Resource_dbbsm")])

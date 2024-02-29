@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://ccymn0mj5bdvy"]
+
+[ext_resource type="Texture2D" uid="uid://cwd3iw37x3k8w" path="res://assets/sprites/cards/sun.png" id="1_wr52r"]
+[ext_resource type="Resource" uid="uid://b7si7oceraga6" path="res://data/keyword/flip.tres" id="2_0xqm1"]
+[ext_resource type="Script" path="res://data/scripts/card_data.gd" id="2_y1k8m"]
+[ext_resource type="AudioStream" uid="uid://cotxmyr8844t4" path="res://assets/sounds/cards/voices/the_sun.ogg" id="4_e16ma"]
+
+[resource]
+script = ExtResource("2_y1k8m")
+name = "The Sun"
+description = "\"May the light heal and enlighten you.\""
+artwork = ExtResource("1_wr52r")
+cost = -1
+attack = 2
+health = 3
+keywords = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_0xqm1")])
+spawn_frequency = 33
+sound_effect = ExtResource("4_e16ma")

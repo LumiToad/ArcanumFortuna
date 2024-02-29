@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://10abvt8mno1c"]
+
+[ext_resource type="Material" uid="uid://bi84ni64yadvs" path="res://shaders/gradient_shader.tres" id="1_kljtm"]
+[ext_resource type="Texture2D" uid="uid://cwd3iw37x3k8w" path="res://assets/sprites/cards/sun.png" id="2_16j4a"]
+
+[node name="TextureRect" type="TextureRect"]
+material = ExtResource("1_kljtm")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_16j4a")

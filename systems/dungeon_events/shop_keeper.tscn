@@ -1,0 +1,275 @@
+[gd_scene load_steps=56 format=3 uid="uid://jqc67rl1fpl3"]
+
+[ext_resource type="Script" path="res://systems/dungeon_events/shop_keeper.gd" id="1_xmp35"]
+[ext_resource type="PackedScene" uid="uid://c3n1r6lr76psq" path="res://systems/shop/shop_card.tscn" id="2_gpc0w"]
+[ext_resource type="PackedScene" uid="uid://dohw12papqoct" path="res://systems/shop/pick_card.tscn" id="3_t13rd"]
+[ext_resource type="Resource" uid="uid://c0p160e6m2l0t" path="res://data/cards/the_magician.tres" id="4_frewu"]
+[ext_resource type="Resource" uid="uid://bdbn32r8x8g4v" path="res://data/cards/the_high_priestess.tres" id="5_fuybo"]
+[ext_resource type="Resource" uid="uid://5p8a1flrgkh" path="res://data/cards/the_empress.tres" id="6_5uueq"]
+[ext_resource type="Resource" uid="uid://d388ib31p5qsn" path="res://data/cards/the_emperor.tres" id="7_48tej"]
+[ext_resource type="Resource" uid="uid://wx2v5wr88lof" path="res://data/cards/the_hierophant.tres" id="8_7ihaw"]
+[ext_resource type="Resource" uid="uid://cyiqtt8grlnlq" path="res://data/cards/the_lovers.tres" id="9_n0gl6"]
+[ext_resource type="Resource" uid="uid://3t5jry37we2f" path="res://data/cards/the_chariot.tres" id="10_x034j"]
+[ext_resource type="Resource" uid="uid://biih8ndy7cwuu" path="res://data/cards/death.tres" id="11_77d1b"]
+[ext_resource type="Resource" uid="uid://clbklsr1u3gn5" path="res://data/cards/page_of_daggers.tres" id="12_exyw6"]
+[ext_resource type="Resource" uid="uid://dcn0mphx2qg0v" path="res://data/cards/page_of_herbs.tres" id="13_obroa"]
+[ext_resource type="Resource" uid="uid://b5ytokrx5why5" path="res://data/cards/page_of_flags.tres" id="14_4kwj8"]
+[ext_resource type="Resource" uid="uid://cdyp516wjxron" path="res://data/cards/page_of_thorns.tres" id="15_i0asq"]
+[ext_resource type="Resource" uid="uid://c4j8576fmlh7q" path="res://data/cards/the_hermit.tres" id="16_owf5t"]
+[ext_resource type="Resource" uid="uid://bitn4lw4darn4" path="res://data/cards/the_moon.tres" id="17_c5bkb"]
+[ext_resource type="Resource" uid="uid://ccymn0mj5bdvy" path="res://data/cards/the_sun.tres" id="18_e7aih"]
+[ext_resource type="Resource" uid="uid://lvxtgh2yl8" path="res://data/cards/strength.tres" id="19_8w76h"]
+[ext_resource type="Resource" uid="uid://b4tc66w5jk5ii" path="res://data/cards/the_star.tres" id="20_nic8q"]
+[ext_resource type="Resource" uid="uid://cjas1prwh50gk" path="res://data/cards/the_hanged_man.tres" id="21_hhhlx"]
+[ext_resource type="Resource" uid="uid://cngbvoyvbgogi" path="res://data/cards/the_tower.tres" id="22_jaw7a"]
+[ext_resource type="Resource" uid="uid://d4guw6tm3pttg" path="res://data/cards/king_of_daggers.tres" id="23_cxb1b"]
+[ext_resource type="Resource" uid="uid://q3wogyvkudaf" path="res://data/cards/king_of_flags.tres" id="24_32077"]
+[ext_resource type="Resource" uid="uid://csr1pvebvy0ae" path="res://data/cards/king_of_herbs.tres" id="25_ya544"]
+[ext_resource type="Resource" uid="uid://nr5du58leen5" path="res://data/cards/king_of_thorns.tres" id="26_ljell"]
+[ext_resource type="Resource" uid="uid://deonq2pnkifc2" path="res://data/cards/the_devil.tres" id="27_ahben"]
+[ext_resource type="Resource" uid="uid://buthwniwc7tav" path="res://data/cards/temperance.tres" id="28_g6q66"]
+[ext_resource type="Resource" uid="uid://bk8j8nba8r18d" path="res://data/cards/wheel_of_fortune.tres" id="29_8e7jl"]
+[ext_resource type="Resource" uid="uid://cyu186axhjfax" path="res://data/cards/justice.tres" id="30_vvxp0"]
+[ext_resource type="Resource" uid="uid://bw4sry587x05m" path="res://data/cards/judgement.tres" id="31_u6voi"]
+[ext_resource type="Resource" uid="uid://dpspidmqwqebx" path="res://data/cards/the_world.tres" id="32_fe5bd"]
+[ext_resource type="Resource" uid="uid://bjlneh5al3d8x" path="res://data/cards/queen_of_daggers.tres" id="33_7eedd"]
+[ext_resource type="Resource" uid="uid://co84mncwqr573" path="res://data/cards/queen_of_flags.tres" id="34_6pn6u"]
+[ext_resource type="Resource" uid="uid://d2b7yscmtse2l" path="res://data/cards/queen_of_herbs.tres" id="35_gvfkq"]
+[ext_resource type="Resource" uid="uid://ciai4bipoidj6" path="res://data/cards/queen_of_thorns.tres" id="36_4c1gv"]
+[ext_resource type="Resource" uid="uid://s2luhru0dtce" path="res://data/cards/knight_of_daggers.tres" id="37_qcqmq"]
+[ext_resource type="Resource" uid="uid://ncfdsv56qat7" path="res://data/cards/knight_of_flags.tres" id="38_61111"]
+[ext_resource type="Resource" uid="uid://b05drmja6ckug" path="res://data/cards/knight_of_herbs.tres" id="39_kxuv3"]
+[ext_resource type="Resource" uid="uid://vtxg3gn2kpbu" path="res://data/cards/knight_of_thorns.tres" id="40_affca"]
+[ext_resource type="Resource" uid="uid://knsiayub4ihe" path="res://data/cards/the_fool.tres" id="41_gv3bd"]
+[ext_resource type="Script" path="res://data/scripts/player_data.gd" id="42_p4cgm"]
+[ext_resource type="Theme" uid="uid://d12enup0x00h8" path="res://assets/ui/fonts/placeholder_theme.tres" id="43_e5ge8"]
+[ext_resource type="Script" path="res://systems/shop/health_cards.gd" id="44_nfhi8"]
+[ext_resource type="PackedScene" uid="uid://ws4saswnfnxg" path="res://systems/shop/healing_card.tscn" id="45_ikh5l"]
+[ext_resource type="Script" path="res://systems/shop/healing_value.gd" id="46_elg2k"]
+
+[sub_resource type="Resource" id="Resource_minlu"]
+script = ExtResource("42_p4cgm")
+cardStack = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("11_77d1b"), ExtResource("30_vvxp0"), ExtResource("16_owf5t"), ExtResource("5_fuybo"), ExtResource("9_n0gl6"), ExtResource("19_8w76h"), ExtResource("41_gv3bd"), ExtResource("41_gv3bd"), ExtResource("41_gv3bd")])
+health = 30.0
+start_hand_size = 4
+draw_amount = 1
+karma = 0
+draw_rng_seed = 4467
+currency = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_6tfy7"]
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2h0a"]
+bg_color = Color(0.745098, 0.662745, 0, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_jdpwx"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_sexwm"]
+font_size = 32
+
+[sub_resource type="Resource" id="Resource_ii2kq"]
+script = ExtResource("46_elg2k")
+costs = 6
+healing_amount = 4
+
+[sub_resource type="Resource" id="Resource_ujd1b"]
+script = ExtResource("46_elg2k")
+costs = 8
+healing_amount = 7
+
+[sub_resource type="Resource" id="Resource_amwq7"]
+script = ExtResource("46_elg2k")
+costs = 14
+healing_amount = 10
+
+[sub_resource type="Environment" id="Environment_swoae"]
+background_mode = 3
+background_energy_multiplier = 4.3
+background_canvas_max_layer = 760
+glow_enabled = true
+glow_hdr_threshold = 0.3
+
+[node name="ShopKeeper" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_xmp35")
+card_template = ExtResource("2_gpc0w")
+select_prompt = ExtResource("3_t13rd")
+cards_to_offer = Array[Resource("res://data/scripts/card_data.gd")]([ExtResource("4_frewu"), ExtResource("5_fuybo"), ExtResource("6_5uueq"), ExtResource("7_48tej"), ExtResource("8_7ihaw"), ExtResource("9_n0gl6"), ExtResource("10_x034j"), ExtResource("11_77d1b"), ExtResource("12_exyw6"), ExtResource("13_obroa"), ExtResource("14_4kwj8"), ExtResource("15_i0asq"), ExtResource("16_owf5t"), ExtResource("17_c5bkb"), ExtResource("18_e7aih"), ExtResource("19_8w76h"), ExtResource("20_nic8q"), ExtResource("21_hhhlx"), ExtResource("22_jaw7a"), ExtResource("23_cxb1b"), ExtResource("24_32077"), ExtResource("25_ya544"), ExtResource("26_ljell"), ExtResource("27_ahben"), ExtResource("28_g6q66"), ExtResource("29_8e7jl"), ExtResource("30_vvxp0"), ExtResource("31_u6voi"), ExtResource("32_fe5bd"), ExtResource("33_7eedd"), ExtResource("34_6pn6u"), ExtResource("35_gvfkq"), ExtResource("36_4c1gv"), ExtResource("37_qcqmq"), ExtResource("38_61111"), ExtResource("39_kxuv3"), ExtResource("40_affca")])
+discount = 0.925
+debug_player_data = SubResource("Resource_minlu")
+
+[node name="PanelContainer" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("43_e5ge8")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 88.0
+size_flags_vertical = 0
+text = "Shop"
+label_settings = SubResource("LabelSettings_6tfy7")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="MoneyCounter" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 32.0
+scale = Vector2(1.25, 1.25)
+
+[node name="MoneyLabel" type="Label" parent="PanelContainer/MoneyCounter"]
+layout_mode = 2
+text = "Your Gold: "
+
+[node name="CostBg" type="Panel" parent="PanelContainer/MoneyCounter"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j2h0a")
+
+[node name="Money" type="Label" parent="PanelContainer/MoneyCounter/CostBg"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 30.0
+offset_bottom = 33.0
+text = "69
+"
+label_settings = SubResource("LabelSettings_jdpwx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LEFT" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = 64.0
+grow_vertical = 2
+
+[node name="BuyCards" type="VBoxContainer" parent="PanelContainer/LEFT"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PanelContainer/LEFT/BuyCards"]
+layout_mode = 2
+text = "Buy Cards"
+label_settings = SubResource("LabelSettings_sexwm")
+
+[node name="Cards" type="HBoxContainer" parent="PanelContainer/LEFT/BuyCards"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Slot1" type="Panel" parent="PanelContainer/LEFT/BuyCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="Slot2" type="Panel" parent="PanelContainer/LEFT/BuyCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="Slot3" type="Panel" parent="PanelContainer/LEFT/BuyCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="TradeCards" type="VBoxContainer" parent="PanelContainer/LEFT"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PanelContainer/LEFT/TradeCards"]
+layout_mode = 2
+text = "Trade Cards"
+label_settings = SubResource("LabelSettings_sexwm")
+
+[node name="Cards" type="HBoxContainer" parent="PanelContainer/LEFT/TradeCards"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Slot1" type="Panel" parent="PanelContainer/LEFT/TradeCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="Slot2" type="Panel" parent="PanelContainer/LEFT/TradeCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="Slot3" type="Panel" parent="PanelContainer/LEFT/TradeCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="RIGHT" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+offset_right = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HealthCards" type="VBoxContainer" parent="PanelContainer/RIGHT"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("44_nfhi8")
+card_template = ExtResource("45_ikh5l")
+potential_values = Array[ExtResource("46_elg2k")]([SubResource("Resource_ii2kq"), SubResource("Resource_ujd1b"), SubResource("Resource_amwq7")])
+
+[node name="Label" type="Label" parent="PanelContainer/RIGHT/HealthCards"]
+layout_mode = 2
+text = "Heal Yourself"
+label_settings = SubResource("LabelSettings_sexwm")
+
+[node name="Cards" type="HBoxContainer" parent="PanelContainer/RIGHT/HealthCards"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Slot1" type="Panel" parent="PanelContainer/RIGHT/HealthCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="Slot2" type="Panel" parent="PanelContainer/RIGHT/HealthCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="Slot3" type="Panel" parent="PanelContainer/RIGHT/HealthCards/Cards"]
+custom_minimum_size = Vector2(210, 330)
+layout_mode = 2
+
+[node name="close_shop" type="Button" parent="PanelContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "Leave Trader"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_swoae")
+
+[connection signal="pressed" from="PanelContainer/close_shop" to="." method="_on_close_shop_pressed"]

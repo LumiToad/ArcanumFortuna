@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="CardsKarmaSwitch" load_steps=8 format=3 uid="uid://b527b6i1v5jsj"]
+
+[ext_resource type="PackedScene" uid="uid://p7soawcmcth1" path="res://systems/card_combat/effects/chromatic_aberration.tscn" id="1_ekk8n"]
+[ext_resource type="Texture2D" uid="uid://cd5umbahmjlju" path="res://assets/sprites/cards/sigils.png" id="1_qgfuq"]
+[ext_resource type="Resource" uid="uid://c4uyl7eso8d1k" path="res://data/keyword/companionship_ATK1.tres" id="2_ymwhw"]
+[ext_resource type="Script" path="res://systems/card_combat/keywords/switch/cards_karma_switch.gd" id="3_0kdcg"]
+[ext_resource type="Material" uid="uid://bi84ni64yadvs" path="res://shaders/gradient_shader.tres" id="4_weqx1"]
+[ext_resource type="Texture2D" uid="uid://d3gn7cjww2f6i" path="res://assets/ui/icons/keyword_slots_reversed.png" id="5_sqtbq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj8qu"]
+atlas = ExtResource("1_qgfuq")
+region = Rect2(0, 264, 66, 66)
+
+[resource]
+script = ExtResource("3_0kdcg")
+required_card_count = 3
+required_karma_type = 0
+attack_difference = 0
+health_difference = 0
+keywords_to_gain = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([ExtResource("2_ymwhw")])
+keywords_to_remove = Array[Resource("res://systems/card_combat/keywords/keyword.gd")]([])
+tranform_delay = 1.0
+transformed_artwork_shader = ExtResource("4_weqx1")
+transformed_keyword_slot_atlas = ExtResource("5_sqtbq")
+chromatic_scene = ExtResource("1_ekk8n")
+rotation_duration = 0.8
+icon_rotation = 1.0
+combat_phase_triggers = Array[Resource("res://systems/card_combat/keywords/combat_phase_trigger.gd")]([])
+triggers = 4
+is_animated = true
+scale_speed = 0.6
+animate_scale = false
+animate_particle = true
+title = "Awaken: Safety"
+description = "This card will awaken once its owner controls %d cards with a positive karma value."
+icon = SubResource("AtlasTexture_tj8qu")
+highlight_duration = 0.5
