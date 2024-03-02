@@ -3,11 +3,13 @@
   <h1>Arcanum Fortuna</h1>
 
   <p>
-    Visit our <a href="https://store.steampowered.com/app/2852690/Arcanum_Fortuna/"><b>STEAM PAGE</b></a>!<br /><br />
+    Visit our <a href="https://store.steampowered.com/app/2852690/Arcanum_Fortuna/"><b>STEAM PAGE</b></a>! Also ! <b><i>WISHLIST</i></b> ! ^_^<br /><br />
     This game was developed as a student project in 10 weeks at the <a href="https://www.school4games.net">School For Games</a> in Berlin! <br />
     <b>IMPORTANT!</b>I joined developement for the <b><i>final two weeks</i></b>, because the team lost their UI programmer.<br />
     UI programming was my main focus here and I had to read into the code base, as well as Godot 4.2.1.
   </p>
+
+https://github.com/LumiToad/ArcanumFortuna/assets/129980440/ac424681-0e2d-49ea-9358-57d9bfe8d0f2
 
   <hr />
   <h2>Engines / Languages</h2>
@@ -59,7 +61,7 @@
     <img src="https://github.com/LumiToad/LumiToad/blob/main/img/banner/github_arcanum_banner.png" alt="arcanum banner" />
   </a>
 
-  Artworks by Merit Faske (Member of the dev team)<br />
+  Artworks (CI) by Merit Faske (Member of the dev team)<br />
   - https://www.linkedin.com/in/merit-faske-4624b2269/?originalSubdomain=de
   
 </div>
